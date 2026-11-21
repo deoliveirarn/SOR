@@ -1,4 +1,4 @@
-# Date: 2016-09-16
+# Date: 2016-09-07
 ## 
 ## Definindo uma funcao para calcular \nu^q(G) quando G \eh um grupo nilpotente 
 ## dado por uma apresentacao policiclica (por exemplo tomando G um grupo 
