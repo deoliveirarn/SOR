@@ -20,6 +20,11 @@
   - `SidkiChiModWGroup( G )` = T(G) ~ chi(G)/W(G) inside G x G x G (Sidki 1980),
     for any group; `SidkiChiGroup` uses it when G is 2-generated with M(G) = 1
     (W/R ~ M(G), Rocco 1982), also for non-solvable groups (e.g. PSL(2,8)).
+  - `SidkiChiNGroup( H, n )` = chi(n,H) for finite p-groups and perfect groups
+    (T_n(H~)), and `SidkiChiMotherGroup( H, n )` = chi_n(H) as an fp group, after
+    Sidki, Rocco, de Oliveira, arXiv:2610.07330.
+  - `SidkiChiGroup` for finite perfect groups, chi(H) = T(H~) (Sidki 1980, 4.4.1).
+  - Folder `original/` with the author's original code.
   - Manual chapters "How the groups are built" and "The weak commutativity group".
 
 ## 0.0.1 (2026-11-21)

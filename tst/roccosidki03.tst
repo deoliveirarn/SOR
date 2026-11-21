@@ -10,12 +10,17 @@
 #
 gap> START_TEST("roccosidki03.tst");
 
-# doc/_Chapter_The_groups_nu^q(G)_and_tau^q(G).xml:47-53
+# doc/_Chapter_Rocco's_group_nu(G).xml:55-66
 gap> G := SymmetricGroup( 3 );;
-gap> Size( RoccoTauGroup( G, 0 ) );   # = |chi(S_3)| / |R(S_3)|
-108
-gap> List( [ 0, 2, 3 ], q -> Size( RoccoExteriorSquareQ( RoccoTauGroup( G, q ) ) ) );
-[ 3, 6, 6 ]
+gap> N := RoccoNuGroup( G );;
+gap> Size( N );
+216
+gap> T := CommutatorSubgroup( Image( Embedding( N, 1 ) ),
+>                             Image( Embedding( N, 2 ) ) );;
+gap> Size( T );   # the order of the tensor square of S_3
+6
+gap> Size( RoccoNuGroup( SmallGroup( 32, 49 ) ) ) = 2^26;
+true
 
 #
 gap> STOP_TEST("roccosidki03.tst", 1);

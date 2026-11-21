@@ -10,16 +10,14 @@
 #
 gap> START_TEST("roccosidki02.tst");
 
-# doc/_Chapter_Rocco's_group_nu(G).xml:55-66
-gap> G := SymmetricGroup( 3 );;
-gap> N := RoccoNuGroup( G );;
-gap> Size( N );
-216
-gap> T := CommutatorSubgroup( Image( Embedding( N, 1 ) ),
->                             Image( Embedding( N, 2 ) ) );;
-gap> Size( T );   # the order of the tensor square of S_3
-6
-gap> Size( RoccoNuGroup( SmallGroup( 32, 49 ) ) ) = 2^26;
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:56-65
+gap> H := SmallGroup( 4, 2 );;   # C2 x C2
+gap> Size( SidkiChiNGroup( H, 3 ) );
+512
+gap> Size( SidkiChiNGroup( H, 2 ) ) = Size( SidkiChiGroup( H ) );
+true
+gap> C := SidkiChiGroup( AlternatingGroup( 5 ) );;   # perfect: T(SL(2,5))
+gap> Size( C ) = 60^2 * 120;
 true
 
 #

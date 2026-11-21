@@ -113,8 +113,8 @@ end );
 InstallMethod( Embedding, "for chi(G) of RoccoSidki",
     [ IsGroup and HasRS_ChiData, IsPosInt ],
     function( C, i )
-    if i > 2 then
-        Error( "Embedding: chi(G) has only two copies of G" );
+    if i > Length( RS_ChiData( C ).emb ) then
+        Error( "Embedding: there are only ", Length( RS_ChiData( C ).emb ), " copies of G" );
     fi;
     return RS_ChiData( C ).emb[ i ];
 end );

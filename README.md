@@ -15,7 +15,8 @@ Brasília, 2007), and that he has used in his research on weak commutativity and
 on the non-abelian tensor square. The original functions are kept, unchanged, in
 the folder `original/`; the package rewrites them with documentation and tests.
 
-**Status:** in development; not yet released.
+**Status:** in development; not yet released. In preparation: a polycyclic
+presentation of nu^q(G) and of the q-tensor square, extending tau^q(G).
 
 ## Contact
 

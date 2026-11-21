@@ -19,6 +19,10 @@
 #! $E_q(G) = F/R^q[R,F]$ as $E_q(G)' E_q(G)^q$. This package builds that
 #! presentation, starting from the Schur extension computed by the
 #! <Package>Polycyclic</Package> package.
+#!
+#! The extension to a polycyclic presentation of $\nu^q(G)$ itself, and hence of
+#! the $q$-tensor square $G \otimes^q G$, as the $q$-central extension
+#! $\nu^q(G) = E_q(\tau^q(G))$ (Dias and Rocco, Section 7), is in preparation.
 
 #! @Description
 #!   Returns $\tau^q(G) = \nu^q(G)/\Delta^q(G)$ for a polycyclic group <A>G</A>
