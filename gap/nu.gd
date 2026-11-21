@@ -46,6 +46,13 @@ DeclareAttribute( "RoccoNuGroup", IsGroup );
 DeclareAttribute( "RoccoPhi", IsGroup );
 
 #! @BeginExampleSession
+#! gap> D := DihedralGroup( 8 );;  N := RoccoNuGroup( D );;  phi := RoccoPhi( N );;
+#! gap> ForAll( GeneratorsOfGroup( D ), g ->
+#! >      Image( phi, Image( Embedding( N, 1 ), g ) ) = Image( Embedding( N, 2 ), g ) );
+#! true
+#! @EndExampleSession
+
+#! @BeginExampleSession
 #! gap> G := SymmetricGroup( 3 );;
 #! gap> N := RoccoNuGroup( G );;
 #! gap> Size( N );

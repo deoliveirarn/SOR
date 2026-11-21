@@ -10,7 +10,15 @@
 #
 gap> START_TEST("roccosidki03.tst");
 
-# doc/_Chapter_Weak_commutativity_among_n_copies.xml:56-65
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:56-63
+gap> M := SidkiChiMotherGroup( CyclicGroup( 2 ), 3 );;
+gap> AbelianInvariants( M );   # here chi_3(H) = chi(3,H), elementary of order 8
+[ 2, 2, 2 ]
+gap> M := SidkiChiMotherGroup( ElementaryAbelianGroup( 4 ), 3 );;   # infinite
+gap> Size( Image( EpimorphismPGroup( M, 2, 4 ) ) );   # its 2-quotient of class 4
+8192
+
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:65-74
 gap> H := SmallGroup( 4, 2 );;   # C2 x C2
 gap> Size( SidkiChiNGroup( H, 3 ) );
 512
@@ -20,7 +28,7 @@ gap> C := SidkiChiGroup( AlternatingGroup( 5 ) );;   # perfect: T(SL(2,5))
 gap> Size( C ) = 60^2 * 120;
 true
 
-# doc/_Chapter_Weak_commutativity_among_n_copies.xml:94-100
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:103-109
 gap> H := SmallGroup( 4, 2 );;  Q := SidkiHybridGroup( H );;
 gap> e := List( [ 1 .. 4 ], i -> Embedding( Q, i ) );;
 gap> ForAll( Combinations( [ 1 .. 4 ], 2 ), p -> ForAll( H, h ->

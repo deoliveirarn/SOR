@@ -52,6 +52,15 @@ DeclareAttribute( "SidkiL1", IsGroup );
 #! @Arguments C
 DeclareAttribute( "SidkiL2", IsGroup );
 
+#! @BeginExampleSession
+#! gap> C := SidkiChiGroup( DihedralGroup( 8 ) );;
+#! gap> DerivedSubgroup( C ) =
+#! >    ClosureGroup( SidkiD( C ), ClosureGroup( SidkiL1( C ), SidkiL2( C ) ) );
+#! true
+#! gap> [ Size( SidkiL1( C ) ), Size( SidkiL2( C ) ) ];
+#! [ 4, 4 ]
+#! @EndExampleSession
+
 #! @Section Subgroups of nu(G)
 #!
 #! For $N = \nu(G)$, with the copies $G$ and $G^\varphi$ given by the
@@ -70,6 +79,12 @@ DeclareAttribute( "SidkiL2", IsGroup );
 #!   The subgroup $\Theta(G)$ of <A>N</A> $= \nu(G)$.
 #! @Arguments N
 DeclareAttribute( "RoccoTheta", IsGroup );
+
+#! @BeginExampleSession
+#! gap> N := RoccoNuGroup( DihedralGroup( 8 ) );;
+#! gap> Index( N, RoccoTheta( N ) );   # nu(G) / Theta(G) = G
+#! 8
+#! @EndExampleSession
 
 #! @Description
 #!   The subgroups $\Upsilon_1(G) = [G, G^\varphi]$, $\Upsilon_2(G) = [\Theta(G), G]$

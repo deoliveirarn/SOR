@@ -10,7 +10,14 @@
 #
 gap> START_TEST("roccosidki06.tst");
 
-# doc/_Chapter_Weak_commutativity_by_bijections.xml:68-78
+# doc/_Chapter_Weak_commutativity_by_bijections.xml:55-61
+gap> H := CyclicGroup( 4 );;
+gap> Length( SidkiNonIdentityElements( H ) );
+3
+gap> SidkiBijectionAsPermutation( H, x -> x^-1 );   # inversion on H#
+(1,3)
+
+# doc/_Chapter_Weak_commutativity_by_bijections.xml:76-86
 gap> H := ElementaryAbelianGroup( 8 );;
 gap> Size( SidkiChiGroupByBijection( H, () ) ) = Size( SidkiChiGroup( H ) );
 true
@@ -21,7 +28,13 @@ true
 gap> Size( SidkiChiGroupByBijection( CyclicGroup( 8 ), (1,5,3) ) );   # cyclic: H x H
 64
 
-# doc/_Chapter_Weak_commutativity_by_bijections.xml:169-182
+# doc/_Chapter_Weak_commutativity_by_bijections.xml:177-182
+gap> Length( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 9 ) ) );
+1
+gap> Length( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 25 ) ) );
+2
+
+# doc/_Chapter_Weak_commutativity_by_bijections.xml:184-197
 gap> Length( SidkiBijectionClasses( ElementaryAbelianGroup( 8 ) ) );
 4
 gap> H := ElementaryAbelianGroup( 9 );;

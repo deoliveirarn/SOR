@@ -45,6 +45,14 @@ DeclareGlobalFunction( "SidkiNonIdentityElements" );
 #! @Returns a permutation
 DeclareGlobalFunction( "SidkiBijectionAsPermutation" );
 
+#! @BeginExampleSession
+#! gap> H := CyclicGroup( 4 );;
+#! gap> Length( SidkiNonIdentityElements( H ) );
+#! 3
+#! gap> SidkiBijectionAsPermutation( H, x -> x^-1 );   # inversion on H#
+#! (1,3)
+#! @EndExampleSession
+
 #! @Description
 #!   Returns $\chi(H,\sigma)$ for a finite group <A>H</A> and the permutation
 #!   <A>s</A> encoding $\sigma$, computed exactly. <C>Embedding(</C><A>C</A>
@@ -134,6 +142,13 @@ DeclareGlobalFunction( "SidkiInducedPermutation" );
 #! @Arguments H
 #! @Returns a list of pairs
 DeclareGlobalFunction( "SidkiSubgroupPermutationClasses" );
+
+#! @BeginExampleSession
+#! gap> Length( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 9 ) ) );
+#! 1
+#! gap> Length( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 25 ) ) );
+#! 2
+#! @EndExampleSession
 
 #! @BeginExampleSession
 #! gap> Length( SidkiBijectionClasses( ElementaryAbelianGroup( 8 ) ) );

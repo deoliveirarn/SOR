@@ -10,7 +10,13 @@
 #
 gap> START_TEST("roccosidki04.tst");
 
-# doc/_Chapter_Rocco's_group_nu(G).xml:55-66
+# doc/_Chapter_Rocco's_group_nu(G).xml:55-60
+gap> D := DihedralGroup( 8 );;  N := RoccoNuGroup( D );;  phi := RoccoPhi( N );;
+gap> ForAll( GeneratorsOfGroup( D ), g ->
+>      Image( phi, Image( Embedding( N, 1 ), g ) ) = Image( Embedding( N, 2 ), g ) );
+true
+
+# doc/_Chapter_Rocco's_group_nu(G).xml:62-73
 gap> G := SymmetricGroup( 3 );;
 gap> N := RoccoNuGroup( G );;
 gap> Size( N );

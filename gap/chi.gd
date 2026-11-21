@@ -35,6 +35,13 @@ DeclareAttribute( "SidkiChiGroup", IsGroup );
 DeclareAttribute( "SidkiPsi", IsGroup );
 
 #! @BeginExampleSession
+#! gap> G := SmallGroup( 8, 4 );;  C := SidkiChiGroup( G );;  psi := SidkiPsi( C );;
+#! gap> ForAll( GeneratorsOfGroup( G ), g ->
+#! >      Image( psi, Image( Embedding( C, 1 ), g ) ) = Image( Embedding( C, 2 ), g ) );
+#! true
+#! @EndExampleSession
+
+#! @BeginExampleSession
 #! gap> G := SmallGroup( 8, 4 );;   # the quaternion group
 #! gap> C := SidkiChiGroup( G );;
 #! gap> Size( C );
@@ -98,6 +105,15 @@ DeclareAttribute( "SidkiChiModRGroup", IsGroup );
 #! @Arguments G
 #! @Returns a group
 DeclareAttribute( "SidkiChiModWGroup", IsGroup );
+
+#! @BeginExampleSession
+#! gap> G := AlternatingGroup( 4 );;   # M(G) = C_2, so W(G) <> 1
+#! gap> C := SidkiChiGroup( G );;
+#! gap> Size( SidkiChiModWGroup( G ) ) = Size( C ) / Size( SidkiW( C ) );
+#! true
+#! gap> Size( SidkiW( C ) );
+#! 2
+#! @EndExampleSession
 
 #! @BeginExampleSession
 #! gap> G := PSL( 2, 8 );;   # not solvable; 2-generated, M(G) = 1

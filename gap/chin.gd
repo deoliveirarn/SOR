@@ -47,6 +47,15 @@ DeclareOperation( "SidkiChiNGroup", [ IsGroup, IsPosInt ] );
 DeclareOperation( "SidkiChiMotherGroup", [ IsGroup, IsPosInt ] );
 
 #! @BeginExampleSession
+#! gap> M := SidkiChiMotherGroup( CyclicGroup( 2 ), 3 );;
+#! gap> AbelianInvariants( M );   # here chi_3(H) = chi(3,H), elementary of order 8
+#! [ 2, 2, 2 ]
+#! gap> M := SidkiChiMotherGroup( ElementaryAbelianGroup( 4 ), 3 );;   # infinite
+#! gap> Size( Image( EpimorphismPGroup( M, 2, 4 ) ) );   # its 2-quotient of class 4
+#! 8192
+#! @EndExampleSession
+
+#! @BeginExampleSession
 #! gap> H := SmallGroup( 4, 2 );;   # C2 x C2
 #! gap> Size( SidkiChiNGroup( H, 3 ) );
 #! 512
