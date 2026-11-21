@@ -11,6 +11,9 @@
     `Embedding( N, 1 )`, `Embedding( N, 2 )` and `RoccoPhi( N )`: Rocco (1994)
     relations on an AG-system for p-groups, `NonAbelianTensorSquarePlus` of
     Polycyclic otherwise.
+  - `RoccoTauGroup( G, q )`: tau^q(G) = nu^q(G)/Delta^q(G) by the consistent
+    polycyclic presentation of Dias and Rocco (2020), for polycyclic G and q >= 0,
+    with `Embedding` and `RoccoExteriorSquareQ` (G ^q G).
   - Manual chapters "How the groups are built" and "The weak commutativity group".
 
 ## 0.0.1 (2026-11-21)
