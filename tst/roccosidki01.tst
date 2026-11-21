@@ -24,12 +24,31 @@ gap> P := Image( IsomorphismPermGroup( G ) );;   # same group, other representat
 gap> Size( SidkiChiGroup( P ) );
 128
 
-# doc/_Chapter_The_weak_commutativity_group.xml:99-103
+# doc/_Chapter_The_weak_commutativity_group.xml:81-90
+gap> C := SidkiChiGroup( DihedralPcpGroup( 0 ) );;   # infinite dihedral group
+gap> IsFinite( C );
+false
+gap> Size( SidkiD( C ) ) = infinity and IsTrivial( SidkiR( C ) );
+true
+gap> Size( SidkiChiModRGroup( SmallGroup( 32, 34 ) ) ) =
+>    Size( SidkiChiGroup( SmallGroup( 32, 34 ) ) ) / 4;   # |R| = 4 here
+true
+
+# doc/_Chapter_The_weak_commutativity_group.xml:117-125
+gap> G := PSL( 2, 8 );;   # not solvable; 2-generated, M(G) = 1
+gap> C := SidkiChiGroup( G );;
+gap> Size( C ) = Size( G )^3;
+true
+gap> ForAll( GeneratorsOfGroup( G ), g ->
+>      IsOne( Comm( g^Embedding( C, 1 ), g^Embedding( C, 2 ) ) ) );
+true
+
+# doc/_Chapter_The_weak_commutativity_group.xml:171-175
 gap> C := SidkiChiGroup( SmallGroup( 8, 3 ) );;   # the dihedral group
 gap> List( [ SidkiD, SidkiL, SidkiW, SidkiR ], f -> Size( f( C ) ) );
 [ 4, 32, 2, 1 ]
 
-# doc/_Chapter_The_weak_commutativity_group.xml:175-182
+# doc/_Chapter_The_weak_commutativity_group.xml:247-254
 gap> G := SymmetricGroup( 3 );;
 gap> N := RoccoNuGroup( G );;  C := SidkiChiGroup( G );;
 gap> List( [ RoccoUpsilon1, RoccoUpsilon2, RoccoUpsilon3 ], f -> Size( f( N ) ) );

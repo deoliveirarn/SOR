@@ -14,6 +14,12 @@
   - `RoccoTauGroup( G, q )`: tau^q(G) = nu^q(G)/Delta^q(G) by the consistent
     polycyclic presentation of Dias and Rocco (2020), for polycyclic G and q >= 0,
     with `Embedding` and `RoccoExteriorSquareQ` (G ^q G).
+  - `SidkiChiModRGroup( G )` = chi(G)/R(G) = tau(G) for polycyclic G, and
+    `SidkiChiGroup` for infinite 2-generated pcp groups (R(G) = 1,
+    Kochloukova-Mendonca 2021, Lemma 9.3).
+  - `SidkiChiModWGroup( G )` = T(G) ~ chi(G)/W(G) inside G x G x G (Sidki 1980),
+    for any group; `SidkiChiGroup` uses it when G is 2-generated with M(G) = 1
+    (W/R ~ M(G), Rocco 1982), also for non-solvable groups (e.g. PSL(2,8)).
   - Manual chapters "How the groups are built" and "The weak commutativity group".
 
 ## 0.0.1 (2026-11-21)
