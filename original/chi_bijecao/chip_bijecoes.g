@@ -1,3 +1,4 @@
+# Date: 2012
 ######
 ###### Criacao do grupo H e do Produto Livre H * \dot{H}.
 

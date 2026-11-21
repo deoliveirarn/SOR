@@ -1,3 +1,4 @@
+# Date: 2015-08-30 (last change 2015-08-31)
 ### 20150830 transform a rewriting system, from KBMAG, into a PcpGroup,
 ### by setting values to a collector, using the polycyclic package.
 

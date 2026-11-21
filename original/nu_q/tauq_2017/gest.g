@@ -1,3 +1,4 @@
+# Date: 2017-06-07
 gest:=function(g,q)
 local epi_gast, gast, gen_gast, rel_gqast, elto, gqast, laux, epi, gen_gqast, gen_gest, i, j, gest;
 

@@ -1,3 +1,4 @@
+# Date: 2015-08-30 (last change 2015-09-16)
 #20150830 transforma um Pcp presentation em string
 
 

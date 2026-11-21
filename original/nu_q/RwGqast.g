@@ -1,3 +1,4 @@
+# Date: 2015-08-11 (last change 2017-04-18)
 ### 20150811 Creates a rewriting system for the group G^*_q, when G is a Pcpgroup.
 
 LoadPackage("kbmag");KB_REW:=KBMAG_REW;

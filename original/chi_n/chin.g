@@ -1,3 +1,4 @@
+# Date: 2026-03-12
 chin:=function(g,n)
 local pl, emb, eg, rel, i, j, k , l, x, y, z, c, pi, imersao, cn, grupo;
 

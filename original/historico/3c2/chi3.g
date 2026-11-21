@@ -1,3 +1,4 @@
+# Date: 2012
 g:=AllSmallGroups(Size,2^3,IsElementaryAbelian,true);
 g:=Image(IsomorphismFpGroup(g[1]));
 pl:=FreeProduct([g,g,g]);

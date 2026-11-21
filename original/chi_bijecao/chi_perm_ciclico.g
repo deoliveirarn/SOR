@@ -1,3 +1,4 @@
+# Date: 2020-07-18
 chi_perm :=  function(n)
 local g, sym, aut, eg, aut_perm, laux, alpha, x, lista, pl, e1, e2, lrel, sigma, i, rel;
 

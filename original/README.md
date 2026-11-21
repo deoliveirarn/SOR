@@ -15,5 +15,7 @@ his research papers. They are kept here as written, for reference and as a recor
 | `chi_n/` | chi_n(G) with n copies; `ching` for p-groups | 2026 |
 
 File names were given the extension `.g`; the contents are unchanged (except for
-Windows line endings, normalized by git). Comments are
-in Portuguese.
+Windows line endings, normalized by git), apart from a first line `# Date: ...` added
+in 2026. That date is the one written in the file by the author, when there is one;
+otherwise it is the date of the author's copy of the file (the code in `historico/`
+is from 2012). Comments are in Portuguese.

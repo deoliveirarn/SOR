@@ -1,3 +1,4 @@
+# Date: 2017-06-12
 Read("tauq");
 Read("tauq1");
 g:=DihedralPcpGroup(6);

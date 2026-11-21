@@ -1,3 +1,4 @@
+# Date: 2012
 Read("auth.txt");
 f:=FreeGroup("a1","a2","a3","b1","b2","b3");;
 

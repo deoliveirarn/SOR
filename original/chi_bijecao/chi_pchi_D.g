@@ -1,3 +1,4 @@
+# Date: 2021-02-04
 chi:=function(g)
 local pl, e1, e2, eg, rel, c, x, gen_g, s_gen_g, h, hp, D;
 

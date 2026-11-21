@@ -1,3 +1,4 @@
+# Date: 2017-06-01
 q:=2;
 #g:=AllSmallGroups(Size,2^2,IsElementaryAbelian,true);
 g:=SymmetricGroup(3); eg:=Elements(g);

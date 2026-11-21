@@ -1,3 +1,4 @@
+# Date: 2026-04-14
 # p-groups only
 ching:=function(g,n)
 local pl, emb, eg, rel, i, j, k , l, x, y, z, c, pi, p, epi, c1;
