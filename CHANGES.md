@@ -23,6 +23,8 @@
   - `SidkiChiNGroup( H, n )` = chi(n,H) for finite p-groups and perfect groups
     (T_n(H~)), and `SidkiChiMotherGroup( H, n )` = chi_n(H) as an fp group, after
     Sidki, Rocco, de Oliveira, arXiv:2610.07330.
+  - `SidkiHybridGroup( H )` = Q(H) = chi^2(H)/N_0, the largest common quotient of
+    chi^2(H) and chi_4(H) (arXiv:2610.07330), with the four embeddings.
   - `SidkiChiGroup` for finite perfect groups, chi(H) = T(H~) (Sidki 1980, 4.4.1).
   - Folder `original/` with the author's original code.
   - Manual chapters "How the groups are built" and "The weak commutativity group".

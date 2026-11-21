@@ -20,5 +20,12 @@ gap> C := SidkiChiGroup( AlternatingGroup( 5 ) );;   # perfect: T(SL(2,5))
 gap> Size( C ) = 60^2 * 120;
 true
 
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:94-100
+gap> H := SmallGroup( 4, 2 );;  Q := SidkiHybridGroup( H );;
+gap> e := List( [ 1 .. 4 ], i -> Embedding( Q, i ) );;
+gap> ForAll( Combinations( [ 1 .. 4 ], 2 ), p -> ForAll( H, h ->
+>      IsOne( Comm( h^e[p[1]], h^e[p[2]] ) ) ) );   # all six relations of chi_4
+true
+
 #
 gap> STOP_TEST("roccosidki02.tst", 1);

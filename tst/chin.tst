@@ -41,4 +41,20 @@ gap> IdGroup( SidkiD( C ) );   # SL(2,5)
 [ 120, 5 ]
 gap> ForAll( H, h -> IsOne( Comm( h^Embedding( C, 1 ), h^Embedding( C, 2 ) ) ) );
 true
+
+# hibrido Q(H) = chi^2(H)/N0: as seis relacoes de chi_4, o Lema da identidade,
+# mergulhos injetivos; para H ciclico, Q(H) = H^4
+gap> HibOk := function( H )
+>   local Q, e;
+>   Q := SidkiHybridGroup( H );  e := List( [ 1 .. 4 ], i -> Embedding( Q, i ) );
+>   return ForAll( Combinations( [ 1 .. 4 ], 2 ), p -> ForAll( H, h ->
+>            IsOne( Comm( h^e[p[1]], h^e[p[2]] ) ) ) )
+>      and ForAll( H, h -> ForAll( H, k -> IsOne( Comm( h^e[1], k^e[4] )^( k^e[2] )
+>                                * Comm( k^e[2], h^e[3] )^( k^e[4] ) ) ) )
+>      and ForAll( e, IsInjective );
+> end;;
+gap> ForAll( [ [2,1], [3,1], [4,2], [8,4] ], id -> HibOk( SmallGroup( id ) ) );
+true
+gap> List( [ [2,1], [3,1], [4,1], [4,2], [8,4] ], id -> Size( SidkiHybridGroup( SmallGroup( id ) ) ) );
+[ 16, 81, 256, 8192, 131072 ]
 gap> STOP_TEST("chin.tst");

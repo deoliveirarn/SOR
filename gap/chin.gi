@@ -119,3 +119,26 @@ InstallMethod( SidkiChiGroup, "for a finite perfect group, as T(H~)",
     SetRS_ChiData( r.group, rec( group := H, emb := r.emb ) );
     return r.group;
 end );
+
+# Q(H) = chi^2(H) / N_0 (arXiv:2610.07330, Definition 7.x).
+InstallMethod( SidkiHybridGroup, "for a group, from chi(chi(H))",
+    [ IsGroup ],
+    function( H )
+    local K, C, gH, copias, el, N0, nat, Q, emb;
+    K := SidkiChiGroup( H );                 # chi(H) = < H, H^psi >
+    C := SidkiChiGroup( K );                 # chi^2(H) = < K, K^psi' >
+    gH := GeneratorsOfGroup( H );
+    # H, H^psi, H^psi', H^{psi psi'} inside chi^2(H)
+    copias := List( [ [1,1], [2,1], [1,2], [2,2] ], c ->
+                 Embedding( K, c[1] ) * Embedding( C, c[2] ) );
+    el := AsList( H );
+    N0 := NormalClosure( C, Subgroup( C, Concatenation(
+              List( el, h -> Comm( Image( copias[1], h ), Image( copias[4], h ) ) ),
+              List( el, h -> Comm( Image( copias[2], h ), Image( copias[3], h ) ) ) ) ) );
+    nat := NaturalHomomorphismByNormalSubgroup( C, N0 );
+    Q := Image( nat );
+    emb := List( copias, e -> GroupHomomorphismByImagesNC( H, Q, gH,
+               List( gH, g -> Image( nat, Image( e, g ) ) ) ) );
+    SetRS_ChiData( Q, rec( group := H, n := 4, hybrid := true, emb := emb ) );
+    return Q;
+end );
