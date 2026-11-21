@@ -14,7 +14,7 @@
 #! relations, keeping the two embeddings of $G$.
 
 #! @Description
-#!   Returns $\chi(G)$ for a finite $p$-group <A>G</A> given in any
+#!   Returns $\chi(G)$ for a finite solvable group <A>G</A> given in any
 #!   representation (permutation, pc, pcp, matrix or finitely presented).
 #!   The result is a pc group. <C>Embedding(</C><A>C</A><C>, 1)</C> and
 #!   <C>Embedding(</C><A>C</A><C>, 2)</C> are the embeddings of $G$ and of

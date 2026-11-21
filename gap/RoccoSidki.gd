@@ -48,11 +48,17 @@ DeclareInfoClass( "InfoRoccoSidki" );
 #! <Item>finite $p$-groups: $\chi(G)$ is a finite $p$-group (Sidki), so it is
 #!   the largest $p$-quotient of $Q$, computed by <C>EpimorphismPGroup</C>
 #!   without a bound on the class;</Item>
-#! <Item>other classes (finite solvable, finite nilpotent, polycyclic) will be
-#!   handled in later versions.</Item>
+#! <Item>finite solvable groups: $\chi(G)$ is a finite solvable group whose
+#!   order involves only the primes dividing $|G|$ (Sidki), so it is the
+#!   largest such solvable quotient of $Q$, computed by
+#!   <C>EpimorphismSolvableQuotient</C>;</Item>
+#! <Item>for $\nu(G)$, see the chapter on Rocco's group;</Item>
+#! <Item>non-solvable groups will be handled in later versions.</Item>
 #! </List>
 
 # Internal: the quotient of the free product of copies of G by relations,
 # with the embeddings carried through. Documented in the code only.
 DeclareGlobalFunction( "RS_FreeProductQuotient" );
 DeclareGlobalFunction( "RS_PQuotientWithEmbeddings" );
+DeclareGlobalFunction( "RS_SolvableQuotientWithEmbeddings" );
+DeclareGlobalFunction( "RS_QuotientWithEmbeddings" );

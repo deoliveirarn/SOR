@@ -29,5 +29,13 @@ gap> C := SidkiChiGroup( SmallGroup( 8, 3 ) );;   # the dihedral group
 gap> List( [ SidkiD, SidkiL, SidkiW, SidkiR ], f -> Size( f( C ) ) );
 [ 4, 32, 2, 1 ]
 
+# doc/_Chapter_The_weak_commutativity_group.xml:175-182
+gap> G := SymmetricGroup( 3 );;
+gap> N := RoccoNuGroup( G );;  C := SidkiChiGroup( G );;
+gap> List( [ RoccoUpsilon1, RoccoUpsilon2, RoccoUpsilon3 ], f -> Size( f( N ) ) );
+[ 6, 6, 6 ]
+gap> Size( N ) / Size( RoccoDelta( N ) ) = Size( C ) / Size( SidkiR( C ) );
+true
+
 #
 gap> STOP_TEST("roccosidki01.tst", 1);

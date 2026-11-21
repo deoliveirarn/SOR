@@ -42,3 +42,56 @@ DeclareAttribute( "SidkiR", IsGroup );
 #! gap> List( [ SidkiD, SidkiL, SidkiW, SidkiR ], f -> Size( f( C ) ) );
 #! [ 4, 32, 2, 1 ]
 #! @EndExampleSession
+
+#! @Description
+#!   The subgroups $L_1(G) = [L(G), G]$ and $L_2(G) = [L(G), G^\psi]$ of
+#!   <A>C</A> $= \chi(G)$ (Bastos, de Oliveira, Ortega 2026). Then
+#!   $\chi(G)' = D(G) L_1(G) L_2(G)$.
+#! @Arguments C
+DeclareAttribute( "SidkiL1", IsGroup );
+#! @Arguments C
+DeclareAttribute( "SidkiL2", IsGroup );
+
+#! @Section Subgroups of nu(G)
+#!
+#! For $N = \nu(G)$, with the copies $G$ and $G^\varphi$ given by the
+#! embeddings (Bastos, de Oliveira, Monetta, Rocco 2022):
+#! <List>
+#! <Item>$\Theta(G) = \langle g^{-1} g^\varphi \mid g \in G \rangle$, the kernel of
+#!   $\nu(G) \to G$, $g, g^\varphi \mapsto g$;</Item>
+#! <Item>$\Upsilon_1(G) = [G, G^\varphi] \cong G \otimes G$,
+#!   $\Upsilon_2(G) = [\Theta(G), G]$, $\Upsilon_3(G) = [\Theta(G), G^\varphi]$;
+#!   then $\nu(G)' = \Upsilon_1 \Upsilon_2 \Upsilon_3$;</Item>
+#! <Item>$\Delta(G) = \langle [g, g^\varphi] \mid g \in G \rangle$, for finite
+#!   $G$; then $\nu(G)/\Delta(G) \cong \chi(G)/R(G)$.</Item>
+#! </List>
+
+#! @Description
+#!   The subgroup $\Theta(G)$ of <A>N</A> $= \nu(G)$.
+#! @Arguments N
+DeclareAttribute( "RoccoTheta", IsGroup );
+
+#! @Description
+#!   The subgroups $\Upsilon_1(G) = [G, G^\varphi]$, $\Upsilon_2(G) = [\Theta(G), G]$
+#!   and $\Upsilon_3(G) = [\Theta(G), G^\varphi]$ of <A>N</A> $= \nu(G)$.
+#! @Arguments N
+DeclareAttribute( "RoccoUpsilon1", IsGroup );
+#! @Arguments N
+DeclareAttribute( "RoccoUpsilon2", IsGroup );
+#! @Arguments N
+DeclareAttribute( "RoccoUpsilon3", IsGroup );
+
+#! @Description
+#!   The subgroup $\Delta(G) = \langle [g, g^\varphi] \mid g \in G \rangle$ of
+#!   <A>N</A> $= \nu(G)$, for finite $G$.
+#! @Arguments N
+DeclareAttribute( "RoccoDelta", IsGroup );
+
+#! @BeginExampleSession
+#! gap> G := SymmetricGroup( 3 );;
+#! gap> N := RoccoNuGroup( G );;  C := SidkiChiGroup( G );;
+#! gap> List( [ RoccoUpsilon1, RoccoUpsilon2, RoccoUpsilon3 ], f -> Size( f( N ) ) );
+#! [ 6, 6, 6 ]
+#! gap> Size( N ) / Size( RoccoDelta( N ) ) = Size( C ) / Size( SidkiR( C ) );
+#! true
+#! @EndExampleSession

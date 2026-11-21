@@ -4,19 +4,23 @@
 # chi(G) (Sidki): implementations.
 #
 
-InstallMethod( SidkiChiGroup, "for a finite p-group, by the free product",
+InstallMethod( SidkiChiGroup, "for a finite solvable group, by the free product",
     [ IsGroup ],
     function( G )
-    local p, data, r, C;
-    if not IsFinite( G ) or IsTrivial( G ) or not IsPGroup( G ) then
-        Error( "SidkiChiGroup: for now <G> must be a nontrivial finite p-group" );
+    local data, r, C;
+    if not IsFinite( G ) or IsTrivial( G ) or not IsSolvableGroup( G ) then
+        Error( "SidkiChiGroup: for now <G> must be a nontrivial finite solvable group" );
     fi;
-    p := PrimePGroup( G );
     data := RS_FreeProductQuotient( G, 2,
               e -> List( Difference( AsList( G ), [ One( G ) ] ),
                          g -> Comm( Image( e[1], g ), Image( e[2], g ) ) ) );
-    # chi(G) is a finite p-group (Sidki), hence its largest p-quotient.
-    r := RS_PQuotientWithEmbeddings( G, data, p );
+    if IsPGroup( G ) then
+        # chi(G) is a finite p-group (Sidki), hence its largest p-quotient.
+        r := RS_PQuotientWithEmbeddings( G, data, PrimePGroup( G ) );
+    else
+        # chi(G) is finite solvable, with the primes of |G| (Sidki).
+        r := RS_SolvableQuotientWithEmbeddings( G, data, Set( Factors( Size( G ) ) ) );
+    fi;
     C := r.group;
     SetRS_ChiData( C, rec( group := G, emb := r.emb ) );
     return C;

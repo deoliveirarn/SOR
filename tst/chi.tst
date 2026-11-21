@@ -46,7 +46,9 @@ true
 gap> IsNormal( C, SidkiD( C ) ) and IsNormal( C, SidkiL( C ) );
 true
 
-# fora do escopo por enquanto
-gap> SidkiChiGroup( SymmetricGroup( 3 ) );
-Error, SidkiChiGroup: for now <G> must be a nontrivial finite p-group
+# soluveis nao nilpotentes (quociente soluvel) e fora do escopo por enquanto
+gap> List( [ [6,1], [6,2], [10,1], [12,3] ], id -> Size( SidkiChiGroup( SmallGroup( id ) ) ) );
+[ 108, 36, 500, 1152 ]
+gap> SidkiChiGroup( AlternatingGroup( 5 ) );
+Error, SidkiChiGroup: for now <G> must be a nontrivial finite solvable group
 gap> STOP_TEST("chi.tst");

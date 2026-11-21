@@ -37,8 +37,28 @@ end );
 ##  IsInjective.
 ##
 InstallGlobalFunction( RS_PQuotientWithEmbeddings, function( G, data, p )
-    local epi, C, gens, emb;
-    epi := EpimorphismPGroup( data.Q, p );
+    return RS_QuotientWithEmbeddings( G, data, EpimorphismPGroup( data.Q, p ) );
+end );
+
+#############################################################################
+##
+##  RS_SolvableQuotientWithEmbeddings( G, data, primes )
+##
+##  Largest solvable quotient of data.Q whose order involves only <primes>
+##  (EpimorphismSolvableQuotient), with the embeddings G -> quotient.  It
+##  terminates only when that quotient is finite.
+##
+InstallGlobalFunction( RS_SolvableQuotientWithEmbeddings, function( G, data, primes )
+    return RS_QuotientWithEmbeddings( G, data,
+               EpimorphismSolvableQuotient( data.Q, primes ) );
+end );
+
+#############################################################################
+##
+##  RS_QuotientWithEmbeddings( G, data, epi ) -- epi : data.Q -> C
+##
+InstallGlobalFunction( RS_QuotientWithEmbeddings, function( G, data, epi )
+    local C, gens, emb;
     C := Image( epi );
     gens := GeneratorsOfGroup( G );
     emb := List( data.emb, e -> GroupHomomorphismByImagesNC( G, C, gens,
