@@ -1,3 +1,5 @@
+# Validacao a mao (nao roda no CI: o HAP imprime avisos ao carregar).
+# Rodar:  gap -q   e depois   Test("validacao/chi_hap.tst");
 # Ordem de chi(G) contra o WeakCommutativityGroup do HAP (so o grupo, sem mergulhos).
 # Sem o HAP instalado, o teste passa sem comparar.
 gap> START_TEST("chi_hap.tst");
