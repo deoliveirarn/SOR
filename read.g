@@ -9,4 +9,5 @@ ReadPackage( "RoccoSidki", "gap/nuq.gi" );
 ReadPackage( "RoccoSidki", "gap/chi.gi" );
 ReadPackage( "RoccoSidki", "gap/chin.gi" );
 ReadPackage( "RoccoSidki", "gap/variantes.gi" );
+ReadPackage( "RoccoSidki", "gap/chihat.gi" );
 ReadPackage( "RoccoSidki", "gap/subgrupos.gi" );

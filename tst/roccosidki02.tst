@@ -43,12 +43,26 @@ gap> ForAll( GeneratorsOfGroup( G ), g ->
 >      IsOne( Comm( g^Embedding( C, 1 ), g^Embedding( C, 2 ) ) ) );
 true
 
-# doc/_Chapter_The_weak_commutativity_group.xml:175-179
+# doc/_Chapter_The_weak_commutativity_group.xml:185-198
+gap> SetInfoLevel( InfoRoccoSidki, 0 );
+gap> A := ElementaryAbelianGroup( 4 );;
+gap> C := SidkiChiHatGroup( A, 1 );;
+gap> K := Kernel( SidkiChiHatProjection( C ) );;   # finite index in C
+gap> AbelianInvariants( K );    # infinite: Z x Z
+[ 0, 0 ]
+gap> Size( SidkiChiHatGroup( A, 2 ) ) = Size( SidkiChiGroup( A ) );   # Corollary 1
+true
+gap> A := ElementaryAbelianGroup( 27 );;   # odd order: Corollary 2
+gap> P := Image( EpimorphismPGroup( SidkiChiHatGroup( A, 2 ), 3 ) );;
+gap> Size( P ) = Size( SidkiChiGroup( A ) );
+true
+
+# doc/_Chapter_The_weak_commutativity_group.xml:244-248
 gap> C := SidkiChiGroup( SmallGroup( 8, 3 ) );;   # the dihedral group
 gap> List( [ SidkiD, SidkiL, SidkiW, SidkiR ], f -> Size( f( C ) ) );
 [ 4, 32, 2, 1 ]
 
-# doc/_Chapter_The_weak_commutativity_group.xml:251-258
+# doc/_Chapter_The_weak_commutativity_group.xml:320-327
 gap> G := SymmetricGroup( 3 );;
 gap> N := RoccoNuGroup( G );;  C := SidkiChiGroup( G );;
 gap> List( [ RoccoUpsilon1, RoccoUpsilon2, RoccoUpsilon3 ], f -> Size( f( N ) ) );
