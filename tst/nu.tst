@@ -58,8 +58,7 @@ gap> IsBijective( RoccoPhi( N ) ) and ForAll( Q, g ->
 true
 
 # policiclico infinito: grupo de Heisenberg sobre Z
-gap> H := Image( IsomorphismPcpGroup( Group( [ [ 1, 1, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ] ],
->                                            [ [ 1, 0, 0 ], [ 0, 1, 1 ], [ 0, 0, 1 ] ] ) ) );;
+gap> H := HeisenbergPcpGroup( 1 );;
 gap> N := RoccoNuGroup( H );;
 gap> IsFinite( N );
 false

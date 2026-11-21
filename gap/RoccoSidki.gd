@@ -13,6 +13,12 @@
 #! (permutation, pc, pcp, matrix or finitely presented) and the embeddings
 #! of the copies of $G$ are kept.
 #!
+#! The package is a compilation of the &GAP; code that the author has been
+#! writing since his doctoral studies under the supervision of Said N. Sidki
+#! (Universidade de Brasília, 2007), and that he has used in his research
+#! papers. The original functions are kept, unchanged, in the folder
+#! <F>original</F> of the package; they are not loaded.
+#!
 #! @Section Info class
 
 #! @Description
