@@ -2,6 +2,8 @@
 
 ## 0.1.0 (2026-11-24)
   - First public version (preliminary).
+  - `SidkiDiagonalRepresentation( H, n )`: the diagonal representation of chi_n(H)
+    in H^(2^n-1) from the Hamming codes (D. Savchuk, appendix to arXiv:2610.07330).
   - Package renamed from RoccoSidki to SOR (Sidki, de Oliveira, Rocco); the Info
     class is now `InfoSOR`.
   - `SidkiChiGroup( G )` for finite p-groups in any representation, keeping the

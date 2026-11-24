@@ -95,5 +95,38 @@ DeclareAttribute( "SidkiHybridGroup", IsGroup );
 #! true
 #! @EndExampleSession
 
+#! @Section Diagonal representations from Hamming codes
+#!
+#! Let $M_n$ be the parity check matrix of the binary Hamming code of length
+#! $2^n - 1$, built recursively: $M_1 = [1]$, and $M_{n+1}$ has the rows of $M_n$
+#! followed by $0$ and again by the same row of $M_n$, and a last row with
+#! $2^n - 1$ zeros followed by $2^n$ ones,
+#! whose columns are the nonzero vectors of $\mathbb{F}_2^n$. Sending the copy
+#! $h^{\psi_{i-1}}$ to the element of $H^{2^n - 1}$ obtained from the $i$-th row
+#! of $M_n$ (with $h$ for $1$ and the identity for $0$) defines a homomorphism
+#! $\rho_n : \chi_n(H) \to H^{2^n - 1}$ whose image contains
+#! $\gamma_n(H)^{2^n - 1}$; if $H$ is perfect, $\rho_n$ is surjective
+#! (D. Savchuk, appendix to arXiv:2610.07330).
+
+#! @Description
+#!   Returns the image $\rho_n(\chi_n(H)) \leq H^{2^n - 1}$ for a group <A>H</A>
+#!   and an integer <A>n</A> $\geq 2$, with the embeddings
+#!   <C>Embedding(</C><A>R</A><C>, i)</C>, $1 \leq i \leq n$, of the copies of $H$.
+#!   It is a quotient of $\chi_n(H)$ in which the $n$ copies weakly commute.
+#! @Arguments H, n
+#! @Returns a group
+DeclareOperation( "SidkiDiagonalRepresentation", [ IsGroup, IsPosInt ] );
+
+#! @BeginExampleSession
+#! gap> RS_HammingMatrix( 3 );   # the Hamming [7,4] parity check matrix
+#! [ [ 1, 0, 1, 0, 1, 0, 1 ], [ 0, 1, 1, 0, 0, 1, 1 ], [ 0, 0, 0, 1, 1, 1, 1 ] ]
+#! gap> H := SymmetricGroup( 4 );;
+#! gap> Size( SidkiDiagonalRepresentation( H, 2 ) ) = Size( SidkiChiModWGroup( H ) );
+#! true
+#! gap> Size( SidkiDiagonalRepresentation( AlternatingGroup( 5 ), 3 ) ) = 60^7;   # onto
+#! true
+#! @EndExampleSession
+
+DeclareGlobalFunction( "RS_HammingMatrix" );
 DeclareGlobalFunction( "RS_TnTilde" );
 DeclareGlobalFunction( "RS_ChiNRelations" );

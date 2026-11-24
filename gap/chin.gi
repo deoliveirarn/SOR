@@ -142,3 +142,41 @@ InstallMethod( SidkiHybridGroup, "for a group, from chi(chi(H))",
     SetRS_ChiData( Q, rec( group := H, n := 4, hybrid := true, emb := emb ) );
     return Q;
 end );
+
+# Parity check matrix of the binary Hamming code of length 2^n - 1, built as
+# in D. Savchuk's appendix to arXiv:2610.07330: M_1 = [1],
+# M_{n+1} = [ M_n | 0 | M_n ; 0..0 | 1 | 1..1 ].
+InstallGlobalFunction( RS_HammingMatrix, function( n )
+    local M, k, m, zeros;
+    M := [ [ 1 ] ];
+    for k in [ 2 .. n ] do
+        m := Length( M[1] );
+        zeros := ListWithIdenticalEntries( m, 0 );
+        M := Concatenation( List( M, r -> Concatenation( r, [ 0 ], r ) ),
+                 [ Concatenation( zeros, [ 1 ], ListWithIdenticalEntries( m, 1 ) ) ] );
+    od;
+    return M;
+end );
+
+InstallMethod( SidkiDiagonalRepresentation, "for a group and n >= 2, by Hamming codes",
+    [ IsGroup, IsPosInt ],
+    function( H, n )
+    local M, len, P, e, gens, row, R, emb;
+    if n < 2 then
+        Error( "SidkiDiagonalRepresentation: <n> must be at least 2" );
+    fi;
+    M := RS_HammingMatrix( n );
+    len := Length( M[1] );                       # 2^n - 1
+    P := CallFuncList( DirectProduct, ListWithIdenticalEntries( len, H ) );
+    e := List( [ 1 .. len ], j -> Embedding( P, j ) );
+    gens := GeneratorsOfGroup( H );
+    # the image of h in the copy given by a row of M_n
+    row := function( r, h )
+        return Product( Filtered( [ 1 .. len ], j -> r[j] = 1 ), j -> Image( e[j], h ) );
+    end;
+    R := Subgroup( P, ListX( M, gens, row ) );
+    emb := List( M, r -> GroupHomomorphismByImagesNC( H, R, gens,
+               List( gens, h -> row( r, h ) ) ) );
+    SetRS_ChiData( R, rec( group := H, n := n, diagonal := true, emb := emb ) );
+    return R;
+end );

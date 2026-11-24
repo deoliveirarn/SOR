@@ -57,4 +57,22 @@ gap> ForAll( [ [2,1], [3,1], [4,2], [8,4] ], id -> HibOk( SmallGroup( id ) ) );
 true
 gap> List( [ [2,1], [3,1], [4,1], [4,2], [8,4] ], id -> Size( SidkiHybridGroup( SmallGroup( id ) ) ) );
 [ 16, 81, 256, 8192, 131072 ]
+
+# representacoes diagonais (Hamming; Savchuk, apendice do arXiv:2610.07330):
+# a imagem contem gamma_n(H)^(2^n-1); H perfeito: sobrejetiva; cópias fracamente comutam
+gap> DiagOk := function( H, n )
+>   local R, e, gn, P;
+>   R := SidkiDiagonalRepresentation( H, n );  e := List( [ 1 .. n ], i -> Embedding( R, i ) );
+>   gn := LowerCentralSeries( H );  gn := gn[ Minimum( n, Length( gn ) ) ];
+>   P := Parent( R );
+>   return ForAll( [ 1 .. 2^n - 1 ], j -> IsSubgroup( R, Image( Embedding( P, j ), gn ) ) )
+>      and ForAll( Combinations( [ 1 .. n ], 2 ), p -> ForAll( H, h ->
+>            IsOne( Comm( h^e[p[1]], h^e[p[2]] ) ) ) )
+>      and ForAll( e, IsInjective );
+> end;;
+gap> DiagOk( SymmetricGroup( 4 ), 2 ) and DiagOk( SymmetricGroup( 4 ), 3 )
+>    and DiagOk( SmallGroup( 8, 4 ), 3 ) and DiagOk( SmallGroup( 16, 3 ), 4 );
+true
+gap> Size( SidkiDiagonalRepresentation( AlternatingGroup( 5 ), 2 ) ) = 60^3;
+true
 gap> STOP_TEST("chin.tst");

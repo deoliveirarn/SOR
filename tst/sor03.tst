@@ -35,5 +35,14 @@ gap> ForAll( Combinations( [ 1 .. 4 ], 2 ), p -> ForAll( H, h ->
 >      IsOne( Comm( h^e[p[1]], h^e[p[2]] ) ) ) );   # all six relations of chi_4
 true
 
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:139-147
+gap> RS_HammingMatrix( 3 );   # the Hamming [7,4] parity check matrix
+[ [ 1, 0, 1, 0, 1, 0, 1 ], [ 0, 1, 1, 0, 0, 1, 1 ], [ 0, 0, 0, 1, 1, 1, 1 ] ]
+gap> H := SymmetricGroup( 4 );;
+gap> Size( SidkiDiagonalRepresentation( H, 2 ) ) = Size( SidkiChiModWGroup( H ) );
+true
+gap> Size( SidkiDiagonalRepresentation( AlternatingGroup( 5 ), 3 ) ) = 60^7;   # onto
+true
+
 #
 gap> STOP_TEST("sor03.tst", 1);
