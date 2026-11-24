@@ -20,6 +20,11 @@
 #! representation (permutation, pc, pcp, matrix or finitely presented) and the
 #! embeddings of the copies of $G$ are kept.
 #!
+#! The key point of the package is that these embeddings are kept (see
+#! Chapter <Ref Chap="Chapter_How_the_groups_are_built"/>): the subgroups
+#! $D$, $L$, $W$, $R$ of $\chi(G)$ and their analogues in the other groups become
+#! direct computations, and the input group may be given in any representation.
+#!
 #! This is a preliminary version. Planned for later versions: a polycyclic
 #! presentation of $\nu^q(G)$ itself, and $\nu(G)$ for non-solvable groups.
 #!
@@ -56,6 +61,28 @@ DeclareInfoClass( "InfoSOR" );
 #! Without them, one has to locate the copies of $G$ inside the computed group,
 #! which is a search, or to carry every element of $G$ through a presentation
 #! by hand.
+#!
+#! For example, the pc group $\chi(Q_8)$ below has $7$ generators in its pcgs, with
+#! no visible relation to the generators of $Q_8$; the embeddings give the two
+#! copies of $Q_8$ inside it at once, and $D = [G, G^\psi]$ and $L$ are then
+#! single commands:
+#! @BeginExampleSession
+#! gap> G := SmallGroup( 8, 4 );;   # the quaternion group
+#! gap> C := SidkiChiGroup( G );;
+#! gap> Length( Pcgs( C ) );
+#! 7
+#! gap> H := Image( Embedding( C, 1 ) );;  Hpsi := Image( Embedding( C, 2 ) );;
+#! gap> Size( CommutatorSubgroup( H, Hpsi ) );   # D(G)
+#! 2
+#! gap> Size( Subgroup( C, List( G, g ->
+#! >      Image( Embedding( C, 1 ), g )^-1 * Image( Embedding( C, 2 ), g ) ) ) );   # L(G)
+#! 16
+#! @EndExampleSession
+#! In our tests, for the group of order $32$ <C>SmallGroup(32,49)</C>, whose
+#! $\chi(G)$ has order $2^{21}$, $\chi(G)$ is computed in about $0.1$ seconds and
+#! $L(G)$ and $D(G)$ in a few milliseconds; computing $L(G)$ by carrying the
+#! elements of $G$ through a presentation, as in the author's earlier code, did
+#! not finish in ten minutes.
 
 #! @Section Strategy by class of groups
 #!

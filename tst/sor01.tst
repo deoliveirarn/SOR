@@ -10,7 +10,19 @@
 #
 gap> START_TEST("sor01.tst");
 
-# doc/_Chapter_How_the_groups_are_built.xml:74-92
+# doc/_Chapter_How_the_groups_are_built.xml:33-44
+gap> G := SmallGroup( 8, 4 );;   # the quaternion group
+gap> C := SidkiChiGroup( G );;
+gap> Length( Pcgs( C ) );
+7
+gap> H := Image( Embedding( C, 1 ) );;  Hpsi := Image( Embedding( C, 2 ) );;
+gap> Size( CommutatorSubgroup( H, Hpsi ) );   # D(G)
+2
+gap> Size( Subgroup( C, List( G, g ->
+>      Image( Embedding( C, 1 ), g )^-1 * Image( Embedding( C, 2 ), g ) ) ) );   # L(G)
+16
+
+# doc/_Chapter_How_the_groups_are_built.xml:97-115
 gap> SetInfoLevel( InfoSOR, 0 );
 gap> Size( SidkiChiGroup( SymmetricGroup( 3 ) ) );    # T(G) in G x G x G
 108
