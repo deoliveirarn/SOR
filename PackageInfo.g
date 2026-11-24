@@ -29,10 +29,10 @@ Persons := [
 
 SourceRepository := rec(
     Type := "git",
-    URL := "https://github.com/deoliveirarn/RoccoSidki",
+    URL := "https://github.com/deoliveirarn/SOR",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := "https://deoliveirarn.github.io/RoccoSidki/",
+PackageWWWHome  := "https://deoliveirarn.github.io/SOR/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
