@@ -1,6 +1,7 @@
 # Changes in the SOR package
 
-## Unreleased
+## 0.1.0 (2026-11-24)
+  - First public version (preliminary).
   - Package renamed from RoccoSidki to SOR (Sidki, de Oliveira, Rocco); the Info
     class is now `InfoSOR`.
   - `SidkiChiGroup( G )` for finite p-groups in any representation, keeping the
