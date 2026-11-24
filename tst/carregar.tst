@@ -1,7 +1,7 @@
 # O pacote carrega e declara a sua classe Info.
 gap> START_TEST("carregar.tst");
-gap> LoadPackage("RoccoSidki", false);
+gap> LoadPackage("SOR", false);
 true
-gap> IsInfoClass(InfoRoccoSidki);
+gap> IsInfoClass(InfoSOR);
 true
 gap> STOP_TEST("carregar.tst");

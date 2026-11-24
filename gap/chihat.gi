@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # chi(G, S; m): weak commutativity imposed only on products of generators
 # (implementations).
@@ -25,7 +25,7 @@ InstallGlobalFunction( SidkiChiHatGroup, function( arg )
         UniteSet( prods, Si );
     od;
     prods := Filtered( prods, a -> a <> One( G ) );
-    Info( InfoRoccoSidki, 1, "chi(G,S;", m, "): ", Length( prods ), " elements" );
+    Info( InfoSOR, 1, "chi(G,S;", m, "): ", Length( prods ), " elements" );
     data := RS_FreeProductQuotient( G, 2, e -> List( prods,
                 a -> Comm( Image( e[1], a ), Image( e[2], a ) ) ) );
     emb := List( data.emb, e -> GroupHomomorphismByImagesNC( G, data.Q,
@@ -35,7 +35,7 @@ InstallGlobalFunction( SidkiChiHatGroup, function( arg )
     return data.Q;
 end );
 
-InstallMethod( Embedding, "for chi(G,S;m) of RoccoSidki",
+InstallMethod( Embedding, "for chi(G,S;m) of SOR",
     [ IsGroup and HasRS_ChiHatData, IsPosInt ],
     function( C, i )
     if i > 2 then
@@ -44,7 +44,7 @@ InstallMethod( Embedding, "for chi(G,S;m) of RoccoSidki",
     return RS_ChiHatData( C ).emb[ i ];
 end );
 
-InstallMethod( SidkiChiHatProjection, "for chi(G,S;m) of RoccoSidki",
+InstallMethod( SidkiChiHatProjection, "for chi(G,S;m) of SOR",
     [ IsGroup and HasRS_ChiHatData ],
     function( C )
     local d, X, gens;

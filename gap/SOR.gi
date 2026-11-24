@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # General implementations.
 #
@@ -18,7 +18,7 @@ InstallGlobalFunction( RS_FreeProductQuotient, function( G, n, relfun )
     F := CallFuncList( FreeProduct, ListWithIdenticalEntries( n, G ) );
     e := List( [ 1 .. n ], i -> Embedding( F, i ) );
     rels := relfun( e );
-    Info( InfoRoccoSidki, 2, Length( rels ), " relations" );
+    Info( InfoSOR, 2, Length( rels ), " relations" );
     Q := F / rels;
     nat := GroupHomomorphismByImagesNC( F, Q,
                GeneratorsOfGroup( F ), GeneratorsOfGroup( Q ) );

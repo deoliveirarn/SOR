@@ -1,6 +1,6 @@
 # Subgrupos de chi(G) e nu(G): identidades publicadas conferidas (2026-11-21).
 gap> START_TEST("subgrupos.tst");
-gap> LoadPackage("RoccoSidki", false);;
+gap> LoadPackage("SOR", false);;
 
 # chi: R(G) nao trivial (valores do chi_DL1L2.out do Ricardo, Conference_NRR_p)
 gap> List( [ [32,34], [81,12] ], function( id )

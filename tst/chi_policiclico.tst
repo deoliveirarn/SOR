@@ -1,6 +1,6 @@
 # chi(G) e chi(G)/R(G) por tau(G) de Dias-Rocco (2026-11-21).
 gap> START_TEST("chi_policiclico.tst");
-gap> LoadPackage("RoccoSidki", false);;
+gap> LoadPackage("SOR", false);;
 
 # |chi/R| = |chi| / |R|, comparando com o produto livre; R = 1 nos 2-gerados
 gap> ForAll( [ [6,1], [8,3], [8,4], [12,3], [27,3], [32,34], [81,12] ], function( id )

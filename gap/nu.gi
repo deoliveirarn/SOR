@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # nu(G) (Rocco): implementations.
 #
@@ -81,10 +81,10 @@ InstallMethod( RoccoNuGroup, "for a finite solvable or polycyclic group",
     if IsTrivial( G ) then
         Error( "RoccoNuGroup: <G> must be nontrivial" );
     elif IsFinite( G ) and IsPGroup( G ) then
-        Info( InfoRoccoSidki, 1, "nu(G): p-group, Rocco 1994 + p-quotient" );
+        Info( InfoSOR, 1, "nu(G): p-group, Rocco 1994 + p-quotient" );
         r := RS_NuRocco1994( G );
     elif ( IsFinite( G ) and IsSolvableGroup( G ) ) or IsPcpGroup( G ) then
-        Info( InfoRoccoSidki, 1, "nu(G): Polycyclic (NonAbelianTensorSquarePlus)" );
+        Info( InfoSOR, 1, "nu(G): Polycyclic (NonAbelianTensorSquarePlus)" );
         r := RS_NuPolycyclic( G );
     else
         Error( "RoccoNuGroup: for now <G> must be finite solvable or a pcp group" );
@@ -93,7 +93,7 @@ InstallMethod( RoccoNuGroup, "for a finite solvable or polycyclic group",
     return r.group;
 end );
 
-InstallMethod( Embedding, "for nu(G) of RoccoSidki",
+InstallMethod( Embedding, "for nu(G) of SOR",
     [ IsGroup and HasRS_NuData, IsPosInt ],
     function( N, i )
     if i > 2 then
@@ -102,7 +102,7 @@ InstallMethod( Embedding, "for nu(G) of RoccoSidki",
     return RS_NuData( N ).emb[ i ];
 end );
 
-InstallMethod( RoccoPhi, "for nu(G) of RoccoSidki",
+InstallMethod( RoccoPhi, "for nu(G) of SOR",
     [ IsGroup and HasRS_NuData ],
     function( N )
     local d, gens;

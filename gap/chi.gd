@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # chi(G) (Sidki): declarations.
 #

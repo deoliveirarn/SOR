@@ -1,11 +1,16 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # General declarations.
 #
 #! @Chapter Introduction
 #!
-#! The &RoccoSidki; package computes Rocco's group $\nu(G)$ and the groups
+#! The name &SOR; stands for Sidki, de Oliveira and Rocco, whose
+#! constructions the package computes: Sidki's weak commutativity group
+#! $\chi(G)$ (1980), Rocco's group $\nu(G)$ (1991), and the groups with $n$
+#! copies and by bijections of de Oliveira and his coauthors.
+#!
+#! The &SOR; package computes Rocco's group $\nu(G)$ and the groups
 #! $\tau^q(G)$ of Dias and Rocco, Sidki's weak commutativity group $\chi(G)$,
 #! the groups $\chi(n,H)$ and $\chi_n(H)$ with $n$ copies, and the hybrid group
 #! $Q(H)$, together with their subgroups, and the groups $\chi(H,\sigma)$ of weak
@@ -29,7 +34,7 @@
 
 #! @Description
 #!   Info class of the package.
-DeclareInfoClass( "InfoRoccoSidki" );
+DeclareInfoClass( "InfoSOR" );
 
 #! @Chapter How the groups are built
 #!
@@ -95,7 +100,7 @@ DeclareInfoClass( "InfoRoccoSidki" );
 #!
 #! One example of each case:
 #! @BeginExampleSession
-#! gap> SetInfoLevel( InfoRoccoSidki, 0 );
+#! gap> SetInfoLevel( InfoSOR, 0 );
 #! gap> Size( SidkiChiGroup( SymmetricGroup( 3 ) ) );    # T(G) in G x G x G
 #! 108
 #! gap> Size( SidkiChiGroup( AlternatingGroup( 5 ) ) );  # perfect: T(H~)

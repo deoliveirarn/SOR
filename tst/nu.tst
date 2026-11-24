@@ -1,7 +1,7 @@
 # nu(G): os dois metodos (Rocco 1994 pelo produto livre; Polycyclic) conferidos
 # entre si, contra NonAbelianTensorSquare e contra as relacoes de Rocco (2026-11-21).
 gap> START_TEST("nu.tst");
-gap> LoadPackage("RoccoSidki", false);;
+gap> LoadPackage("SOR", false);;
 
 # relacoes de Rocco com x, y em todo G e z nos geradores; mergulhos injetivos
 gap> Confere := function( G, r )

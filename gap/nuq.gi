@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # nu^q(G): implementations.
 #
@@ -166,7 +166,7 @@ InstallMethod( RoccoTauGroup, "for a polycyclic group and an integer, Dias-Rocco
     return T;
 end );
 
-InstallMethod( Embedding, "for tau^q(G) of RoccoSidki",
+InstallMethod( Embedding, "for tau^q(G) of SOR",
     [ IsGroup and HasRS_TauData, IsPosInt ],
     function( T, i )
     if i > 2 then
@@ -175,6 +175,6 @@ InstallMethod( Embedding, "for tau^q(G) of RoccoSidki",
     return RS_TauData( T ).emb[ i ];
 end );
 
-InstallMethod( RoccoExteriorSquareQ, "for tau^q(G) of RoccoSidki",
+InstallMethod( RoccoExteriorSquareQ, "for tau^q(G) of SOR",
     [ IsGroup and HasRS_TauData ],
     T -> RS_TauData( T ).W );

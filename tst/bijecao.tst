@@ -1,6 +1,7 @@
 # chi(H, sigma): checks against Oliveira-Sidki 2009.
 gap> START_TEST( "bijecao.tst" );
-gap> SetInfoLevel( InfoRoccoSidki, 0 );
+gap> LoadPackage( "SOR", false );;
+gap> SetInfoLevel( InfoSOR, 0 );
 gap> H := ElementaryAbelianGroup( 8 );;
 gap> Length( SidkiBijectionClasses( H ) );   # Oliveira-Sidki 2009: 4
 4

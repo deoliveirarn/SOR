@@ -1,7 +1,7 @@
 # tau^q(G) de Dias-Rocco (2026-11-21): consistencia, q = 0 contra o Polycyclic,
 # ordem |G|^2 |G ^q G|, mergulhos e a ponte com chi(G)/R(G).
 gap> START_TEST("nuq.tst");
-gap> LoadPackage("RoccoSidki", false);;
+gap> LoadPackage("SOR", false);;
 
 # q = 0: igual ao tau(G) = nu(G)/Delta(G) do Polycyclic (Eick-Nickel)
 gap> ForAll( [ [6,1], [4,2], [8,3], [8,4], [12,3], [27,3], [24,12] ], function( id )

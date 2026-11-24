@@ -1,4 +1,6 @@
-# The GAP package RoccoSidki
+# The GAP package SOR
+
+SOR stands for **S**idki, de **O**liveira and **R**occo.
 
 Computes Rocco's group ν(G), its variant ν^q(G), Sidki's weak commutativity
 group χ(G), its version χₙ(G) with n copies, and the variants χ(G, σ) defined

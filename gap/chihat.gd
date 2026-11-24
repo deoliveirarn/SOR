@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # chi(G, S; m): weak commutativity imposed only on products of generators
 # (declarations).
@@ -51,7 +51,7 @@ DeclareGlobalFunction( "SidkiChiHatGroup" );
 DeclareAttribute( "SidkiChiHatProjection", IsGroup );
 
 #! @BeginExampleSession
-#! gap> SetInfoLevel( InfoRoccoSidki, 0 );
+#! gap> SetInfoLevel( InfoSOR, 0 );
 #! gap> A := ElementaryAbelianGroup( 4 );;
 #! gap> C := SidkiChiHatGroup( A, 1 );;
 #! gap> K := Kernel( SidkiChiHatProjection( C ) );;   # finite index in C

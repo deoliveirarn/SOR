@@ -1,6 +1,8 @@
-# Changes in the RoccoSidki package
+# Changes in the SOR package
 
 ## Unreleased
+  - Package renamed from RoccoSidki to SOR (Sidki, de Oliveira, Rocco); the Info
+    class is now `InfoSOR`.
   - `SidkiChiGroup( G )` for finite p-groups in any representation, keeping the
     embeddings (`Embedding( C, 1 )`, `Embedding( C, 2 )`) and `SidkiPsi( C )`.
   - `SidkiChiGroup` also for finite solvable groups (largest solvable quotient).

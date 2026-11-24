@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # chi(H, sigma): weak commutativity defined by a bijection (implementations).
 #
@@ -51,7 +51,7 @@ InstallMethod( SidkiChiGroupByBijection, "for a finite group and a permutation",
     return C;
 end );
 
-InstallMethod( Embedding, "for chi(H,sigma) of RoccoSidki",
+InstallMethod( Embedding, "for chi(H,sigma) of SOR",
     [ IsGroup and HasRS_ChiBijData, IsPosInt ],
     function( C, i )
     if i > 2 then
@@ -60,7 +60,7 @@ InstallMethod( Embedding, "for chi(H,sigma) of RoccoSidki",
     return RS_ChiBijData( C ).emb[ i ];
 end );
 
-InstallMethod( SidkiD, "for chi(H,sigma) of RoccoSidki",
+InstallMethod( SidkiD, "for chi(H,sigma) of SOR",
     [ IsGroup and HasRS_ChiBijData ],
     C -> CommutatorSubgroup( Image( Embedding( C, 1 ) ), Image( Embedding( C, 2 ) ) ) );
 

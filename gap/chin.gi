@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # chi_n(G), n copies: implementations.
 #
@@ -76,7 +76,7 @@ InstallMethod( SidkiChiNGroup, "for a finite p-group or a finite perfect group",
     if IsTrivial( H ) or not IsFinite( H ) then
         Error( "SidkiChiNGroup: <H> must be a nontrivial finite group" );
     elif IsPerfectGroup( H ) then
-        Info( InfoRoccoSidki, 1, "chi(n,H): H perfect, T_n(H~)" );
+        Info( InfoSOR, 1, "chi(n,H): H perfect, T_n(H~)" );
         r := RS_TnTilde( H, n );
     elif IsPGroup( H ) then
         data := RS_FreeProductQuotient( H, n, e -> RS_ChiNRelations( H, e, true ) );
@@ -114,7 +114,7 @@ InstallMethod( SidkiChiGroup, "for a finite perfect group, as T(H~)",
     if IsTrivial( H ) or IsFpGroup( H ) or not IsFinite( H ) or not IsPerfectGroup( H ) then
         TryNextMethod();
     fi;
-    Info( InfoRoccoSidki, 1, "chi(H): H perfect, T(H~) (Sidki 4.4.1)" );
+    Info( InfoSOR, 1, "chi(H): H perfect, T(H~) (Sidki 4.4.1)" );
     r := RS_TnTilde( H, 2 );
     SetRS_ChiData( r.group, rec( group := H, emb := r.emb ) );
     return r.group;

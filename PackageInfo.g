@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups via free products with embeddings
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups via free products with embeddings
 #
 # This file contains package meta data. For additional information on
 # the meaning and correct usage of these fields, please consult the
@@ -8,7 +8,7 @@
 #
 SetPackageInfo( rec(
 
-PackageName := "RoccoSidki",
+PackageName := "SOR",
 Subtitle := "Rocco's nu(G), Sidki's chi(G) and related groups via free products with embeddings",
 Version := "0.0.1",
 Date := "21/11/2026", # dd/mm/yyyy format
@@ -42,14 +42,14 @@ ArchiveURL      := Concatenation( ~.SourceRepository.URL,
 ArchiveFormats := ".tar.gz",
 
 AbstractHTML   :=  Concatenation(
-  "The <span class=\"pkgname\">RoccoSidki</span> package computes Rocco's ",
+  "The <span class=\"pkgname\">SOR</span> package computes Rocco's ",
   "group &nu;(G), its variant &nu;<sup>q</sup>(G), Sidki's weak commutativity ",
   "group &chi;(G), its n-copy version and its variants defined by bijections, ",
   "always as a quotient of a free product of copies of G that keeps the ",
   "embeddings of the copies of G and the related subgroups." ),
 
 PackageDoc := rec(
-  BookName  := "RoccoSidki",
+  BookName  := "SOR",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",

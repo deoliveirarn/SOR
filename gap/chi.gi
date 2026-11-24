@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # chi(G) (Sidki): implementations.
 #
@@ -90,7 +90,7 @@ InstallMethod( SidkiChiGroup, "for a 2-generated group with trivial multiplier, 
     if not RS_IsTwoGenerated( G ) or AbelianInvariantsMultiplier( G ) <> [ ] then
         TryNextMethod();
     fi;
-    Info( InfoRoccoSidki, 1, "chi(G): 2-generated, M(G) = 1, chi(G) = T(G)" );
+    Info( InfoSOR, 1, "chi(G): 2-generated, M(G) = 1, chi(G) = T(G)" );
     return SidkiChiModWGroup( G );
 end );
 
@@ -110,7 +110,7 @@ InstallMethod( SidkiChiGroup, "for a 2-generated pcp group, via tau(G)",
     return SidkiChiModRGroup( G );
 end );
 
-InstallMethod( Embedding, "for chi(G) of RoccoSidki",
+InstallMethod( Embedding, "for chi(G) of SOR",
     [ IsGroup and HasRS_ChiData, IsPosInt ],
     function( C, i )
     if i > Length( RS_ChiData( C ).emb ) then
@@ -119,7 +119,7 @@ InstallMethod( Embedding, "for chi(G) of RoccoSidki",
     return RS_ChiData( C ).emb[ i ];
 end );
 
-InstallMethod( SidkiPsi, "for chi(G) of RoccoSidki",
+InstallMethod( SidkiPsi, "for chi(G) of SOR",
     [ IsGroup and HasRS_ChiData ],
     function( C )
     local d, gens;

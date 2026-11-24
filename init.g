@@ -1,13 +1,13 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups
 #
 # Reading the declaration part of the package.
 #
-ReadPackage( "RoccoSidki", "gap/RoccoSidki.gd" );
-ReadPackage( "RoccoSidki", "gap/nu.gd" );
-ReadPackage( "RoccoSidki", "gap/nuq.gd" );
-ReadPackage( "RoccoSidki", "gap/chi.gd" );
-ReadPackage( "RoccoSidki", "gap/chin.gd" );
-ReadPackage( "RoccoSidki", "gap/variantes.gd" );
-ReadPackage( "RoccoSidki", "gap/chihat.gd" );
-ReadPackage( "RoccoSidki", "gap/subgrupos.gd" );
+ReadPackage( "SOR", "gap/SOR.gd" );
+ReadPackage( "SOR", "gap/nu.gd" );
+ReadPackage( "SOR", "gap/nuq.gd" );
+ReadPackage( "SOR", "gap/chi.gd" );
+ReadPackage( "SOR", "gap/chin.gd" );
+ReadPackage( "SOR", "gap/variantes.gd" );
+ReadPackage( "SOR", "gap/chihat.gd" );
+ReadPackage( "SOR", "gap/subgrupos.gd" );

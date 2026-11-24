@@ -1,7 +1,7 @@
 # chi(n,H), chi_n(H) e chi de grupos perfeitos (2026-11-21).
 # Referencias: Sidki, Rocco, de Oliveira, arXiv:2610.07330; Sidki 1980, 4.4.1.
 gap> START_TEST("chin.tst");
-gap> LoadPackage("RoccoSidki", false);;
+gap> LoadPackage("SOR", false);;
 
 # chi(2,H) = chi(H); |chi(3, C2 x C2)| = 2^9; Teorema A: |chi(n,H)| divide
 # |chi(H)|^binom(n,2) |H|^(n - 2 binom(n,2))

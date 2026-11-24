@@ -1,7 +1,7 @@
 # chi(G) pelo produto livre com mergulhos: ordens e subgrupos conferidos
 # (2026-11-21) contra o chi_D original do Ricardo e contra o HAP.
 gap> START_TEST("chi.tst");
-gap> LoadPackage("RoccoSidki", false);;
+gap> LoadPackage("SOR", false);;
 gap> Dados := function( K )
 >   local C;
 >   C := SidkiChiGroup( K );

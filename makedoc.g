@@ -1,5 +1,5 @@
 #
-# RoccoSidki: Rocco's nu(G), Sidki's chi(G) and related groups via free products with embeddings
+# SOR: Rocco's nu(G), Sidki's chi(G) and related groups via free products with embeddings
 #
 # This file is a script which compiles the package manual.
 #
