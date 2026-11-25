@@ -8,9 +8,8 @@
 #! @Section The groups chi_n(H) and chi(n,H)
 #!
 #! For $n$ copies $H = H^{\psi_0}, H^{\psi_1}, \ldots, H^{\psi_{n-1}}$ of a
-#! group $H$ (S. N. Sidki, N. R. Rocco, R. N. de Oliveira, <E>On weak
-#! commutativity between $n$ isomorphic groups, $n \geq 2$</E>,
-#! arXiv:2610.07330, with an appendix by D. Savchuk):
+#! group $H$ (Sidki, Rocco and de Oliveira <Cite Key="SidkiEtAl2026"/>, with
+#! an appendix by D. Savchuk):
 #! $$\chi_n(H) = \langle H, H^{\psi_1}, \ldots, H^{\psi_{n-1}} \mid
 #!   [h^{\psi_i}, h^{\psi_j}] = 1 \ \forall h \in H,\ i \neq j \rangle,$$
 #! the "mother group", and its quotient
@@ -74,7 +73,7 @@ DeclareOperation( "SidkiChiMotherGroup", [ IsGroup, IsPosInt ] );
 #! hold in $\chi^2(H)$; the hybrid group is
 #! $Q(H) = \chi^2(H)/N_0$, with $N_0$ the normal closure of
 #! $[h, h^{\psi\psi'}]$ and $[h^\psi, h^{\psi'}]$, $h \in H$: the largest common
-#! quotient of $\chi^2(H)$ and $\chi_4(H)$ (arXiv:2610.07330, Section 7).
+#! quotient of $\chi^2(H)$ and $\chi_4(H)$ <Cite Key="SidkiEtAl2026" Where="Section 7"/>.
 
 #! @Description
 #!   Returns the hybrid group $Q(H)$ for a group <A>H</A> for which
@@ -106,7 +105,7 @@ DeclareAttribute( "SidkiHybridGroup", IsGroup );
 #! of $M_n$ (with $h$ for $1$ and the identity for $0$) defines a homomorphism
 #! $\rho_n : \chi_n(H) \to H^{2^n - 1}$ whose image contains
 #! $\gamma_n(H)^{2^n - 1}$; if $H$ is perfect, $\rho_n$ is surjective
-#! (D. Savchuk, appendix to arXiv:2610.07330).
+#! (D. Savchuk, appendix to <Cite Key="SidkiEtAl2026"/>).
 
 #! @Description
 #!   Returns the image $\rho_n(\chi_n(H)) \leq H^{2^n - 1}$ for a group <A>H</A>

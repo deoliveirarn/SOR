@@ -45,7 +45,7 @@ DeclareAttribute( "SidkiR", IsGroup );
 
 #! @Description
 #!   The subgroups $L_1(G) = [L(G), G]$ and $L_2(G) = [L(G), G^\psi]$ of
-#!   <A>C</A> $= \chi(G)$ (Bastos, de Oliveira, Ortega 2026). Then
+#!   <A>C</A> $= \chi(G)$ <Cite Key="BastosEtAl2026"/>. Then
 #!   $\chi(G)' = D(G) L_1(G) L_2(G)$.
 #! @Arguments C
 DeclareAttribute( "SidkiL1", IsGroup );
@@ -64,7 +64,7 @@ DeclareAttribute( "SidkiL2", IsGroup );
 #! @Section Subgroups of nu(G)
 #!
 #! For $N = \nu(G)$, with the copies $G$ and $G^\varphi$ given by the
-#! embeddings (Bastos, de Oliveira, Monetta, Rocco 2022):
+#! embeddings <Cite Key="BastosEtAl2022"/>:
 #! <List>
 #! <Item>$\Theta(G) = \langle g^{-1} g^\varphi \mid g \in G \rangle$, the kernel of
 #!   $\nu(G) \to G$, $g, g^\varphi \mapsto g$;</Item>

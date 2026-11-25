@@ -11,18 +11,18 @@
 #! $$\nu(G) = \langle G, G^\varphi \mid [x, y^\varphi]^z = [x^z, (y^z)^\varphi]
 #!   = [x, y^\varphi]^{z^\varphi} \ \forall x, y, z \in G \rangle,$$
 #! and the subgroup $[G, G^\varphi]$ of $\nu(G)$ is isomorphic to the
-#! non-abelian tensor square $G \otimes G$ (Rocco 1991).
+#! non-abelian tensor square $G \otimes G$ <Cite Key="Rocco1991"/>.
 #!
 #! Two methods are used, both keeping the embeddings of $G$ and $G^\varphi$:
 #! <List>
 #! <Item>finite $p$-groups: the quotient of the free product $G * G$ by the
-#!   relations of Rocco (1994) for an AG-system $a_1, \ldots, a_n$ of $G$,
+#!   relations of Rocco <Cite Key="Rocco1994"/> for an AG-system $a_1, \ldots, a_n$ of $G$,
 #!   $[a_i, a_j^\varphi]^{a_k} = [a_i^{a_k}, (a_j^{a_k})^\varphi]
 #!   = [a_i, a_j^\varphi]^{a_k^\varphi}$, followed by its largest
 #!   $p$-quotient;</Item>
 #! <Item>other finite solvable groups and polycyclic groups: the function
 #!   <C>NonAbelianTensorSquarePlus</C> of the <Package>Polycyclic</Package> package
-#!   (Eick and Nickel 2008), whose first $2n$ generators are the images of
+#!   <Cite Key="EickNickel2008"/>, whose first $2n$ generators are the images of
 #!   the $n$ generators of $G$ and of $G^\varphi$.</Item>
 #! </List>
 

@@ -12,7 +12,7 @@
 #! $\tau^q(G) = \nu^q(G)/\Delta^q(G) \cong (G \wedge^q G) \rtimes (G \times G)$.
 #! For $q = 0$, $\tau^0(G) = \nu(G)/\Delta(G) \cong \chi(G)/R(G)$.
 #!
-#! Dias and Rocco (J. Group Theory 23, 2020) give a consistent polycyclic
+#! Dias and Rocco <Cite Key="DiasRocco2020"/> give a consistent polycyclic
 #! presentation of $\tau^q(G)$ for a polycyclic group $G$, from a consistent
 #! polycyclic presentation $g_1, \ldots, g_n$ of $G$ and one of
 #! $G \wedge^q G$, the latter obtained from the $q$-central extension
@@ -22,7 +22,7 @@
 #!
 #! The extension to a polycyclic presentation of $\nu^q(G)$ itself, and hence of
 #! the $q$-tensor square $G \otimes^q G$, as the $q$-central extension
-#! $\nu^q(G) = E_q(\tau^q(G))$ (Dias and Rocco, Section 7), is in preparation.
+#! $\nu^q(G) = E_q(\tau^q(G))$ <Cite Key="DiasRocco2020" Where="Section 7"/>, is in preparation.
 
 #! @Description
 #!   Returns $\tau^q(G) = \nu^q(G)/\Delta^q(G)$ for a polycyclic group <A>G</A>

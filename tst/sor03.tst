@@ -10,7 +10,7 @@
 #
 gap> START_TEST("sor03.tst");
 
-# doc/_Chapter_Weak_commutativity_among_n_copies.xml:56-63
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:55-62
 gap> M := SidkiChiMotherGroup( CyclicGroup( 2 ), 3 );;
 gap> AbelianInvariants( M );   # here chi_3(H) = chi(3,H), elementary of order 8
 [ 2, 2, 2 ]
@@ -18,7 +18,7 @@ gap> M := SidkiChiMotherGroup( ElementaryAbelianGroup( 4 ), 3 );;   # infinite
 gap> Size( Image( EpimorphismPGroup( M, 2, 4 ) ) );   # its 2-quotient of class 4
 8192
 
-# doc/_Chapter_Weak_commutativity_among_n_copies.xml:65-74
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:64-73
 gap> H := SmallGroup( 4, 2 );;   # C2 x C2
 gap> Size( SidkiChiNGroup( H, 3 ) );
 512
@@ -28,14 +28,14 @@ gap> C := SidkiChiGroup( AlternatingGroup( 5 ) );;   # perfect: T(SL(2,5))
 gap> Size( C ) = 60^2 * 120;
 true
 
-# doc/_Chapter_Weak_commutativity_among_n_copies.xml:103-109
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:102-108
 gap> H := SmallGroup( 4, 2 );;  Q := SidkiHybridGroup( H );;
 gap> e := List( [ 1 .. 4 ], i -> Embedding( Q, i ) );;
 gap> ForAll( Combinations( [ 1 .. 4 ], 2 ), p -> ForAll( H, h ->
 >      IsOne( Comm( h^e[p[1]], h^e[p[2]] ) ) ) );   # all six relations of chi_4
 true
 
-# doc/_Chapter_Weak_commutativity_among_n_copies.xml:139-147
+# doc/_Chapter_Weak_commutativity_among_n_copies.xml:138-146
 gap> RS_HammingMatrix( 3 );   # the Hamming [7,4] parity check matrix
 [ [ 1, 0, 1, 0, 1, 0, 1 ], [ 0, 1, 1, 0, 0, 1, 1 ], [ 0, 0, 0, 1, 1, 1, 1 ] ]
 gap> H := SymmetricGroup( 4 );;

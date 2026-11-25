@@ -9,7 +9,7 @@
 #! @Section Reduced presentations: weak commutativity on products of generators
 #!
 #! Let $S$ be a generating set of $G$ and $m \geq 1$. Oliveira and Sidki
-#! (Bull. Braz. Math. Soc. 40, 2009, Section 4) define
+#! <Cite Key="OliveiraSidki2009" Where="Section 4"/> define
 #! $$\chi(G, S; m) = \langle G, G^\psi \mid [a, a^\psi] = 1
 #!   \ \forall a \in S \cup S^2 \cup \cdots \cup S^m \rangle,$$
 #! where $S^i$ is the set of products of $i$ elements of $S$. There are two

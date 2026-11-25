@@ -12,15 +12,15 @@
 #! The weak commutativity group defined by $\sigma$ is
 #! $$\chi(H,\sigma) = \langle H, \dot H \mid [h, h^\sigma] = 1
 #!   \ \forall h \in H^\# \rangle$$
-#! (Oliveira and Sidki, Bull. Braz. Math. Soc. 40, 2009). When $\sigma$ is the
+#! <Cite Key="OliveiraSidki2009"/>. When $\sigma$ is the
 #! isomorphism $\psi$, it is Sidki's group $\chi(H)$. The group $\chi(H,\sigma)$
-#! is the group $S(H, \dot H; \sigma, \sigma, 1)$ of Sidki (J. Algebra 63, 1980,
-#! Theorem 3.5 and Remark 3.3 (iii)), hence it is finite for every finite $H$.
+#! is the group $S(H, \dot H; \sigma, \sigma, 1)$ of Sidki
+#! <Cite Key="Sidki1980" Where="Theorem 3.5 and Remark 3.3 (iii)"/>, hence it is finite for every finite $H$.
 #! The package computes it exactly, by coset enumeration in the finitely
 #! presented group, and returns a pc group when it is solvable and a
 #! permutation group otherwise.
 #!
-#! Oliveira and Sidki (2009) conjecture that $\chi(H,\sigma)$ is a finite
+#! Oliveira and Sidki <Cite Key="OliveiraSidki2009"/> conjecture that $\chi(H,\sigma)$ is a finite
 #! $p$-group whenever $H$ is a finite $p$-group. This is open, so the package
 #! does not take the largest $p$-quotient for the group: <C>IsPGroup</C> of
 #! the result tests the conjecture for the given $\sigma$.
