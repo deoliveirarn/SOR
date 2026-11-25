@@ -1,0 +1,174 @@
+  
+  [1X7 [33X[0;0YWeak commutativity by bijections[133X[101X
+  
+  
+  [1X7.1 [33X[0;0YConstruction[133X[101X
+  
+  [33X[0;0YLet  [23XH[123X  be a finite group, [23X\dot H[123X an isomorphic copy of [23XH[123X, and [23X\sigma : H^\#
+  \to  \dot  H^\#[123X  a  bijection,  where  [23XH^\#  =  H  \setminus \{1\}[123X. The weak
+  commutativity group defined by [23X\sigma[123X is[133X
+  
+  
+  [24X[33X[0;6Y\chi(H,\sigma)  =  \langle  H, \dot H \mid [h, h^\sigma] = 1 \ \forall h \in
+  H^\# \rangle[133X
+  
+  [124X
+  
+  [33X[0;0Y[OS09].  When  [23X\sigma[123X  is the isomorphism [23X\psi[123X, it is Sidki's group [23X\chi(H)[123X.
+  The  group  [23X\chi(H,\sigma)[123X  is  the group [23XS(H, \dot H; \sigma, \sigma, 1)[123X of
+  Sidki  [Sid80,  Theorem  3.5  and  Remark 3.3 (iii)], hence it is finite for
+  every finite [23XH[123X. The package computes it exactly, by coset enumeration in the
+  finitely  presented  group, and returns a pc group when it is solvable and a
+  permutation group otherwise.[133X
+  
+  [33X[0;0YOliveira and Sidki [OS09] conjecture that [23X\chi(H,\sigma)[123X is a finite [23Xp[123X-group
+  whenever  [23XH[123X  is a finite [23Xp[123X-group. This is open, so the package does not take
+  the  largest  [23Xp[123X-quotient  for  the  group:  [10XIsPGroup[110X of the result tests the
+  conjecture for the given [23X\sigma[123X.[133X
+  
+  [33X[0;0YA  bijection [23X\sigma[123X is given by a permutation [23Xs[123X of [23X[1 .. |H| - 1][123X: if [23XH^\# =
+  [  h_1,  \ldots,  h_{|H|-1}  ][123X is the list [2XSidkiNonIdentityElements[102X ([14X7.1-1[114X),
+  then  [23X\sigma(h_i)[123X  is  the  copy  of [23Xh_{i^s}[123X. The identity permutation gives
+  [23X\chi(H)[123X.[133X
+  
+  [1X7.1-1 SidkiNonIdentityElements[101X
+  
+  [33X[1;0Y[29X[2XSidkiNonIdentityElements[102X( [3XH[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YThe  list  of  the  non-identity  elements  of  [3XH[103X, in the order of [10XElements[110X.
+  Bijections [23X\sigma[123X are permutations of its positions.[133X
+  
+  [1X7.1-2 SidkiBijectionAsPermutation[101X
+  
+  [33X[1;0Y[29X[2XSidkiBijectionAsPermutation[102X( [3XH[103X, [3Xf[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya permutation[133X
+  
+  [33X[0;0YThe  permutation  of  [23X[1  .. |H|-1][123X that encodes the bijection given by [3Xf[103X, a
+  function   from   [23XH^\#[123X   to   [23XH^\#[123X   or   the   list   of   the   images  of
+  [2XSidkiNonIdentityElements[102X ([14X7.1-1[114X).[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XH := CyclicGroup( 4 );;[127X[104X
+    [4X[25Xgap>[125X [27XLength( SidkiNonIdentityElements( H ) );[127X[104X
+    [4X[28X3[128X[104X
+    [4X[25Xgap>[125X [27XSidkiBijectionAsPermutation( H, x -> x^-1 );   # inversion on H#[127X[104X
+    [4X[28X(1,3)[128X[104X
+  [4X[32X[104X
+  
+  [1X7.1-3 SidkiChiGroupByBijection[101X
+  
+  [33X[1;0Y[29X[2XSidkiChiGroupByBijection[102X( [3XH[103X, [3Xs[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya pc group or a permutation group[133X
+  
+  [33X[0;0YReturns  [23X\chi(H,\sigma)[123X  for a finite group [3XH[103X and the permutation [3Xs[103X encoding
+  [23X\sigma[123X,  computed  exactly.  [10XEmbedding([110X[3XC[103X  [10X,  1)[110X  and [10XEmbedding([110X[3XC[103X[10X, 2)[110X are the
+  embeddings  of  [23XH[123X  and  [23X\dot  H[123X,  and  [2XSidkiD[102X  ([14X3.5-1[114X) is [23X[H, \dot H][123X. Coset
+  enumeration limits this to groups of moderate order.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XH := ElementaryAbelianGroup( 8 );;[127X[104X
+    [4X[25Xgap>[125X [27XSize( SidkiChiGroupByBijection( H, () ) ) = Size( SidkiChiGroup( H ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XC := SidkiChiGroupByBijection( H, (1,2) );;[127X[104X
+    [4X[25Xgap>[125X [27XSize( C );  IsPGroup( C );[127X[104X
+    [4X[28X1024[128X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XSize( SidkiChiGroupByBijection( CyclicGroup( 8 ), (1,5,3) ) );   # cyclic: H x H[127X[104X
+    [4X[28X64[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X7.2 [33X[0;0YReductions (Oliveira and Sidki, 2009)[133X[101X
+  
+  [33X[0;0YFor   [23X\alpha   \in  \mathrm{Aut}(H)[123X  and  [23X\beta  \in  \mathrm{Aut}(\dot  H)[123X,
+  [23X\chi(H,\sigma)  \cong  \chi(H,  \alpha\sigma\beta)[123X;  so  it  suffices to let
+  [23X\sigma[123X    run    over   the   double   cosets   [23X\mathrm{Aut}(H)   \backslash
+  \mathrm{Sym}(H^\#)  /  \mathrm{Aut}(H)[123X.  For an elementary abelian group [23XH =
+  C_p^n   =   \langle  a_1,  \ldots,  a_n  \rangle[123X,  every  class  contains  a
+  [23X\tilde\sigma[123X  with  [23Xa_i^{\tilde\sigma}  =  \dot  a_i[123X;  and, for [23Xp[123X odd, every
+  [23X\chi(H,\sigma)[123X  is  a  quotient  of  some [23X\chi(H,\hat\sigma)[123X with [23X\hat\sigma[123X
+  permuting  the  cyclic  subgroups of [23XH[123X (Sidki). For cyclic [23XH[123X, [23X\chi(H,\sigma)
+  \cong H \times \dot H[123X for every [23X\sigma[123X (Oliveira and Sidki 2009, Proposition
+  5).[133X
+  
+  [1X7.2-1 SidkiBijectionClasses[101X
+  
+  [33X[1;0Y[29X[2XSidkiBijectionClasses[102X( [3XH[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya list of pairs[133X
+  
+  [33X[0;0YRepresentatives    of   the   double   cosets   [23X\mathrm{Aut}(H)   \backslash
+  \mathrm{Sym}(H^\#)  /  \mathrm{Aut}(H)[123X,  as  pairs  [10X[  s,  size  ][110X, with [10Xs[110X a
+  permutation encoding [23X\sigma[123X and [10Xsize[110X the number of bijections in the class.[133X
+  
+  [1X7.2-2 SidkiBasisFixingBijection[101X
+  
+  [33X[1;0Y[29X[2XSidkiBasisFixingBijection[102X( [3XH[103X, [3Xs[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya permutation[133X
+  
+  [33X[0;0YFor  an  elementary  abelian  group  [3XH[103X,  with  basis [23Xa_1, \ldots, a_n[123X the pc
+  generators   of  [3XH[103X,  a  permutation  encoding  a  bijection  [23X\tilde\sigma  =
+  \alpha\sigma\beta[123X  ([23X\alpha,  \beta[123X  automorphisms) with [23Xa_i^{\tilde\sigma} =
+  \dot a_i[123X, so that [23X\chi(H,\tilde\sigma) \cong \chi(H,\sigma)[123X.[133X
+  
+  [1X7.2-3 SidkiCyclicSubgroupGenerators[101X
+  
+  [33X[1;0Y[29X[2XSidkiCyclicSubgroupGenerators[102X( [3XH[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya list[133X
+  
+  [33X[0;0YFor an elementary abelian [23Xp[123X-group [3XH[103X, one generator of each subgroup of order
+  [23Xp[123X,  normalised  so that its first nonzero coordinate (with respect to the pc
+  generators) is [23X1[123X.[133X
+  
+  [1X7.2-4 SidkiSubgroupPermutingBijection[101X
+  
+  [33X[1;0Y[29X[2XSidkiSubgroupPermutingBijection[102X( [3XH[103X, [3Xtau[103X[, [3Xt[103X] ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya permutation[133X
+  
+  [33X[0;0YFor  an  elementary  abelian  [23Xp[123X-group  [3XH[103X  with  cyclic subgroups [23X\langle u_1
+  \rangle,   \ldots,   \langle   u_k   \rangle[123X  ([2XSidkiCyclicSubgroupGenerators[102X
+  ([14X7.2-3[114X)),  a  permutation  [3Xtau[103X  of [23X[1..k][123X and optionally a list [3Xt[103X of nonzero
+  residues  mod  [23Xp[123X  (the  twists,  default  [23X1[123X),  the  permutation encoding the
+  bijection  [23Xu_i^j \mapsto \dot u_{\tau(i)}^{t_i j}[123X, which permutes the cyclic
+  subgroups.[133X
+  
+  [1X7.2-5 SidkiInducedPermutation[101X
+  
+  [33X[1;0Y[29X[2XSidkiInducedPermutation[102X( [3XH[103X, [3Xs[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya permutation or [9Xfail[109X[133X
+  
+  [33X[0;0YIf  the  bijection  encoded by [3Xs[103X maps each cyclic subgroup of the elementary
+  abelian  group  [3XH[103X  onto  a  cyclic subgroup, the induced permutation [23X\tau[123X of
+  [23X[1..k][123X; otherwise [9Xfail[109X.[133X
+  
+  [1X7.2-6 SidkiSubgroupPermutationClasses[101X
+  
+  [33X[1;0Y[29X[2XSidkiSubgroupPermutationClasses[102X( [3XH[103X ) [32X function[133X
+  [6XReturns:[106X  [33X[0;10Ya list of pairs[133X
+  
+  [33X[0;0YFor an elementary abelian group [3XH[103X, representatives [23X\tau[123X of the double cosets
+  of  [23X\mathrm{Aut}(H)[123X,  acting  on  the [23Xk[123X cyclic subgroups, in [23XS_k[123X, as pairs [10X[
+  tau, size ][110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLength( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 9 ) ) );[127X[104X
+    [4X[28X1[128X[104X
+    [4X[25Xgap>[125X [27XLength( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 25 ) ) );[127X[104X
+    [4X[28X2[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XLength( SidkiBijectionClasses( ElementaryAbelianGroup( 8 ) ) );[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27XH := ElementaryAbelianGroup( 9 );;[127X[104X
+    [4X[25Xgap>[125X [27XLength( SidkiCyclicSubgroupGenerators( H ) );[127X[104X
+    [4X[28X4[128X[104X
+    [4X[25Xgap>[125X [27Xs := SidkiSubgroupPermutingBijection( H, (1,2) );;[127X[104X
+    [4X[25Xgap>[125X [27XSidkiInducedPermutation( H, s );[127X[104X
+    [4X[28X(1,2)[128X[104X
+    [4X[25Xgap>[125X [27Xs := SidkiBasisFixingBijection( H, (1,4,7) );;[127X[104X
+    [4X[25Xgap>[125X [27XSize( SidkiChiGroupByBijection( H, s ) ) =[127X[104X
+    [4X[25X>[125X [27X   Size( SidkiChiGroupByBijection( H, (1,4,7) ) );[127X[104X
+    [4X[28Xtrue[128X[104X
+  [4X[32X[104X
+  

@@ -1,1 +1,92 @@
-Placeholder
+  
+  
+                                     [1X SOR [101X
+  
+  
+    [1X Rocco's nu(G), Sidki's chi(G) and related groups via free products with
+                                  embeddings [101X
+  
+  
+                                     0.1.0
+  
+  
+                                25 November 2026
+  
+  
+                           Ricardo Nunes de Oliveira
+  
+  
+  
+  Ricardo Nunes de Oliveira
+      Email:    [7Xmailto:ricardo@ufg.br[107X
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (SOR)[101X
+  
+  1 [33X[0;0YIntroduction[133X
+    1.1 [33X[0;0YInfo class[133X
+      1.1-1 InfoSOR
+  2 [33X[0;0YHow the groups are built[133X
+    2.1 [33X[0;0YFree products with embeddings[133X
+    2.2 [33X[0;0YStrategy by class of groups[133X
+    2.3 [33X[0;0YTime limits[133X
+  3 [33X[0;0YThe weak commutativity group[133X
+    3.1 [33X[0;0YConstruction[133X
+      3.1-1 SidkiChiGroup
+      3.1-2 SidkiPsi
+      3.1-3 SidkiChiGroup
+    3.2 [33X[0;0YPolycyclic groups[133X
+      3.2-1 SidkiChiModRGroup
+    3.3 [33X[0;0YThe quotient chi(G)/W(G) inside G x G x G[133X
+      3.3-1 SidkiChiModWGroup
+    3.4 [33X[0;0YReduced presentations: weak commutativity on products of generators[133X
+      3.4-1 SidkiChiHatGroup
+      3.4-2 SidkiChiHatProjection
+      3.4-3 SidkiChiHatProjection
+    3.5 [33X[0;0YSubgroups of chi(G)[133X
+      3.5-1 SidkiD
+      3.5-2 SidkiL
+      3.5-3 SidkiW
+      3.5-4 SidkiR
+      3.5-5 SidkiL1
+      3.5-6 SidkiL2
+    3.6 [33X[0;0YSubgroups of nu(G)[133X
+      3.6-1 RoccoTheta
+      3.6-2 RoccoUpsilon1
+      3.6-3 RoccoUpsilon2
+      3.6-4 RoccoUpsilon3
+      3.6-5 RoccoDelta
+  4 [33X[0;0YWeak commutativity among n copies[133X
+    4.1 [33X[0;0YThe groups chi n(H) and chi(n,H)[133X
+      4.1-1 SidkiChiNGroup
+      4.1-2 SidkiChiMotherGroup
+    4.2 [33X[0;0YThe hybrid group Q(H)[133X
+      4.2-1 SidkiHybridGroup
+    4.3 [33X[0;0YDiagonal representations from Hamming codes[133X
+      4.3-1 SidkiDiagonalRepresentation
+  5 [33X[0;0YRocco's group nu(G)[133X
+    5.1 [33X[0;0YConstruction[133X
+      5.1-1 RoccoNuGroup
+      5.1-2 RoccoPhi
+      5.1-3 RoccoNuGroup
+  6 [33X[0;0YThe groups nu^q(G) and tau^q(G)[133X
+    6.1 [33X[0;0YA polycyclic presentation of tau^q(G)[133X
+      6.1-1 RoccoTauGroup
+      6.1-2 RoccoExteriorSquareQ
+  7 [33X[0;0YWeak commutativity by bijections[133X
+    7.1 [33X[0;0YConstruction[133X
+      7.1-1 SidkiNonIdentityElements
+      7.1-2 SidkiBijectionAsPermutation
+      7.1-3 SidkiChiGroupByBijection
+    7.2 [33X[0;0YReductions (Oliveira and Sidki, 2009)[133X
+      7.2-1 SidkiBijectionClasses
+      7.2-2 SidkiBasisFixingBijection
+      7.2-3 SidkiCyclicSubgroupGenerators
+      7.2-4 SidkiSubgroupPermutingBijection
+      7.2-5 SidkiInducedPermutation
+      7.2-6 SidkiSubgroupPermutationClasses
+  
+  
+  [32X

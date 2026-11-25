@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (SOR) - Chapter 1: Introduction</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap1"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap1_mj.html">[MathJax on]</a></p>
+<p><a id="X7DFB63A97E67C0A1" name="X7DFB63A97E67C0A1"></a></p>
+<div class="ChapSects"><a href="chap1.html#X7DFB63A97E67C0A1">1 <span class="Heading">Introduction</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap1.html#X7EBFC26F83EB9F72">1.1 <span class="Heading">Info class</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap1.html#X7F8DF472877C9DD7">1.1-1 InfoSOR</a></span>
+</div></div>
+</div>
+
+<h3>1 <span class="Heading">Introduction</span></h3>
+
+<p>The name <strong class="pkg">SOR</strong> stands for Sidki, de Oliveira and Rocco, whose constructions the package computes: Sidki's weak commutativity group <span class="Math">\chi(G)</span> <a href="chapBib.html#biBSidki1980">[Sid80]</a>, Rocco's group <span class="Math">\nu(G)</span> <a href="chapBib.html#biBRocco1991">[Roc91]</a>, and the groups with <span class="Math">n</span> copies <a href="chapBib.html#biBSidkiEtAl2026">[SRd26]</a> and by bijections <a href="chapBib.html#biBOliveiraSidki2009">[OS09]</a> of de Oliveira and his coauthors.</p>
+
+<p>The package rests on these works: Sidki <a href="chapBib.html#biBSidki1980">[Sid80]</a> (the group <span class="Math">\chi(G)</span>, its subgroups and the group <span class="Math">T(G) \le G \times G \times G</span>); Rocco <a href="chapBib.html#biBRocco1982">[Roc82]</a> (<span class="Math">W(G)/R(G) \cong M(G)</span>); Gupta, Rocco and Sidki <a href="chapBib.html#biBGuptaEtAl1986">[GRS86]</a>; Rocco <a href="chapBib.html#biBRocco1991">[Roc91]</a> (the group <span class="Math">\nu(G)</span> and the non-abelian tensor square) and <a href="chapBib.html#biBRocco1994">[Roc94]</a> (a presentation of <span class="Math">\nu(G)</span> for finite solvable groups); Dias and Rocco <a href="chapBib.html#biBDiasRocco2020">[DR20]</a> (a polycyclic presentation for the <span class="Math">q</span>-tensor square of a polycyclic group, and the group <span class="Math">\tau^q(G)</span>); Eick and Nickel <a href="chapBib.html#biBEickNickel2008">[EN08]</a> (the non-abelian tensor square of a polycyclic group, in the <strong class="pkg">Polycyclic</strong> package); Kochloukova and Mendonça <a href="chapBib.html#biBKochloukovaMendonca2021">[KM21]</a>; Oliveira and Sidki <a href="chapBib.html#biBOliveiraSidki2009">[OS09]</a>; Bastos, de Oliveira, Monetta and Rocco <a href="chapBib.html#biBBastosEtAl2022">[BdMR22]</a>; Bastos, de Oliveira and Rocha Ortega <a href="chapBib.html#biBBastosEtAl2026">[BdR26]</a>; and Sidki, Rocco and de Oliveira <a href="chapBib.html#biBSidkiEtAl2026">[SRd26]</a>. The code goes back to the author's doctoral thesis <a href="chapBib.html#biBOliveira2007">[{de }07]</a>, supervised by Sidki.</p>
+
+<p>The <strong class="pkg">SOR</strong> package computes Rocco's group <span class="Math">\nu(G)</span> and the groups <span class="Math">\tau^q(G)</span> of Dias and Rocco, Sidki's weak commutativity group <span class="Math">\chi(G)</span>, the groups <span class="Math">\chi(n,H)</span> and <span class="Math">\chi_n(H)</span> with <span class="Math">n</span> copies, and the hybrid group <span class="Math">Q(H)</span>, together with their subgroups, and the groups <span class="Math">\chi(H,\sigma)</span> of weak commutativity defined by a bijection, with the reductions of Oliveira and Sidki. All of them are quotients of the free product of copies of <span class="Math">G</span>, so the input group may be given in any representation (permutation, pc, pcp, matrix or finitely presented) and the embeddings of the copies of <span class="Math">G</span> are kept.</p>
+
+<p>The key point of the package is that these embeddings are kept (see Chapter <a href="chap2.html#X7E42564C7A01989C"><span class="RefLink">2</span></a>): the subgroups <span class="Math">D</span>, <span class="Math">L</span>, <span class="Math">W</span>, <span class="Math">R</span> of <span class="Math">\chi(G)</span> and their analogues in the other groups become direct computations, and the input group may be given in any representation.</p>
+
+<p>This is a preliminary version. Planned for later versions: a polycyclic presentation of <span class="Math">\nu^q(G)</span> itself, and <span class="Math">\nu(G)</span> for non-solvable groups.</p>
+
+<p>The package is a compilation of the <strong class="pkg">GAP</strong> code that the author has been writing since his doctoral studies under the supervision of Said N. Sidki (Universidade de Brasília, 2007), and that he has used in his research papers. The original functions are kept in the folder <code class="file">original</code> of the package, unchanged except for a first line giving their date; they are not loaded.</p>
+
+<p><a id="X7EBFC26F83EB9F72" name="X7EBFC26F83EB9F72"></a></p>
+
+<h4>1.1 <span class="Heading">Info class</span></h4>
+
+<p><a id="X7F8DF472877C9DD7" name="X7F8DF472877C9DD7"></a></p>
+
+<h5>1.1-1 InfoSOR</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoSOR</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
+<p>Info class of the package.</p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap0.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap2.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

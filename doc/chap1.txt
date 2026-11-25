@@ -1,0 +1,54 @@
+  
+  [1X1 [33X[0;0YIntroduction[133X[101X
+  
+  [33X[0;0YThe  name  [5XSOR[105X  stands for Sidki, de Oliveira and Rocco, whose constructions
+  the  package  computes:  Sidki's  weak  commutativity group [23X\chi(G)[123X [Sid80],
+  Rocco's  group  [23X\nu(G)[123X  [Roc91], and the groups with [23Xn[123X copies [SRd26] and by
+  bijections [OS09] of de Oliveira and his coauthors.[133X
+  
+  [33X[0;0YThe  package  rests  on  these  works: Sidki [Sid80] (the group [23X\chi(G)[123X, its
+  subgroups  and  the  group  [23XT(G)  \le  G  \times  G \times G[123X); Rocco [Roc82]
+  ([23XW(G)/R(G)  \cong  M(G)[123X); Gupta, Rocco and Sidki [GRS86]; Rocco [Roc91] (the
+  group  [23X\nu(G)[123X and the non-abelian tensor square) and [Roc94] (a presentation
+  of  [23X\nu(G)[123X  for finite solvable groups); Dias and Rocco [DR20] (a polycyclic
+  presentation  for  the  [23Xq[123X-tensor square of a polycyclic group, and the group
+  [23X\tau^q(G)[123X);  Eick  and  Nickel  [EN08]  (the  non-abelian tensor square of a
+  polycyclic  group,  in  the  [5XPolycyclic[105X  package);  Kochloukova and Mendonça
+  [KM21];  Oliveira  and  Sidki [OS09]; Bastos, de Oliveira, Monetta and Rocco
+  [BdMR22]; Bastos, de Oliveira and Rocha Ortega [BdR26]; and Sidki, Rocco and
+  de Oliveira [SRd26]. The code goes back to the author's doctoral thesis [{de
+  }07], supervised by Sidki.[133X
+  
+  [33X[0;0YThe  [5XSOR[105X  package  computes Rocco's group [23X\nu(G)[123X and the groups [23X\tau^q(G)[123X of
+  Dias  and  Rocco,  Sidki's  weak  commutativity  group  [23X\chi(G)[123X,  the groups
+  [23X\chi(n,H)[123X  and  [23X\chi_n(H)[123X with [23Xn[123X copies, and the hybrid group [23XQ(H)[123X, together
+  with  their  subgroups,  and the groups [23X\chi(H,\sigma)[123X of weak commutativity
+  defined  by  a  bijection, with the reductions of Oliveira and Sidki. All of
+  them  are  quotients  of the free product of copies of [23XG[123X, so the input group
+  may be given in any representation (permutation, pc, pcp, matrix or finitely
+  presented) and the embeddings of the copies of [23XG[123X are kept.[133X
+  
+  [33X[0;0YThe  key point of the package is that these embeddings are kept (see Chapter
+  [14X2[114X):  the  subgroups  [23XD[123X,  [23XL[123X, [23XW[123X, [23XR[123X of [23X\chi(G)[123X and their analogues in the other
+  groups  become  direct computations, and the input group may be given in any
+  representation.[133X
+  
+  [33X[0;0YThis  is  a  preliminary  version.  Planned for later versions: a polycyclic
+  presentation of [23X\nu^q(G)[123X itself, and [23X\nu(G)[123X for non-solvable groups.[133X
+  
+  [33X[0;0YThe  package  is  a  compilation  of  the  [5XGAP[105X code that the author has been
+  writing  since  his  doctoral studies under the supervision of Said N. Sidki
+  (Universidade  de  Brasília,  2007),  and  that  he has used in his research
+  papers.  The  original  functions  are  kept  in  the folder [11Xoriginal[111X of the
+  package,  unchanged  except for a first line giving their date; they are not
+  loaded.[133X
+  
+  
+  [1X1.1 [33X[0;0YInfo class[133X[101X
+  
+  [1X1.1-1 InfoSOR[101X
+  
+  [33X[1;0Y[29X[2XInfoSOR[102X [32X info class[133X
+  
+  [33X[0;0YInfo class of the package.[133X
+  

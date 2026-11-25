@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<title>GAP (SOR) - Chapter 6: The groups nu^q(G) and tau^q(G)</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap6"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap5_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap7_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap6.html">[MathJax off]</a></p>
+<p><a id="X791AA54680F9D7A0" name="X791AA54680F9D7A0"></a></p>
+<div class="ChapSects"><a href="chap6_mj.html#X791AA54680F9D7A0">6 <span class="Heading">The groups nu^q(G) and tau^q(G)</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6_mj.html#X8522E5B97B3295A3">6.1 <span class="Heading">A polycyclic presentation of tau^q(G)</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X819D675281A29139">6.1-1 RoccoTauGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6_mj.html#X8358C7E37812FD0A">6.1-2 RoccoExteriorSquareQ</a></span>
+</div></div>
+</div>
+
+<h3>6 <span class="Heading">The groups nu^q(G) and tau^q(G)</span></h3>
+
+<p><a id="X8522E5B97B3295A3" name="X8522E5B97B3295A3"></a></p>
+
+<h4>6.1 <span class="Heading">A polycyclic presentation of tau^q(G)</span></h4>
+
+<p>For a non-negative integer <span class="SimpleMath">\(q\)</span>, the group <span class="SimpleMath">\(\nu^q(G)\)</span> contains a normal subgroup <span class="SimpleMath">\(\Delta^q(G)\)</span> such that <span class="SimpleMath">\(\tau^q(G) = \nu^q(G)/\Delta^q(G) \cong (G \wedge^q G) \rtimes (G \times G)\)</span>. For <span class="SimpleMath">\(q = 0\)</span>, <span class="SimpleMath">\(\tau^0(G) = \nu(G)/\Delta(G) \cong \chi(G)/R(G)\)</span>.</p>
+
+<p>Dias and Rocco <a href="chapBib_mj.html#biBDiasRocco2020">[DR20]</a> give a consistent polycyclic presentation of <span class="SimpleMath">\(\tau^q(G)\)</span> for a polycyclic group <span class="SimpleMath">\(G\)</span>, from a consistent polycyclic presentation <span class="SimpleMath">\(g_1, \ldots, g_n\)</span> of <span class="SimpleMath">\(G\)</span> and one of <span class="SimpleMath">\(G \wedge^q G\)</span>, the latter obtained from the <span class="SimpleMath">\(q\)</span>-central extension <span class="SimpleMath">\(E_q(G) = F/R^q[R,F]\)</span> as <span class="SimpleMath">\(E_q(G)' E_q(G)^q\)</span>. This package builds that presentation, starting from the Schur extension computed by the <strong class="pkg">Polycyclic</strong> package.</p>
+
+<p>The extension to a polycyclic presentation of <span class="SimpleMath">\(\nu^q(G)\)</span> itself, and hence of the <span class="SimpleMath">\(q\)</span>-tensor square <span class="SimpleMath">\(G \otimes^q G\)</span>, as the <span class="SimpleMath">\(q\)</span>-central extension <span class="SimpleMath">\(\nu^q(G) = E_q(\tau^q(G))\)</span> <a href="chapBib_mj.html#biBDiasRocco2020">[DR20, Section 7]</a>, is in preparation.</p>
+
+<p><a id="X819D675281A29139" name="X819D675281A29139"></a></p>
+
+<h5>6.1-1 RoccoTauGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RoccoTauGroup</code>( <var class="Arg">G</var>, <var class="Arg">q</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a pcp group</p>
+
+<p>Returns <span class="SimpleMath">\(\tau^q(G) = \nu^q(G)/\Delta^q(G)\)</span> for a polycyclic group <var class="Arg">G</var> (a finite solvable group in any representation, or a pcp group) and a non-negative integer <var class="Arg">q</var>, as a pcp group given by the presentation of Dias and Rocco. <code class="code">Embedding(</code><var class="Arg">T</var><code class="code">, 1)</code> and <code class="code">Embedding(</code><var class="Arg">T</var><code class="code">, 2)</code> are the embeddings of <span class="SimpleMath">\(G\)</span> and <span class="SimpleMath">\(G^\varphi\)</span>, and <code class="func">RoccoExteriorSquareQ</code> (<a href="chap6_mj.html#X8358C7E37812FD0A"><span class="RefLink">6.1-2</span></a>) is the normal subgroup isomorphic to <span class="SimpleMath">\(G \wedge^q G\)</span>.</p>
+
+<p><a id="X8358C7E37812FD0A" name="X8358C7E37812FD0A"></a></p>
+
+<h5>6.1-2 RoccoExteriorSquareQ</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RoccoExteriorSquareQ</code>( <var class="Arg">T</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>For <var class="Arg">T</var> <span class="SimpleMath">\(= \tau^q(G)\)</span> returned by <code class="func">RoccoTauGroup</code> (<a href="chap6_mj.html#X819D675281A29139"><span class="RefLink">6.1-1</span></a>), the subgroup <span class="SimpleMath">\(W \cong G \wedge^q G\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup( 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( RoccoTauGroup( G, 0 ) );   # = |chi(S_3)| / |R(S_3)|</span>
+108
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( [ 0, 2, 3 ], q -&gt; Size( RoccoExteriorSquareQ( RoccoTauGroup( G, q ) ) ) );</span>
+[ 3, 6, 6 ]
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap5_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap7_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

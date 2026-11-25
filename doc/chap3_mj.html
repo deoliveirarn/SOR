@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<title>GAP (SOR) - Chapter 3: The weak commutativity group</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap3"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap3.html">[MathJax off]</a></p>
+<p><a id="X879E8B7B83874914" name="X879E8B7B83874914"></a></p>
+<div class="ChapSects"><a href="chap3_mj.html#X879E8B7B83874914">3 <span class="Heading">The weak commutativity group</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X7F6278CD87400D49">3.1 <span class="Heading">Construction</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X848288F982EA3E90">3.1-1 SidkiChiGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B7ECAD5846C2D1E">3.1-2 SidkiPsi</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X79364B3B84312C74">3.1-3 SidkiChiGroup</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X86007B0083F60470">3.2 <span class="Heading">Polycyclic groups</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E9761EF7FFD4369">3.2-1 SidkiChiModRGroup</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X8123251A8334539C">3.3 <span class="Heading">The quotient chi(G)/W(G) inside G x G x G</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X80D8C7F186777418">3.3-1 SidkiChiModWGroup</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X784EA97187ACD0DD">3.4 <span class="Heading">Reduced presentations: weak commutativity on products of generators</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7833D2187F4B13BC">3.4-1 SidkiChiHatGroup</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7819D1097864F4FE">3.4-2 SidkiChiHatProjection</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X86BF97FD795EEAED">3.4-3 SidkiChiHatProjection</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X8166E836864B807A">3.5 <span class="Heading">Subgroups of chi(G)</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C9F4BAC8164FBD3">3.5-1 SidkiD</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X793F769A7FA1C3F5">3.5-2 SidkiL</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7C03970D7930DCD0">3.5-3 SidkiW</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7DD16C3C7C3C05CB">3.5-4 SidkiR</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7B00976F7CDBC733">3.5-5 SidkiL1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X80DC31A37FC5469A">3.5-6 SidkiL2</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap3_mj.html#X82DDBEF37C1A6F37">3.6 <span class="Heading">Subgroups of nu(G)</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E8E119C7E095EB9">3.6-1 RoccoTheta</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X7E8690047C0B4C00">3.6-2 RoccoUpsilon1</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X855A36C887D7EACC">3.6-3 RoccoUpsilon2</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X78835B507A0E8754">3.6-4 RoccoUpsilon3</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap3_mj.html#X78088D5879DDB93E">3.6-5 RoccoDelta</a></span>
+</div></div>
+</div>
+
+<h3>3 <span class="Heading">The weak commutativity group</span></h3>
+
+<p><a id="X7F6278CD87400D49" name="X7F6278CD87400D49"></a></p>
+
+<h4>3.1 <span class="Heading">Construction</span></h4>
+
+<p>Let <span class="SimpleMath">\(G\)</span> be a group and <span class="SimpleMath">\(G^\psi\)</span> an isomorphic copy of <span class="SimpleMath">\(G\)</span>, with <span class="SimpleMath">\(\psi : G \to G^\psi\)</span> an isomorphism. Sidki's weak commutativity group is</p>
+
+<p class="center">\[\chi(G) = \langle G, G^\psi \mid [g, g^\psi] = 1 \ \forall g \in G \rangle.\]</p>
+
+<p>Here it is computed as the quotient of the free product <span class="SimpleMath">\(G * G\)</span> by these relations, keeping the two embeddings of <span class="SimpleMath">\(G\)</span>.</p>
+
+<p><a id="X848288F982EA3E90" name="X848288F982EA3E90"></a></p>
+
+<h5>3.1-1 SidkiChiGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiGroup</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: a group</p>
+
+<p>Returns <span class="SimpleMath">\(\chi(G)\)</span> for a group <var class="Arg">G</var> given in any representation (permutation, pc, pcp, matrix or finitely presented) that is finite solvable, finite perfect, finite or polycyclic generated by two elements with trivial Schur multiplier, or infinite polycyclic generated by two elements; the method for each case is in the section <q>Strategy by class of groups</q>. The result is a pc group, a pcp group or a subgroup of a direct product. <code class="code">Embedding(</code><var class="Arg">C</var><code class="code">, 1)</code> and <code class="code">Embedding(</code><var class="Arg">C</var><code class="code">, 2)</code> are the embeddings of <span class="SimpleMath">\(G\)</span> and of <span class="SimpleMath">\(G^\psi\)</span> into it, and <code class="func">SidkiPsi</code> (<a href="chap3_mj.html#X7B7ECAD5846C2D1E"><span class="RefLink">3.1-2</span></a>) is <span class="SimpleMath">\(\psi\)</span>. For any other finite group, the form with two arguments (<code class="func">SidkiChiGroup</code> (<a href="chap3_mj.html#X79364B3B84312C74"><span class="RefLink">3.1-3</span></a>)) returns <span class="SimpleMath">\(\chi(G)\)</span> as a finitely presented group.</p>
+
+<p><a id="X7B7ECAD5846C2D1E" name="X7B7ECAD5846C2D1E"></a></p>
+
+<h5>3.1-2 SidkiPsi</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiPsi</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: an isomorphism of groups</p>
+
+<p>For a group <var class="Arg">C</var> returned by <code class="func">SidkiChiGroup</code> (<a href="chap3_mj.html#X848288F982EA3E90"><span class="RefLink">3.1-1</span></a>), the isomorphism <span class="SimpleMath">\(\psi\)</span> from the first copy of <span class="SimpleMath">\(G\)</span> in <var class="Arg">C</var> to the second.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SmallGroup( 8, 4 );;  C := SidkiChiGroup( G );;  psi := SidkiPsi( C );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll( GeneratorsOfGroup( G ), g -&gt;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">     Image( psi, Image( Embedding( C, 1 ), g ) ) = Image( Embedding( C, 2 ), g ) );</span>
+true
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SmallGroup( 8, 4 );;   # the quaternion group</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( G );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( C );</span>
+128
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Image( Embedding( C, 1 ) );;  Hpsi := Image( Embedding( C, 2 ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( H ) = 8 and Size( Hpsi ) = 8;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll( G, g -&gt; IsOne( Comm( g^Embedding( C, 1 ), g^Embedding( C, 2 ) ) ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Image( IsomorphismPermGroup( G ) );;   # same group, other representation</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroup( P ) );</span>
+128
+</pre></div>
+
+<p><a id="X79364B3B84312C74" name="X79364B3B84312C74"></a></p>
+
+<h5>3.1-3 SidkiChiGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiGroup</code>( <var class="Arg">G</var>, <var class="Arg">method</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a group</p>
+
+<p>With a second argument <var class="Arg">method</var>, a string, the user chooses how <span class="SimpleMath">\(\chi(G)\)</span> is computed; except for <code class="code">"auto"</code>, the result does not become the value of <code class="code">SidkiChiGroup(</code><var class="Arg">G</var><code class="code">)</code>:</p>
+
+
+<dl>
+<dt><strong class="Mark"><code class="code">"auto"</code></strong></dt>
+<dd><p>the choice of the form with one argument;</p>
+
+</dd>
+<dt><strong class="Mark"><code class="code">"fp"</code></strong></dt>
+<dd><p>the finitely presented group <span class="SimpleMath">\((G * G^\psi)/\langle\langle [g, g^\psi] : g \in G \rangle\rangle\)</span> itself, for any finite <var class="Arg">G</var>, also when no other method applies; what to compute in it is left to the user (for instance <code class="code">AbelianInvariants</code>, <code class="code">EpimorphismPGroup</code> with a bound on the class, or <code class="code">Size</code> by coset enumeration);</p>
+
+</dd>
+<dt><strong class="Mark"><code class="code">"T"</code></strong></dt>
+<dd><p><span class="SimpleMath">\(T(G) \le G \times G \times G\)</span>, for <var class="Arg">G</var> finite or polycyclic, generated by two elements, with trivial Schur multiplier, not given as a finitely presented group;</p>
+
+</dd>
+<dt><strong class="Mark"><code class="code">"perfect"</code></strong></dt>
+<dd><p><span class="SimpleMath">\(T(\tilde G)\)</span>, for <var class="Arg">G</var> finite and perfect, not given as a finitely presented group;</p>
+
+</dd>
+<dt><strong class="Mark"><code class="code">"tau"</code></strong></dt>
+<dd><p><span class="SimpleMath">\(\tau(G)\)</span>, for <var class="Arg">G</var> polycyclic (finite solvable or a pcp group) generated by two elements;</p>
+
+</dd>
+<dt><strong class="Mark"><code class="code">"pquotient"</code></strong></dt>
+<dd><p>the largest <span class="SimpleMath">\(p\)</span>-quotient of the finitely presented group, for <var class="Arg">G</var> a finite <span class="SimpleMath">\(p\)</span>-group;</p>
+
+</dd>
+<dt><strong class="Mark"><code class="code">"solvable"</code></strong></dt>
+<dd><p>its largest solvable quotient whose order involves only the primes dividing <span class="SimpleMath">\(|G|\)</span>, for <var class="Arg">G</var> finite and solvable.</p>
+
+</dd>
+</dl>
+<p>The section <q>Strategy by class of groups</q> gives the theorem behind each method. Each method checks the hypothesis of its theorem and stops with an error if it fails, so the result is always <span class="SimpleMath">\(\chi(G)\)</span>, never a proper quotient. <code class="code">Embedding</code> and <code class="func">SidkiPsi</code> (<a href="chap3_mj.html#X7B7ECAD5846C2D1E"><span class="RefLink">3.1-2</span></a>) work for every result.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup( 5 );;   # no method computes chi(G) yet</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Q := SidkiChiGroup( G, "fp" );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AbelianInvariants( Q );      # chi(G)^ab = G^ab x G^ab</span>
+[ 2, 2 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroup( SymmetricGroup( 3 ), "fp" ) );   # coset enumeration</span>
+108
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroup( SmallGroup( 8, 3 ), "tau" ) );   # R(G) = 1 here</span>
+256
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SidkiChiGroup( AlternatingGroup( 4 ), "T" );   # M(A_4) = C_2: refused</span>
+Error, SidkiChiGroup: "T" needs trivial Schur multiplier M(G)
+</pre></div>
+
+<p><a id="X86007B0083F60470" name="X86007B0083F60470"></a></p>
+
+<h4>3.2 <span class="Heading">Polycyclic groups</span></h4>
+
+<p>For a polycyclic group <span class="SimpleMath">\(G\)</span>, the group <span class="SimpleMath">\(\tau(G) = \nu(G)/\Delta(G)\)</span> of Dias and Rocco <a href="chapBib_mj.html#biBDiasRocco2020">[DR20]</a> (see <code class="func">RoccoTauGroup</code> (<a href="chap6_mj.html#X819D675281A29139"><span class="RefLink">6.1-1</span></a>) with <span class="SimpleMath">\(q = 0\)</span>) is isomorphic to <span class="SimpleMath">\(\chi(G)/R(G)\)</span>, the copies <span class="SimpleMath">\(G\)</span> and <span class="SimpleMath">\(G^\varphi\)</span> going to <span class="SimpleMath">\(G\)</span> and <span class="SimpleMath">\(G^\psi\)</span>. If <span class="SimpleMath">\(G\)</span> is generated by two elements then <span class="SimpleMath">\(R(G) = 1\)</span> <a href="chapBib_mj.html#biBKochloukovaMendonca2021">[KM21, Lemma 9.3]</a>, so <span class="SimpleMath">\(\tau(G)\)</span> is a consistent polycyclic presentation of <span class="SimpleMath">\(\chi(G)\)</span> itself, also for infinite <span class="SimpleMath">\(G\)</span>.</p>
+
+<p><a id="X7E9761EF7FFD4369" name="X7E9761EF7FFD4369"></a></p>
+
+<h5>3.2-1 SidkiChiModRGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiModRGroup</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: a pcp group</p>
+
+<p>Returns <span class="SimpleMath">\(\chi(G)/R(G)\)</span> for a polycyclic group <var class="Arg">G</var> (finite solvable in any representation, or a pcp group), as the pcp group <span class="SimpleMath">\(\tau(G)\)</span>, with <code class="code">Embedding</code> and the subgroups of <code class="func">SidkiD</code> (<a href="chap3_mj.html#X7C9F4BAC8164FBD3"><span class="RefLink">3.5-1</span></a>) and the following ones available. For a pcp group with at most two generators, <code class="func">SidkiChiGroup</code> (<a href="chap3_mj.html#X848288F982EA3E90"><span class="RefLink">3.1-1</span></a>) uses this.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( DihedralPcpGroup( 0 ) );;   # infinite dihedral group</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFinite( C );</span>
+false
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiD( C ) ) = infinity and IsTrivial( SidkiR( C ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiModRGroup( SmallGroup( 32, 34 ) ) ) =</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">   Size( SidkiChiGroup( SmallGroup( 32, 34 ) ) ) / 4;   # |R| = 4 here</span>
+true
+</pre></div>
+
+<p><a id="X8123251A8334539C" name="X8123251A8334539C"></a></p>
+
+<h4>3.3 <span class="Heading">The quotient chi(G)/W(G) inside G x G x G</span></h4>
+
+<p>Sidki <a href="chapBib_mj.html#biBSidki1980">[Sid80]</a>: the homomorphism <span class="SimpleMath">\(\rho : \chi(G) \to G \times G \times G\)</span>, <span class="SimpleMath">\(g \mapsto (g, g, 1)\)</span>, <span class="SimpleMath">\(g^\psi \mapsto (1, g, g)\)</span>, has kernel <span class="SimpleMath">\(W(G)\)</span>; its image is denoted <span class="SimpleMath">\(T(G)\)</span>. Rocco <a href="chapBib_mj.html#biBRocco1982">[Roc82]</a>: <span class="SimpleMath">\(W(G)/R(G) \cong M(G)\)</span>, the Schur multiplier. Hence <span class="SimpleMath">\(\chi(G) \cong T(G)\)</span> when <span class="SimpleMath">\(R(G) = 1\)</span> and <span class="SimpleMath">\(M(G) = 1\)</span>, in particular when <span class="SimpleMath">\(G\)</span> is generated by two elements and <span class="SimpleMath">\(M(G) = 1\)</span>; this holds for groups of any kind, solvable or not.</p>
+
+<p><a id="X80D8C7F186777418" name="X80D8C7F186777418"></a></p>
+
+<h5>3.3-1 SidkiChiModWGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiModWGroup</code>( <var class="Arg">G</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: a group</p>
+
+<p>Returns <span class="SimpleMath">\(T(G) \cong \chi(G)/W(G)\)</span>, the subgroup of <span class="SimpleMath">\(G \times G \times G\)</span> generated by <span class="SimpleMath">\((g, g, 1)\)</span> and <span class="SimpleMath">\((1, g, g)\)</span>, <span class="SimpleMath">\(g \in G\)</span>, with the embeddings <span class="SimpleMath">\(g \mapsto (g, g, 1)\)</span> and <span class="SimpleMath">\(g \mapsto (1, g, g)\)</span>. For any group <var class="Arg">G</var>. <code class="func">SidkiChiGroup</code> (<a href="chap3_mj.html#X848288F982EA3E90"><span class="RefLink">3.1-1</span></a>) uses it when <var class="Arg">G</var> is generated by two elements and has trivial Schur multiplier.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := AlternatingGroup( 4 );;   # M(G) = C_2, so W(G) &lt;&gt; 1</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( G );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiModWGroup( G ) ) = Size( C ) / Size( SidkiW( C ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiW( C ) );</span>
+2
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := PSL( 2, 8 );;   # not solvable; 2-generated, M(G) = 1</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( G );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( C ) = Size( G )^3;</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ForAll( GeneratorsOfGroup( G ), g -&gt;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">     IsOne( Comm( g^Embedding( C, 1 ), g^Embedding( C, 2 ) ) ) );</span>
+true
+</pre></div>
+
+<p><a id="X784EA97187ACD0DD" name="X784EA97187ACD0DD"></a></p>
+
+<h4>3.4 <span class="Heading">Reduced presentations: weak commutativity on products of generators</span></h4>
+
+<p>Let <span class="SimpleMath">\(S\)</span> be a generating set of <span class="SimpleMath">\(G\)</span> and <span class="SimpleMath">\(m \geq 1\)</span>. Oliveira and Sidki <a href="chapBib_mj.html#biBOliveiraSidki2009">[OS09, Section 4]</a> define</p>
+
+<p class="center">\[\chi(G, S; m) = \langle G, G^\psi \mid [a, a^\psi] = 1
+   \ \forall a \in S \cup S^2 \cup \cdots \cup S^m \rangle,\]</p>
+
+<p>where <span class="SimpleMath">\(S^i\)</span> is the set of products of <span class="SimpleMath">\(i\)</span> elements of <span class="SimpleMath">\(S\)</span>. There are two copies of <span class="SimpleMath">\(G\)</span>, as in <span class="SimpleMath">\(\chi(G)\)</span>, and <span class="SimpleMath">\(m\)</span> bounds the length of the products; this is not the group <span class="SimpleMath">\(\chi_n(H)\)</span> with <span class="SimpleMath">\(n\)</span> copies of <code class="func">SidkiChiMotherGroup</code> (<a href="chap4_mj.html#X7A05B8E978297BFA"><span class="RefLink">4.1-2</span></a>). The group <span class="SimpleMath">\(\chi(G)\)</span> is a quotient of <span class="SimpleMath">\(\chi(G, S; m)\)</span>, and equal to it when <span class="SimpleMath">\(m\)</span> is large.</p>
+
+<p>The group <span class="SimpleMath">\(\chi(G, S; m)\)</span> may be infinite for finite <span class="SimpleMath">\(G\)</span>: for <span class="SimpleMath">\(G = C_2 \times C_2\)</span> and <span class="SimpleMath">\(S = \{a_1, a_2\}\)</span>, <span class="SimpleMath">\(\chi(G, S; 1)\)</span> contains a free abelian group of rank <span class="SimpleMath">\(2\)</span>; and for <span class="SimpleMath">\(G = C_2^3\)</span> the kernel of <span class="SimpleMath">\(\chi(G, S; 2) \to \chi(G)\)</span> is free abelian (Theorem 8). On the other hand, <span class="SimpleMath">\(\chi(G, S; 2) = \chi(G)\)</span> when <span class="SimpleMath">\(G\)</span> is abelian and generated by two elements (Corollary 1), and when <span class="SimpleMath">\(G\)</span> is finite abelian of odd order (Corollary 2). So the package returns the finitely presented group, with the embeddings of the two copies and the projection onto <span class="SimpleMath">\(\chi(G)\)</span>, also finitely presented; quotients can be computed from it, for instance by <code class="code">EpimorphismPGroup</code> with a bound on the class.</p>
+
+<p><a id="X7833D2187F4B13BC" name="X7833D2187F4B13BC"></a></p>
+
+<h5>3.4-1 SidkiChiHatGroup</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiHatGroup</code>( <var class="Arg">G</var>, <var class="Arg">m</var>[, <var class="Arg">S</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a finitely presented group</p>
+
+<p>Returns the finitely presented group <span class="SimpleMath">\(\chi(G, S; m)\)</span>, where <var class="Arg">S</var> is a generating set of the finite group <var class="Arg">G</var> (by default <code class="code">GeneratorsOfGroup(</code><var class="Arg">G</var><code class="code">)</code>) and <var class="Arg">m</var> a positive integer. <code class="code">Embedding(</code><var class="Arg">C</var><code class="code">, 1)</code> and <code class="code">Embedding(</code><var class="Arg">C</var><code class="code">, 2)</code> are the embeddings of <span class="SimpleMath">\(G\)</span> and <span class="SimpleMath">\(G^\psi\)</span>, and <code class="func">SidkiChiHatProjection</code> (<a href="chap3_mj.html#X7819D1097864F4FE"><span class="RefLink">3.4-2</span></a>) is the projection onto <span class="SimpleMath">\(\chi(G)\)</span>.</p>
+
+<p><a id="X7819D1097864F4FE" name="X7819D1097864F4FE"></a></p>
+
+<h5>3.4-2 SidkiChiHatProjection</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiHatProjection</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>Returns: a homomorphism</p>
+
+<p>For <var class="Arg">C</var> <span class="SimpleMath">\(= \chi(G, S; m)\)</span> returned by <code class="func">SidkiChiHatGroup</code> (<a href="chap3_mj.html#X7833D2187F4B13BC"><span class="RefLink">3.4-1</span></a>), the natural epimorphism onto <span class="SimpleMath">\(\chi(G)\)</span> as a finitely presented group (<code class="func">SidkiChiGroup</code> (<a href="chap3_mj.html#X79364B3B84312C74"><span class="RefLink">3.1-3</span></a>) with <code class="code">"fp"</code>), which maps each copy of <span class="SimpleMath">\(G\)</span> to the corresponding copy: <span class="SimpleMath">\(\chi(G)\)</span> has the same generators and more relations, so the projection exists for every finite <span class="SimpleMath">\(G\)</span>. Its kernel is trivial exactly when <span class="SimpleMath">\(\chi(G, S; m) = \chi(G)\)</span>. Composed with <code class="code">Embedding(</code><var class="Arg">C</var><code class="code">, </code><var class="Arg">i</var><code class="code">)</code> it gives the embedding of the <span class="SimpleMath">\(i\)</span>-th copy of <span class="SimpleMath">\(G\)</span> into <span class="SimpleMath">\(\chi(G)\)</span>; since that one is injective, so are the embeddings of <span class="SimpleMath">\(G\)</span> into <span class="SimpleMath">\(\chi(G, S; m)\)</span>, also when this group is infinite. In the finitely presented <span class="SimpleMath">\(\chi(G)\)</span>, <code class="code">Kernel</code> and <code class="code">Size</code> go through coset enumeration; when <span class="SimpleMath">\(G\)</span> is in one of the classes of <q>Strategy by class of groups</q>, the projection with <code class="code">"auto"</code> below is much faster.</p>
+
+<p><a id="X86BF97FD795EEAED" name="X86BF97FD795EEAED"></a></p>
+
+<h5>3.4-3 SidkiChiHatProjection</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiHatProjection</code>( <var class="Arg">C</var>, <var class="Arg">method</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a homomorphism</p>
+
+<p>The same projection, onto <span class="SimpleMath">\(\chi(G)\)</span> computed by <code class="code">SidkiChiGroup(</code><var class="Arg">G</var><code class="code">, </code><var class="Arg">method</var><code class="code">)</code>; for instance <code class="code">"auto"</code> gives a group in which one can compute (a pc group, a pcp group or a subgroup of a direct product), when <span class="SimpleMath">\(G\)</span> is in one of the classes of <q>Strategy by class of groups</q>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetInfoLevel( InfoSOR, 0 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := ElementaryAbelianGroup( 4 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiHatGroup( A, 1 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">K := Kernel( SidkiChiHatProjection( C ) );;   # finite index in C</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">AbelianInvariants( K );    # infinite: Z x Z</span>
+[ 0, 0 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsPcGroup( Range( SidkiChiHatProjection( C, "auto" ) ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiHatGroup( A, 2 ) ) = Size( SidkiChiGroup( A ) );   # Corollary 1</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">A := ElementaryAbelianGroup( 27 );;   # odd order: Corollary 2</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">P := Image( EpimorphismPGroup( SidkiChiHatGroup( A, 2 ), 3 ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( P ) = Size( SidkiChiGroup( A ) );</span>
+true
+</pre></div>
+
+<p><a id="X8166E836864B807A" name="X8166E836864B807A"></a></p>
+
+<h4>3.5 <span class="Heading">Subgroups of chi(G)</span></h4>
+
+<p>For <span class="SimpleMath">\(C = \chi(G)\)</span>, with the copies <span class="SimpleMath">\(G\)</span> and <span class="SimpleMath">\(G^\psi\)</span> given by the embeddings:</p>
+
+
+<ul>
+<li><p><span class="SimpleMath">\(L(G) = \langle g^{-1} g^\psi \mid g \in G \rangle\)</span>, the kernel of <span class="SimpleMath">\(\chi(G) \to G\)</span>, <span class="SimpleMath">\(g, g^\psi \mapsto g\)</span>;</p>
+
+</li>
+<li><p><span class="SimpleMath">\(D(G) = [G, G^\psi]\)</span>, the kernel of <span class="SimpleMath">\(\chi(G) \to G \times G\)</span>;</p>
+
+</li>
+<li><p><span class="SimpleMath">\(W(G) = L(G) \cap D(G)\)</span>;</p>
+
+</li>
+<li><p><span class="SimpleMath">\(R(G) = [G, L(G), G^\psi]\)</span>.</p>
+
+</li>
+</ul>
+<p><a id="X7C9F4BAC8164FBD3" name="X7C9F4BAC8164FBD3"></a></p>
+
+<h5>3.5-1 SidkiD</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiD</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroup <span class="SimpleMath">\(D(G) = [G, G^\psi]\)</span> of <var class="Arg">C</var> <span class="SimpleMath">\(= \chi(G)\)</span>.</p>
+
+<p><a id="X793F769A7FA1C3F5" name="X793F769A7FA1C3F5"></a></p>
+
+<h5>3.5-2 SidkiL</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiL</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroup <span class="SimpleMath">\(L(G) = \langle g^{-1} g^\psi \mid g \in G \rangle\)</span> of <var class="Arg">C</var> <span class="SimpleMath">\(= \chi(G)\)</span>.</p>
+
+<p><a id="X7C03970D7930DCD0" name="X7C03970D7930DCD0"></a></p>
+
+<h5>3.5-3 SidkiW</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiW</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroup <span class="SimpleMath">\(W(G) = L(G) \cap D(G)\)</span> of <var class="Arg">C</var> <span class="SimpleMath">\(= \chi(G)\)</span>.</p>
+
+<p><a id="X7DD16C3C7C3C05CB" name="X7DD16C3C7C3C05CB"></a></p>
+
+<h5>3.5-4 SidkiR</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiR</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroup <span class="SimpleMath">\(R(G) = [G, L(G), G^\psi]\)</span> of <var class="Arg">C</var> <span class="SimpleMath">\(= \chi(G)\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( SmallGroup( 8, 3 ) );;   # the dihedral group</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( [ SidkiD, SidkiL, SidkiW, SidkiR ], f -&gt; Size( f( C ) ) );</span>
+[ 4, 32, 2, 1 ]
+</pre></div>
+
+<p><a id="X7B00976F7CDBC733" name="X7B00976F7CDBC733"></a></p>
+
+<h5>3.5-5 SidkiL1</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiL1</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroups <span class="SimpleMath">\(L_1(G) = [L(G), G]\)</span> and <span class="SimpleMath">\(L_2(G) = [L(G), G^\psi]\)</span> of <var class="Arg">C</var> <span class="SimpleMath">\(= \chi(G)\)</span> <a href="chapBib_mj.html#biBBastosEtAl2026">[BdR26]</a>. Then <span class="SimpleMath">\(\chi(G)' = D(G) L_1(G) L_2(G)\)</span>.</p>
+
+<p><a id="X80DC31A37FC5469A" name="X80DC31A37FC5469A"></a></p>
+
+<h5>3.5-6 SidkiL2</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiL2</code>( <var class="Arg">C</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( DihedralGroup( 8 ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DerivedSubgroup( C ) =</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">   ClosureGroup( SidkiD( C ), ClosureGroup( SidkiL1( C ), SidkiL2( C ) ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">[ Size( SidkiL1( C ) ), Size( SidkiL2( C ) ) ];</span>
+[ 4, 4 ]
+</pre></div>
+
+<p><a id="X82DDBEF37C1A6F37" name="X82DDBEF37C1A6F37"></a></p>
+
+<h4>3.6 <span class="Heading">Subgroups of nu(G)</span></h4>
+
+<p>For <span class="SimpleMath">\(N = \nu(G)\)</span>, with the copies <span class="SimpleMath">\(G\)</span> and <span class="SimpleMath">\(G^\varphi\)</span> given by the embeddings <a href="chapBib_mj.html#biBBastosEtAl2022">[BdMR22]</a>:</p>
+
+
+<ul>
+<li><p><span class="SimpleMath">\(\Theta(G) = \langle g^{-1} g^\varphi \mid g \in G \rangle\)</span>, the kernel of <span class="SimpleMath">\(\nu(G) \to G\)</span>, <span class="SimpleMath">\(g, g^\varphi \mapsto g\)</span>;</p>
+
+</li>
+<li><p><span class="SimpleMath">\(\Upsilon_1(G) = [G, G^\varphi] \cong G \otimes G\)</span>, <span class="SimpleMath">\(\Upsilon_2(G) = [\Theta(G), G]\)</span>, <span class="SimpleMath">\(\Upsilon_3(G) = [\Theta(G), G^\varphi]\)</span>; then <span class="SimpleMath">\(\nu(G)' = \Upsilon_1 \Upsilon_2 \Upsilon_3\)</span>;</p>
+
+</li>
+<li><p><span class="SimpleMath">\(\Delta(G) = \langle [g, g^\varphi] \mid g \in G \rangle\)</span>, for finite <span class="SimpleMath">\(G\)</span>; then <span class="SimpleMath">\(\nu(G)/\Delta(G) \cong \chi(G)/R(G)\)</span>.</p>
+
+</li>
+</ul>
+<p><a id="X7E8E119C7E095EB9" name="X7E8E119C7E095EB9"></a></p>
+
+<h5>3.6-1 RoccoTheta</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RoccoTheta</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroup <span class="SimpleMath">\(\Theta(G)\)</span> of <var class="Arg">N</var> <span class="SimpleMath">\(= \nu(G)\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := RoccoNuGroup( DihedralGroup( 8 ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Index( N, RoccoTheta( N ) );   # nu(G) / Theta(G) = G</span>
+8
+</pre></div>
+
+<p><a id="X7E8690047C0B4C00" name="X7E8690047C0B4C00"></a></p>
+
+<h5>3.6-2 RoccoUpsilon1</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RoccoUpsilon1</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroups <span class="SimpleMath">\(\Upsilon_1(G) = [G, G^\varphi]\)</span>, <span class="SimpleMath">\(\Upsilon_2(G) = [\Theta(G), G]\)</span> and <span class="SimpleMath">\(\Upsilon_3(G) = [\Theta(G), G^\varphi]\)</span> of <var class="Arg">N</var> <span class="SimpleMath">\(= \nu(G)\)</span>.</p>
+
+<p><a id="X855A36C887D7EACC" name="X855A36C887D7EACC"></a></p>
+
+<h5>3.6-3 RoccoUpsilon2</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RoccoUpsilon2</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p><a id="X78835B507A0E8754" name="X78835B507A0E8754"></a></p>
+
+<h5>3.6-4 RoccoUpsilon3</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RoccoUpsilon3</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p><a id="X78088D5879DDB93E" name="X78088D5879DDB93E"></a></p>
+
+<h5>3.6-5 RoccoDelta</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RoccoDelta</code>( <var class="Arg">N</var> )</td><td class="tdright">(&nbsp;attribute&nbsp;)</td></tr></table></div>
+<p>The subgroup <span class="SimpleMath">\(\Delta(G) = \langle [g, g^\varphi] \mid g \in G \rangle\)</span> of <var class="Arg">N</var> <span class="SimpleMath">\(= \nu(G)\)</span>, for finite <span class="SimpleMath">\(G\)</span>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SymmetricGroup( 3 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">N := RoccoNuGroup( G );;  C := SidkiChiGroup( G );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List( [ RoccoUpsilon1, RoccoUpsilon2, RoccoUpsilon3 ], f -&gt; Size( f( N ) ) );</span>
+[ 6, 6, 6 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( N ) / Size( RoccoDelta( N ) ) = Size( C ) / Size( SidkiR( C ) );</span>
+true
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap2_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap4_mj.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0_mj.html">Top</a>  <a href="chap1_mj.html">1</a>  <a href="chap2_mj.html">2</a>  <a href="chap3_mj.html">3</a>  <a href="chap4_mj.html">4</a>  <a href="chap5_mj.html">5</a>  <a href="chap6_mj.html">6</a>  <a href="chap7_mj.html">7</a>  <a href="chapBib_mj.html">Bib</a>  <a href="chapInd_mj.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

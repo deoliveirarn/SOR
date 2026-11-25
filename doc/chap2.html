@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (SOR) - Chapter 2: How the groups are built</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap2"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap2_mj.html">[MathJax on]</a></p>
+<p><a id="X7E42564C7A01989C" name="X7E42564C7A01989C"></a></p>
+<div class="ChapSects"><a href="chap2.html#X7E42564C7A01989C">2 <span class="Heading">How the groups are built</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X85B7FFD883243FB6">2.1 <span class="Heading">Free products with embeddings</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X86644FD67DDB1C7E">2.2 <span class="Heading">Strategy by class of groups</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7C33A8457919DA22">2.3 <span class="Heading">Time limits</span></a>
+</span>
+</div>
+</div>
+
+<h3>2 <span class="Heading">How the groups are built</span></h3>
+
+<p><a id="X85B7FFD883243FB6" name="X85B7FFD883243FB6"></a></p>
+
+<h4>2.1 <span class="Heading">Free products with embeddings</span></h4>
+
+<p>Every group of this package is a quotient <span class="Math">Q = (G_1 * \cdots * G_n)/N</span> of a free product of copies of the input group <span class="Math">G</span>, where <span class="Math">N</span> is the normal closure of the defining relations. The construction starts from <code class="code">FreeProduct</code> of <strong class="pkg">GAP</strong>, which accepts groups in any representation, and keeps the embeddings <span class="Math">G \to G_i</span> given by <code class="code">Embedding</code>. The images of the generators of <span class="Math">G</span> are carried through the quotient and through the conversion of <span class="Math">Q</span> into a pc group, and the embeddings <span class="Math">G \to Q</span> are stored with the result.</p>
+
+<p>This is what makes the subgroups of <span class="Math">Q</span> cheap to compute. For instance, in <span class="Math">\chi(G)</span> the subgroups <span class="Math">L(G)</span>, <span class="Math">D(G)</span>, <span class="Math">W(G)</span> and <span class="Math">R(G)</span> are defined in terms of the two copies <span class="Math">G</span> and <span class="Math">G^\psi</span> and of the isomorphism <span class="Math">\psi</span> between them; with the embeddings at hand they are direct computations inside a pc group. Without them, one has to locate the copies of <span class="Math">G</span> inside the computed group, which is a search, or to carry every element of <span class="Math">G</span> through a presentation by hand.</p>
+
+<p>For example, the pc group <span class="Math">\chi(Q_8)</span> below has <span class="Math">7</span> generators in its pcgs, with no visible relation to the generators of <span class="Math">Q_8</span>; the embeddings give the two copies of <span class="Math">Q_8</span> inside it at once, and <span class="Math">D = [G, G^\psi]</span> and <span class="Math">L</span> are then single commands:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">G := SmallGroup( 8, 4 );;   # the quaternion group</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( G );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( Pcgs( C ) );</span>
+7
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := Image( Embedding( C, 1 ) );;  Hpsi := Image( Embedding( C, 2 ) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( CommutatorSubgroup( H, Hpsi ) );   # D(G)</span>
+2
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( Subgroup( C, List( G, g -&gt;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">     Image( Embedding( C, 1 ), g )^-1 * Image( Embedding( C, 2 ), g ) ) ) );   # L(G)</span>
+16
+</pre></div>
+
+<p>In our tests, for the group of order <span class="Math">32</span> <code class="code">SmallGroup(32,49)</code>, whose <span class="Math">\chi(G)</span> has order <span class="Math">2^{21}</span>, <span class="Math">\chi(G)</span> is computed in about <span class="Math">0.1</span> seconds and <span class="Math">L(G)</span> and <span class="Math">D(G)</span> in a few milliseconds; computing <span class="Math">L(G)</span> by carrying the elements of <span class="Math">G</span> through a presentation, as in the author's earlier code, did not finish in ten minutes.</p>
+
+<p><a id="X86644FD67DDB1C7E" name="X86644FD67DDB1C7E"></a></p>
+
+<h4>2.2 <span class="Heading">Strategy by class of groups</span></h4>
+
+<p>The finitely presented group <span class="Math">Q</span> is not a good group to compute in. The package replaces it by a group in which one can compute (a pc group, a pcp group or a subgroup of a direct product), choosing the construction from the class of <span class="Math">G</span>. In every case the embeddings of the copies of <span class="Math">G</span> are kept.</p>
+
+<p>For <span class="Math">\chi(G)</span> (<code class="func">SidkiChiGroup</code> (<a href="chap3.html#X848288F982EA3E90"><span class="RefLink">3.1-1</span></a>)) the methods are tried in this order:</p>
+
+
+<ul>
+<li><p><span class="Math">G</span> finite or polycyclic, generated by two elements, with trivial Schur multiplier: then <span class="Math">R(G) = 1</span> <a href="chapBib.html#biBKochloukovaMendonca2021">[KM21, Lemma 9.3]</a> and <span class="Math">W(G)/R(G) \cong M(G) = 1</span> <a href="chapBib.html#biBRocco1982">[Roc82]</a>, so <span class="Math">\chi(G)</span> is the subgroup <span class="Math">T(G)</span> of <span class="Math">G \times G \times G</span> of Sidki <a href="chapBib.html#biBSidki1980">[Sid80]</a>. This includes non-solvable groups, such as <span class="Math">PSL(2,8)</span>.</p>
+
+</li>
+<li><p><span class="Math">G</span> finite and perfect: <span class="Math">\chi(G) = T(\tilde G)</span>, where <span class="Math">\tilde G</span> is the universal covering group of <span class="Math">G</span> <a href="chapBib.html#biBSidki1980">[Sid80, Theorem 4.4.1]</a>.</p>
+
+</li>
+<li><p><span class="Math">G</span> an infinite polycyclic group generated by two elements: <span class="Math">\chi(G)</span> is the group <span class="Math">\tau(G) = \tau^0(G)</span> of Dias and Rocco <a href="chapBib.html#biBDiasRocco2020">[DR20]</a>, which is <span class="Math">\chi(G)/R(G)</span>, and <span class="Math">R(G) = 1</span>. For other polycyclic groups, <code class="func">SidkiChiModRGroup</code> (<a href="chap3.html#X7E9761EF7FFD4369"><span class="RefLink">3.2-1</span></a>) gives <span class="Math">\chi(G)/R(G)</span>.</p>
+
+</li>
+<li><p><span class="Math">G</span> a finite <span class="Math">p</span>-group: <span class="Math">\chi(G)</span> is a finite <span class="Math">p</span>-group (Sidki), so it is the largest <span class="Math">p</span>-quotient of <span class="Math">Q</span>, computed by <code class="code">EpimorphismPGroup</code> without a bound on the class.</p>
+
+</li>
+<li><p><span class="Math">G</span> finite and solvable: <span class="Math">\chi(G)</span> is a finite solvable group whose order involves only the primes dividing <span class="Math">|G|</span> (Sidki), so it is the largest such solvable quotient of <span class="Math">Q</span>, computed by <code class="code">EpimorphismSolvableQuotient</code>.</p>
+
+</li>
+</ul>
+<p>For other groups, <code class="func">SidkiChiModWGroup</code> (<a href="chap3.html#X80D8C7F186777418"><span class="RefLink">3.3-1</span></a>) gives <span class="Math">\chi(G)/W(G)</span> as a subgroup of <span class="Math">G \times G \times G</span>.</p>
+
+<p>The user may also choose the method, with a second argument: <code class="func">SidkiChiGroup</code> (<a href="chap3.html#X79364B3B84312C74"><span class="RefLink">3.1-3</span></a>) and <code class="func">RoccoNuGroup</code> (<a href="chap5.html#X81F4CFC97C0C6734"><span class="RefLink">5.1-3</span></a>). The method <code class="code">"fp"</code> returns the finitely presented group itself, for any finite <span class="Math">G</span>, leaving to the user what to compute in it.</p>
+
+<p>For <span class="Math">\nu(G)</span> (<code class="func">RoccoNuGroup</code> (<a href="chap5.html#X7F53E8A27AC0CD65"><span class="RefLink">5.1-1</span></a>)): if <span class="Math">G</span> is a finite <span class="Math">p</span>-group, Rocco's presentation <a href="chapBib.html#biBRocco1994">[Roc94]</a>, with <span class="Math">x</span>, <span class="Math">y</span> in a pc generating sequence, and the largest <span class="Math">p</span>-quotient; if <span class="Math">G</span> is finite solvable or polycyclic, the nonabelian tensor square of the package Polycyclic <a href="chapBib.html#biBEickNickel2008">[EN08]</a>. For <span class="Math">\tau^q(G)</span> (<code class="func">RoccoTauGroup</code> (<a href="chap6.html#X819D675281A29139"><span class="RefLink">6.1-1</span></a>)): a polycyclic presentation following Dias and Rocco <a href="chapBib.html#biBDiasRocco2020">[DR20]</a>, for <span class="Math">G</span> finite solvable or polycyclic. For <span class="Math">\chi(n,H)</span> (<code class="func">SidkiChiNGroup</code> (<a href="chap4.html#X788976C07D5A9EBA"><span class="RefLink">4.1-1</span></a>)): <span class="Math">T_n(\tilde H)</span> if <span class="Math">H</span> is finite and perfect, and the largest <span class="Math">p</span>-quotient if <span class="Math">H</span> is a finite <span class="Math">p</span>-group.</p>
+
+<p>One example of each case:</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetInfoLevel( InfoSOR, 0 );</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroup( SymmetricGroup( 3 ) ) );    # T(G) in G x G x G</span>
+108
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroup( AlternatingGroup( 5 ) ) );  # perfect: T(H~)</span>
+432000
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroup( DihedralPcpGroup( 0 ) );;    # infinite: tau(G)</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IsFinite( C );  HirschLength( C );</span>
+false
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroup( DihedralGroup( 8 ) ) );     # p-group</span>
+256
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroup( AlternatingGroup( 4 ) ) );  # finite solvable</span>
+1152
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( RoccoNuGroup( DihedralGroup( 8 ) ) );      # Rocco 1994</span>
+2048
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( RoccoNuGroup( SymmetricGroup( 3 ) ) );     # Polycyclic</span>
+216
+</pre></div>
+
+<p><a id="X7C33A8457919DA22" name="X7C33A8457919DA22"></a></p>
+
+<h4>2.3 <span class="Heading">Time limits</span></h4>
+
+<p>GAP has no time limit for a computation inside the running session. The function <code class="code">IO_CallWithTimeout</code> of the <strong class="pkg">IO</strong> package (a separate package, not needed by SOR, distributed with GAP and loaded with <code class="code">LoadPackage( "io" )</code>) runs a function in a copy of the session (a forked process) and stops it after the given time, returning <code class="code">[ true, </code><var class="Arg">result</var><code class="code"> ]</code>, or <code class="code">[ false ]</code> if the time ran out. The result is sent back from the copy, which works for numbers, lists and strings but not for groups: ask the copy for the invariants you need, and compute the group itself in the session (or take <code class="code">SidkiChiGroup( G, "fp" )</code>) when it is worth it.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "io" );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IO_CallWithTimeout( rec( seconds := 60 ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">       G -&gt; Size( SidkiChiGroup( G ) ), SmallGroup( 8, 4 ) );</span>
+[ true, 128 ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IO_CallWithTimeout( rec( seconds := 1 ),</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">       function() while true do od; end );   # never finishes</span>
+[ false ]
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

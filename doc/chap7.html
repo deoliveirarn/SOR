@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (SOR) - Chapter 7: Weak commutativity by bijections</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap7"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap6.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap7_mj.html">[MathJax on]</a></p>
+<p><a id="X7F1B766A81B0552E" name="X7F1B766A81B0552E"></a></p>
+<div class="ChapSects"><a href="chap7.html#X7F1B766A81B0552E">7 <span class="Heading">Weak commutativity by bijections</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X7F6278CD87400D49">7.1 <span class="Heading">Construction</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X85BE80197BE94BF7">7.1-1 SidkiNonIdentityElements</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7D8221B88146AC4B">7.1-2 SidkiBijectionAsPermutation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7C28FFFE8714AB71">7.1-3 SidkiChiGroupByBijection</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap7.html#X7F1DB02786FBB891">7.2 <span class="Heading">Reductions (Oliveira and Sidki, 2009)</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7875FA327D483FD3">7.2-1 SidkiBijectionClasses</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7A4BFBEB7B501CEC">7.2-2 SidkiBasisFixingBijection</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X833EDD45862A6FF1">7.2-3 SidkiCyclicSubgroupGenerators</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7A9D203E82E77A87">7.2-4 SidkiSubgroupPermutingBijection</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7B65ECB287DAFF52">7.2-5 SidkiInducedPermutation</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap7.html#X7DB1CEA97B872C80">7.2-6 SidkiSubgroupPermutationClasses</a></span>
+</div></div>
+</div>
+
+<h3>7 <span class="Heading">Weak commutativity by bijections</span></h3>
+
+<p><a id="X7F6278CD87400D49" name="X7F6278CD87400D49"></a></p>
+
+<h4>7.1 <span class="Heading">Construction</span></h4>
+
+<p>Let <span class="Math">H</span> be a finite group, <span class="Math">\dot H</span> an isomorphic copy of <span class="Math">H</span>, and <span class="Math">\sigma : H^\# \to \dot H^\#</span> a bijection, where <span class="Math">H^\# = H \setminus \{1\}</span>. The weak commutativity group defined by <span class="Math">\sigma</span> is</p>
+
+<p class="pcenter">\chi(H,\sigma) = \langle H, \dot H \mid [h, h^\sigma] = 1
+   \ \forall h \in H^\# \rangle</p>
+
+<p><a href="chapBib.html#biBOliveiraSidki2009">[OS09]</a>. When <span class="Math">\sigma</span> is the isomorphism <span class="Math">\psi</span>, it is Sidki's group <span class="Math">\chi(H)</span>. The group <span class="Math">\chi(H,\sigma)</span> is the group <span class="Math">S(H, \dot H; \sigma, \sigma, 1)</span> of Sidki <a href="chapBib.html#biBSidki1980">[Sid80, Theorem 3.5 and Remark 3.3 (iii)]</a>, hence it is finite for every finite <span class="Math">H</span>. The package computes it exactly, by coset enumeration in the finitely presented group, and returns a pc group when it is solvable and a permutation group otherwise.</p>
+
+<p>Oliveira and Sidki <a href="chapBib.html#biBOliveiraSidki2009">[OS09]</a> conjecture that <span class="Math">\chi(H,\sigma)</span> is a finite <span class="Math">p</span>-group whenever <span class="Math">H</span> is a finite <span class="Math">p</span>-group. This is open, so the package does not take the largest <span class="Math">p</span>-quotient for the group: <code class="code">IsPGroup</code> of the result tests the conjecture for the given <span class="Math">\sigma</span>.</p>
+
+<p>A bijection <span class="Math">\sigma</span> is given by a permutation <span class="Math">s</span> of <span class="Math">[1 .. |H| - 1]</span>: if <span class="Math">H^\# = [ h_1, \ldots, h_{|H|-1} ]</span> is the list <code class="func">SidkiNonIdentityElements</code> (<a href="chap7.html#X85BE80197BE94BF7"><span class="RefLink">7.1-1</span></a>), then <span class="Math">\sigma(h_i)</span> is the copy of <span class="Math">h_{i^s}</span>. The identity permutation gives <span class="Math">\chi(H)</span>.</p>
+
+<p><a id="X85BE80197BE94BF7" name="X85BE80197BE94BF7"></a></p>
+
+<h5>7.1-1 SidkiNonIdentityElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiNonIdentityElements</code>( <var class="Arg">H</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>The list of the non-identity elements of <var class="Arg">H</var>, in the order of <code class="code">Elements</code>. Bijections <span class="Math">\sigma</span> are permutations of its positions.</p>
+
+<p><a id="X7D8221B88146AC4B" name="X7D8221B88146AC4B"></a></p>
+
+<h5>7.1-2 SidkiBijectionAsPermutation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiBijectionAsPermutation</code>( <var class="Arg">H</var>, <var class="Arg">f</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a permutation</p>
+
+<p>The permutation of <span class="Math">[1 .. |H|-1]</span> that encodes the bijection given by <var class="Arg">f</var>, a function from <span class="Math">H^\#</span> to <span class="Math">H^\#</span> or the list of the images of <code class="func">SidkiNonIdentityElements</code> (<a href="chap7.html#X85BE80197BE94BF7"><span class="RefLink">7.1-1</span></a>).</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := CyclicGroup( 4 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( SidkiNonIdentityElements( H ) );</span>
+3
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SidkiBijectionAsPermutation( H, x -&gt; x^-1 );   # inversion on H#</span>
+(1,3)
+</pre></div>
+
+<p><a id="X7C28FFFE8714AB71" name="X7C28FFFE8714AB71"></a></p>
+
+<h5>7.1-3 SidkiChiGroupByBijection</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiChiGroupByBijection</code>( <var class="Arg">H</var>, <var class="Arg">s</var> )</td><td class="tdright">(&nbsp;operation&nbsp;)</td></tr></table></div>
+<p>Returns: a pc group or a permutation group</p>
+
+<p>Returns <span class="Math">\chi(H,\sigma)</span> for a finite group <var class="Arg">H</var> and the permutation <var class="Arg">s</var> encoding <span class="Math">\sigma</span>, computed exactly. <code class="code">Embedding(</code><var class="Arg">C</var> <code class="code">, 1)</code> and <code class="code">Embedding(</code><var class="Arg">C</var><code class="code">, 2)</code> are the embeddings of <span class="Math">H</span> and <span class="Math">\dot H</span>, and <code class="func">SidkiD</code> (<a href="chap3.html#X7C9F4BAC8164FBD3"><span class="RefLink">3.5-1</span></a>) is <span class="Math">[H, \dot H]</span>. Coset enumeration limits this to groups of moderate order.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := ElementaryAbelianGroup( 8 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroupByBijection( H, () ) ) = Size( SidkiChiGroup( H ) );</span>
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">C := SidkiChiGroupByBijection( H, (1,2) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( C );  IsPGroup( C );</span>
+1024
+true
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroupByBijection( CyclicGroup( 8 ), (1,5,3) ) );   # cyclic: H x H</span>
+64
+</pre></div>
+
+<p><a id="X7F1DB02786FBB891" name="X7F1DB02786FBB891"></a></p>
+
+<h4>7.2 <span class="Heading">Reductions (Oliveira and Sidki, 2009)</span></h4>
+
+<p>For <span class="Math">\alpha \in \mathrm{Aut}(H)</span> and <span class="Math">\beta \in \mathrm{Aut}(\dot H)</span>, <span class="Math">\chi(H,\sigma) \cong \chi(H, \alpha\sigma\beta)</span>; so it suffices to let <span class="Math">\sigma</span> run over the double cosets <span class="Math">\mathrm{Aut}(H) \backslash \mathrm{Sym}(H^\#) / \mathrm{Aut}(H)</span>. For an elementary abelian group <span class="Math">H = C_p^n = \langle a_1, \ldots, a_n \rangle</span>, every class contains a <span class="Math">\tilde\sigma</span> with <span class="Math">a_i^{\tilde\sigma} = \dot a_i</span>; and, for <span class="Math">p</span> odd, every <span class="Math">\chi(H,\sigma)</span> is a quotient of some <span class="Math">\chi(H,\hat\sigma)</span> with <span class="Math">\hat\sigma</span> permuting the cyclic subgroups of <span class="Math">H</span> (Sidki). For cyclic <span class="Math">H</span>, <span class="Math">\chi(H,\sigma) \cong H \times \dot H</span> for every <span class="Math">\sigma</span> (Oliveira and Sidki 2009, Proposition 5).</p>
+
+<p><a id="X7875FA327D483FD3" name="X7875FA327D483FD3"></a></p>
+
+<h5>7.2-1 SidkiBijectionClasses</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiBijectionClasses</code>( <var class="Arg">H</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a list of pairs</p>
+
+<p>Representatives of the double cosets <span class="Math">\mathrm{Aut}(H) \backslash \mathrm{Sym}(H^\#) / \mathrm{Aut}(H)</span>, as pairs <code class="code">[ s, size ]</code>, with <code class="code">s</code> a permutation encoding <span class="Math">\sigma</span> and <code class="code">size</code> the number of bijections in the class.</p>
+
+<p><a id="X7A4BFBEB7B501CEC" name="X7A4BFBEB7B501CEC"></a></p>
+
+<h5>7.2-2 SidkiBasisFixingBijection</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiBasisFixingBijection</code>( <var class="Arg">H</var>, <var class="Arg">s</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a permutation</p>
+
+<p>For an elementary abelian group <var class="Arg">H</var>, with basis <span class="Math">a_1, \ldots, a_n</span> the pc generators of <var class="Arg">H</var>, a permutation encoding a bijection <span class="Math">\tilde\sigma = \alpha\sigma\beta</span> (<span class="Math">\alpha, \beta</span> automorphisms) with <span class="Math">a_i^{\tilde\sigma} = \dot a_i</span>, so that <span class="Math">\chi(H,\tilde\sigma) \cong \chi(H,\sigma)</span>.</p>
+
+<p><a id="X833EDD45862A6FF1" name="X833EDD45862A6FF1"></a></p>
+
+<h5>7.2-3 SidkiCyclicSubgroupGenerators</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiCyclicSubgroupGenerators</code>( <var class="Arg">H</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a list</p>
+
+<p>For an elementary abelian <span class="Math">p</span>-group <var class="Arg">H</var>, one generator of each subgroup of order <span class="Math">p</span>, normalised so that its first nonzero coordinate (with respect to the pc generators) is <span class="Math">1</span>.</p>
+
+<p><a id="X7A9D203E82E77A87" name="X7A9D203E82E77A87"></a></p>
+
+<h5>7.2-4 SidkiSubgroupPermutingBijection</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiSubgroupPermutingBijection</code>( <var class="Arg">H</var>, <var class="Arg">tau</var>[, <var class="Arg">t</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a permutation</p>
+
+<p>For an elementary abelian <span class="Math">p</span>-group <var class="Arg">H</var> with cyclic subgroups <span class="Math">\langle u_1 \rangle, \ldots, \langle u_k \rangle</span> (<code class="func">SidkiCyclicSubgroupGenerators</code> (<a href="chap7.html#X833EDD45862A6FF1"><span class="RefLink">7.2-3</span></a>)), a permutation <var class="Arg">tau</var> of <span class="Math">[1..k]</span> and optionally a list <var class="Arg">t</var> of nonzero residues mod <span class="Math">p</span> (the twists, default <span class="Math">1</span>), the permutation encoding the bijection <span class="Math">u_i^j \mapsto \dot u_{\tau(i)}^{t_i j}</span>, which permutes the cyclic subgroups.</p>
+
+<p><a id="X7B65ECB287DAFF52" name="X7B65ECB287DAFF52"></a></p>
+
+<h5>7.2-5 SidkiInducedPermutation</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiInducedPermutation</code>( <var class="Arg">H</var>, <var class="Arg">s</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a permutation or <code class="keyw">fail</code></p>
+
+<p>If the bijection encoded by <var class="Arg">s</var> maps each cyclic subgroup of the elementary abelian group <var class="Arg">H</var> onto a cyclic subgroup, the induced permutation <span class="Math">\tau</span> of <span class="Math">[1..k]</span>; otherwise <code class="keyw">fail</code>.</p>
+
+<p><a id="X7DB1CEA97B872C80" name="X7DB1CEA97B872C80"></a></p>
+
+<h5>7.2-6 SidkiSubgroupPermutationClasses</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SidkiSubgroupPermutationClasses</code>( <var class="Arg">H</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>Returns: a list of pairs</p>
+
+<p>For an elementary abelian group <var class="Arg">H</var>, representatives <span class="Math">\tau</span> of the double cosets of <span class="Math">\mathrm{Aut}(H)</span>, acting on the <span class="Math">k</span> cyclic subgroups, in <span class="Math">S_k</span>, as pairs <code class="code">[ tau, size ]</code>.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 9 ) ) );</span>
+1
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( SidkiSubgroupPermutationClasses( ElementaryAbelianGroup( 25 ) ) );</span>
+2
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( SidkiBijectionClasses( ElementaryAbelianGroup( 8 ) ) );</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">H := ElementaryAbelianGroup( 9 );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Length( SidkiCyclicSubgroupGenerators( H ) );</span>
+4
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := SidkiSubgroupPermutingBijection( H, (1,2) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SidkiInducedPermutation( H, s );</span>
+(1,2)
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">s := SidkiBasisFixingBijection( H, (1,4,7) );;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size( SidkiChiGroupByBijection( H, s ) ) =</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">   Size( SidkiChiGroupByBijection( H, (1,4,7) ) );</span>
+true
+</pre></div>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap6.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chap4.html">4</a>  <a href="chap5.html">5</a>  <a href="chap6.html">6</a>  <a href="chap7.html">7</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

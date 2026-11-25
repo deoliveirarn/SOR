@@ -1,0 +1,67 @@
+\GAPDocLabFile{sor}
+\makelabel{sor:Title page}{}{X7D2C85EC87DD46E5}
+\makelabel{sor:Table of Contents}{}{X8537FEB07AF2BEC8}
+\makelabel{sor:Introduction}{1}{X7DFB63A97E67C0A1}
+\makelabel{sor:Info class}{1.1}{X7EBFC26F83EB9F72}
+\makelabel{sor:How the groups are built}{2}{X7E42564C7A01989C}
+\makelabel{sor:Free products with embeddings}{2.1}{X85B7FFD883243FB6}
+\makelabel{sor:Strategy by class of groups}{2.2}{X86644FD67DDB1C7E}
+\makelabel{sor:Time limits}{2.3}{X7C33A8457919DA22}
+\makelabel{sor:The weak commutativity group}{3}{X879E8B7B83874914}
+\makelabel{sor:Construction}{3.1}{X7F6278CD87400D49}
+\makelabel{sor:Polycyclic groups}{3.2}{X86007B0083F60470}
+\makelabel{sor:Reduced presentations: weak commutativity on products of generators}{3.4}{X784EA97187ACD0DD}
+\makelabel{sor:Subgroups of chi(G)}{3.5}{X8166E836864B807A}
+\makelabel{sor:Subgroups of nu(G)}{3.6}{X82DDBEF37C1A6F37}
+\makelabel{sor:Weak commutativity among n copies}{4}{X8350957D7BD8A7AE}
+\makelabel{sor:The groups chi n(H) and chi(n,H)}{4.1}{X7F1AEEA47F3DBBE8}
+\makelabel{sor:The hybrid group Q(H)}{4.2}{X859AB70A7CDFACE9}
+\makelabel{sor:Diagonal representations from Hamming codes}{4.3}{X850871AC81A6ED3D}
+\makelabel{sor:Rocco's group nu(G)}{5}{X7DFFB9F17B46D379}
+\makelabel{sor:Construction}{5.1}{X7F6278CD87400D49}
+\makelabel{sor:The groups nuq(G) and tauq(G)}{6}{X791AA54680F9D7A0}
+\makelabel{sor:A polycyclic presentation of tauq(G)}{6.1}{X8522E5B97B3295A3}
+\makelabel{sor:Weak commutativity by bijections}{7}{X7F1B766A81B0552E}
+\makelabel{sor:Construction}{7.1}{X7F6278CD87400D49}
+\makelabel{sor:Reductions (Oliveira and Sidki, 2009)}{7.2}{X7F1DB02786FBB891}
+\makelabel{sor:Bibliography}{Bib}{X7A6F98FD85F02BFE}
+\makelabel{sor:References}{Bib}{X7A6F98FD85F02BFE}
+\makelabel{sor:Index}{Ind}{X83A0356F839C696F}
+\makelabel{sor:InfoSOR}{1.1.1}{X7F8DF472877C9DD7}
+\makelabel{sor:SidkiChiGroup for IsGroup}{3.1.1}{X848288F982EA3E90}
+\makelabel{sor:SidkiPsi for IsGroup}{3.1.2}{X7B7ECAD5846C2D1E}
+\makelabel{sor:SidkiChiGroup for IsGroup, IsString}{3.1.3}{X79364B3B84312C74}
+\makelabel{sor:SidkiChiModRGroup for IsGroup}{3.2.1}{X7E9761EF7FFD4369}
+\makelabel{sor:SidkiChiModWGroup for IsGroup}{3.3.1}{X80D8C7F186777418}
+\makelabel{sor:SidkiChiHatGroup}{3.4.1}{X7833D2187F4B13BC}
+\makelabel{sor:SidkiChiHatProjection for IsGroup}{3.4.2}{X7819D1097864F4FE}
+\makelabel{sor:SidkiChiHatProjection for IsGroup, IsString}{3.4.3}{X86BF97FD795EEAED}
+\makelabel{sor:SidkiD for IsGroup}{3.5.1}{X7C9F4BAC8164FBD3}
+\makelabel{sor:SidkiL for IsGroup}{3.5.2}{X793F769A7FA1C3F5}
+\makelabel{sor:SidkiW for IsGroup}{3.5.3}{X7C03970D7930DCD0}
+\makelabel{sor:SidkiR for IsGroup}{3.5.4}{X7DD16C3C7C3C05CB}
+\makelabel{sor:SidkiL1 for IsGroup}{3.5.5}{X7B00976F7CDBC733}
+\makelabel{sor:SidkiL2 for IsGroup}{3.5.6}{X80DC31A37FC5469A}
+\makelabel{sor:RoccoTheta for IsGroup}{3.6.1}{X7E8E119C7E095EB9}
+\makelabel{sor:RoccoUpsilon1 for IsGroup}{3.6.2}{X7E8690047C0B4C00}
+\makelabel{sor:RoccoUpsilon2 for IsGroup}{3.6.3}{X855A36C887D7EACC}
+\makelabel{sor:RoccoUpsilon3 for IsGroup}{3.6.4}{X78835B507A0E8754}
+\makelabel{sor:RoccoDelta for IsGroup}{3.6.5}{X78088D5879DDB93E}
+\makelabel{sor:SidkiChiNGroup for IsGroup, IsPosInt}{4.1.1}{X788976C07D5A9EBA}
+\makelabel{sor:SidkiChiMotherGroup for IsGroup, IsPosInt}{4.1.2}{X7A05B8E978297BFA}
+\makelabel{sor:SidkiHybridGroup for IsGroup}{4.2.1}{X80DC9AF8828B95AF}
+\makelabel{sor:SidkiDiagonalRepresentation for IsGroup, IsPosInt}{4.3.1}{X847A34E98562B924}
+\makelabel{sor:RoccoNuGroup for IsGroup}{5.1.1}{X7F53E8A27AC0CD65}
+\makelabel{sor:RoccoPhi for IsGroup}{5.1.2}{X83272B6984DFD450}
+\makelabel{sor:RoccoNuGroup for IsGroup, IsString}{5.1.3}{X81F4CFC97C0C6734}
+\makelabel{sor:RoccoTauGroup for IsGroup, IsInt}{6.1.1}{X819D675281A29139}
+\makelabel{sor:RoccoExteriorSquareQ for IsGroup}{6.1.2}{X8358C7E37812FD0A}
+\makelabel{sor:SidkiNonIdentityElements}{7.1.1}{X85BE80197BE94BF7}
+\makelabel{sor:SidkiBijectionAsPermutation}{7.1.2}{X7D8221B88146AC4B}
+\makelabel{sor:SidkiChiGroupByBijection for IsGroup, IsPerm}{7.1.3}{X7C28FFFE8714AB71}
+\makelabel{sor:SidkiBijectionClasses}{7.2.1}{X7875FA327D483FD3}
+\makelabel{sor:SidkiBasisFixingBijection}{7.2.2}{X7A4BFBEB7B501CEC}
+\makelabel{sor:SidkiCyclicSubgroupGenerators}{7.2.3}{X833EDD45862A6FF1}
+\makelabel{sor:SidkiSubgroupPermutingBijection}{7.2.4}{X7A9D203E82E77A87}
+\makelabel{sor:SidkiInducedPermutation}{7.2.5}{X7B65ECB287DAFF52}
+\makelabel{sor:SidkiSubgroupPermutationClasses}{7.2.6}{X7DB1CEA97B872C80}

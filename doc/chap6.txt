@@ -1,0 +1,49 @@
+  
+  [1X6 [33X[0;0YThe groups nu^q(G) and tau^q(G)[133X[101X
+  
+  
+  [1X6.1 [33X[0;0YA polycyclic presentation of tau^q(G)[133X[101X
+  
+  [33X[0;0YFor  a non-negative integer [23Xq[123X, the group [23X\nu^q(G)[123X contains a normal subgroup
+  [23X\Delta^q(G)[123X  such that [23X\tau^q(G) = \nu^q(G)/\Delta^q(G) \cong (G \wedge^q G)
+  \rtimes  (G  \times  G)[123X.  For  [23Xq  =  0[123X,  [23X\tau^0(G)  = \nu(G)/\Delta(G) \cong
+  \chi(G)/R(G)[123X.[133X
+  
+  [33X[0;0YDias and Rocco [DR20] give a consistent polycyclic presentation of [23X\tau^q(G)[123X
+  for  a  polycyclic  group  [23XG[123X, from a consistent polycyclic presentation [23Xg_1,
+  \ldots,  g_n[123X  of  [23XG[123X  and  one  of [23XG \wedge^q G[123X, the latter obtained from the
+  [23Xq[123X-central  extension  [23XE_q(G)  = F/R^q[R,F][123X as [23XE_q(G)' E_q(G)^q[123X. This package
+  builds  that presentation, starting from the Schur extension computed by the
+  [5XPolycyclic[105X package.[133X
+  
+  [33X[0;0YThe  extension to a polycyclic presentation of [23X\nu^q(G)[123X itself, and hence of
+  the  [23Xq[123X-tensor  square  [23XG  \otimes^q G[123X, as the [23Xq[123X-central extension [23X\nu^q(G) =
+  E_q(\tau^q(G))[123X [DR20, Section 7], is in preparation.[133X
+  
+  [1X6.1-1 RoccoTauGroup[101X
+  
+  [33X[1;0Y[29X[2XRoccoTauGroup[102X( [3XG[103X, [3Xq[103X ) [32X operation[133X
+  [6XReturns:[106X  [33X[0;10Ya pcp group[133X
+  
+  [33X[0;0YReturns  [23X\tau^q(G) = \nu^q(G)/\Delta^q(G)[123X for a polycyclic group [3XG[103X (a finite
+  solvable  group  in  any  representation, or a pcp group) and a non-negative
+  integer  [3Xq[103X,  as  a  pcp  group  given by the presentation of Dias and Rocco.
+  [10XEmbedding([110X[3XT[103X[10X,  1)[110X  and [10XEmbedding([110X[3XT[103X[10X, 2)[110X are the embeddings of [23XG[123X and [23XG^\varphi[123X,
+  and  [2XRoccoExteriorSquareQ[102X  ([14X6.1-2[114X)  is  the  normal subgroup isomorphic to [23XG
+  \wedge^q G[123X.[133X
+  
+  [1X6.1-2 RoccoExteriorSquareQ[101X
+  
+  [33X[1;0Y[29X[2XRoccoExteriorSquareQ[102X( [3XT[103X ) [32X attribute[133X
+  
+  [33X[0;0YFor  [3XT[103X [23X= \tau^q(G)[123X returned by [2XRoccoTauGroup[102X ([14X6.1-1[114X), the subgroup [23XW \cong G
+  \wedge^q G[123X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XG := SymmetricGroup( 3 );;[127X[104X
+    [4X[25Xgap>[125X [27XSize( RoccoTauGroup( G, 0 ) );   # = |chi(S_3)| / |R(S_3)|[127X[104X
+    [4X[28X108[128X[104X
+    [4X[25Xgap>[125X [27XList( [ 0, 2, 3 ], q -> Size( RoccoExteriorSquareQ( RoccoTauGroup( G, q ) ) ) );[127X[104X
+    [4X[28X[ 3, 6, 6 ][128X[104X
+  [4X[32X[104X
+  
