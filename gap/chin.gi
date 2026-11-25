@@ -11,7 +11,7 @@
 ##    weak commutativity: [h^psi_i, h^psi_j], h <> 1, i < j;
 ##    if withDL: [ [x^psi_i, y^psi_j], z^-psi_k z^psi_l ], {i,j} <> {k,l}
 ##    (for {i,j} = {k,l} they follow from weak commutativity, Sidki 4.1.7).
-##  As in R. N. de Oliveira's function chin (2026, original/chi_n).
+##  As in R. N. de Oliveira's function chin (2026).
 ##
 InstallGlobalFunction( RS_ChiNRelations, function( H, e, withDL )
     local n, el, rels, pares, p, r, x, y, z, Dgens, Lgens;

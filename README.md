@@ -14,8 +14,7 @@ kept, together with the related subgroups.
 This package is a compilation of the GAP code that the author has been writing
 since his doctoral studies under the supervision of Said N. Sidki (Universidade de
 Brasília, 2007), and that he has used in his research on weak commutativity and
-on the non-abelian tensor square. The original functions are kept, unchanged, in
-the folder `original/`; the package rewrites them with documentation and tests.
+on the non-abelian tensor square, rewritten with documentation and tests.
 
 **Status:** in development; not yet released. In preparation: a polycyclic
 presentation of nu^q(G) and of the q-tensor square, extending tau^q(G).
