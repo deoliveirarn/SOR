@@ -67,5 +67,6 @@ true
 
 # fora do escopo por enquanto
 gap> RoccoNuGroup( AlternatingGroup( 5 ) );
-Error, RoccoNuGroup: for now <G> must be finite solvable or a pcp group
+Error, RoccoNuGroup: no method computes nu(G) for this <G> yet;
+RoccoNuGroup( G, "fp" ) gives it as a finitely presented group
 gap> STOP_TEST("nu.tst");

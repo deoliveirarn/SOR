@@ -8,24 +8,41 @@ InstallMethod( SidkiChiGroup, "for a finite solvable group, by the free product"
     [ IsGroup ],
     G -> RS_ChiByFreeProduct( G ) );
 
-InstallGlobalFunction( RS_ChiByFreeProduct, function( G )
+# The finitely presented group (G * G^psi) / << [g, g^psi] : g in G >>, for a
+# finite G: one relation for each nonidentity element.
+BindGlobal( "RS_ChiFreeProduct", G -> RS_FreeProductQuotient( G, 2,
+    e -> List( Difference( AsList( G ), [ One( G ) ] ),
+               g -> Comm( Image( e[1], g ), Image( e[2], g ) ) ) ) );
+
+# chi(G) for a finite solvable G as a quotient of the finitely presented group:
+# how = "pquotient" (G a p-group: chi(G) is a finite p-group, Sidki, hence the
+# largest p-quotient) or "solvable" (chi(G) is finite solvable, with the primes
+# of |G|, Sidki, hence the largest such solvable quotient).
+BindGlobal( "RS_ChiQuotient", function( G, how )
     local data, r, C;
-    if not IsFinite( G ) or IsTrivial( G ) or not IsSolvableGroup( G ) then
-        Error( "SidkiChiGroup: for now <G> must be a nontrivial finite solvable group" );
-    fi;
-    data := RS_FreeProductQuotient( G, 2,
-              e -> List( Difference( AsList( G ), [ One( G ) ] ),
-                         g -> Comm( Image( e[1], g ), Image( e[2], g ) ) ) );
-    if IsPGroup( G ) then
-        # chi(G) is a finite p-group (Sidki), hence its largest p-quotient.
+    data := RS_ChiFreeProduct( G );
+    if how = "pquotient" then
         r := RS_PQuotientWithEmbeddings( G, data, PrimePGroup( G ) );
     else
-        # chi(G) is finite solvable, with the primes of |G| (Sidki).
         r := RS_SolvableQuotientWithEmbeddings( G, data, Set( Factors( Size( G ) ) ) );
     fi;
     C := r.group;
     SetRS_ChiData( C, rec( group := G, emb := r.emb ) );
     return C;
+end );
+
+InstallGlobalFunction( RS_ChiByFreeProduct, function( G )
+    if not IsFinite( G ) then
+        Error( "SidkiChiGroup: for now an infinite <G> must be a pcp group" );
+    elif IsTrivial( G ) then
+        Error( "SidkiChiGroup: <G> must be nontrivial" );
+    elif not IsSolvableGroup( G ) then
+        Error( "SidkiChiGroup: no method computes chi(G) for this <G> yet;\n",
+               "SidkiChiGroup( G, \"fp\" ) gives it as a finitely presented group" );
+    elif IsPGroup( G ) then
+        return RS_ChiQuotient( G, "pquotient" );
+    fi;
+    return RS_ChiQuotient( G, "solvable" );
 end );
 
 # chi(G)/R(G) = tau(G) (Dias-Rocco, q = 0), with the embeddings.
@@ -108,6 +125,84 @@ InstallMethod( SidkiChiGroup, "for a 2-generated pcp group, via tau(G)",
                "SidkiChiModRGroup gives chi(G)/R(G)" );
     fi;
     return SidkiChiModRGroup( G );
+end );
+
+#############################################################################
+##
+##  SidkiChiGroup( G, method ) -- the method chosen by the user; the result is
+##  not stored in G.  Each method checks the hypothesis of the theorem it
+##  relies on, so the result is always chi(G) (never a proper quotient).
+##
+BindGlobal( "RS_ChiMethods",
+    [ "auto", "fp", "T", "perfect", "tau", "pquotient", "solvable" ] );
+
+InstallMethod( SidkiChiGroup, "for a group and a method chosen by the user",
+    [ IsGroup, IsString ],
+    function( G, method )
+    local data, r, C;
+    if not method in RS_ChiMethods then
+        Error( "SidkiChiGroup: <method> must be one of\n",
+               "\"auto\", \"fp\", \"T\", \"perfect\", \"tau\", \"pquotient\", \"solvable\"" );
+    # IsFinite first: on an fp group it answers at once when the abelianization
+    # is infinite, where IsTrivial would start a coset enumeration (other
+    # infinite fp groups may still make IsFinite run for long)
+    elif IsFinite( G ) and IsTrivial( G ) then
+        Error( "SidkiChiGroup: <G> must be nontrivial" );
+    elif method in [ "T", "perfect" ] and IsFpGroup( G ) then
+        # as in the one-argument form: these work inside G x G x G or with the
+        # Schur cover of G, both impractical for a finitely presented G
+        Error( "SidkiChiGroup: \"", method, "\" does not take a finitely presented <G>;\n",
+               "convert it first, for instance with IsomorphismPermGroup" );
+    fi;
+    if method = "auto" then
+        return SidkiChiGroup( G );
+    elif method = "fp" then
+        if not IsFinite( G ) then
+            Error( "SidkiChiGroup: \"fp\" needs <G> finite (one relation per element)" );
+        fi;
+        data := RS_ChiFreeProduct( G );
+        r := RS_QuotientWithEmbeddings( G, data, IdentityMapping( data.Q ) );
+        C := r.group;
+        SetRS_ChiData( C, rec( group := G, emb := r.emb ) );
+        return C;
+    elif method = "T" then
+        # R(G) = 1 (Kochloukova-Mendonca 2021, Lemma 9.3), W/R ~ M(G) (Rocco 1982)
+        if not ( IsFinite( G ) or IsPcpGroup( G ) ) then
+            Error( "SidkiChiGroup: \"T\" needs <G> finite or a pcp group" );
+        elif not RS_IsTwoGenerated( G ) then   # a search: may miss 2 generators
+            Error( "SidkiChiGroup: \"T\" needs <G> 2-generated (no 2 generators found)" );
+        elif AbelianInvariantsMultiplier( G ) <> [ ] then
+            Error( "SidkiChiGroup: \"T\" needs trivial Schur multiplier M(G)" );
+        fi;
+        return SidkiChiModWGroup( G );
+    elif method = "perfect" then
+        # Sidki 1980, Theorem 4.4.1
+        if not ( IsFinite( G ) and IsPerfectGroup( G ) ) then
+            Error( "SidkiChiGroup: \"perfect\" needs <G> finite and perfect" );
+        fi;
+        r := RS_TnTilde( G, 2 );
+        SetRS_ChiData( r.group, rec( group := G, emb := r.emb ) );
+        return r.group;
+    elif method = "tau" then
+        # chi(G)/R(G) = tau(G) and R(G) = 1 for G 2-generated
+        if not ( IsPcpGroup( G ) or ( IsFinite( G ) and IsSolvableGroup( G ) ) ) then
+            Error( "SidkiChiGroup: \"tau\" needs <G> polycyclic (finite solvable or pcp)" );
+        elif not RS_IsTwoGenerated( G ) then
+            Error( "SidkiChiGroup: \"tau\" needs <G> 2-generated (no 2 generators found);\n",
+                   "SidkiChiModRGroup( G ) gives chi(G)/R(G)" );
+        fi;
+        return SidkiChiModRGroup( G );
+    elif method = "pquotient" then
+        if not ( IsFinite( G ) and IsPGroup( G ) ) then
+            Error( "SidkiChiGroup: \"pquotient\" needs <G> a finite p-group" );
+        fi;
+        return RS_ChiQuotient( G, "pquotient" );
+    fi;
+    # method = "solvable"
+    if not ( IsFinite( G ) and IsSolvableGroup( G ) ) then
+        Error( "SidkiChiGroup: \"solvable\" needs <G> finite and solvable" );
+    fi;
+    return RS_ChiQuotient( G, "solvable" );
 end );
 
 InstallMethod( Embedding, "for chi(G) of SOR",

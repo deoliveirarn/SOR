@@ -50,5 +50,6 @@ true
 gap> List( [ [6,1], [6,2], [10,1], [12,3] ], id -> Size( SidkiChiGroup( SmallGroup( id ) ) ) );
 [ 108, 36, 500, 1152 ]
 gap> SidkiChiGroup( SymmetricGroup( 5 ) );   # nem soluvel nem perfeito
-Error, SidkiChiGroup: for now <G> must be a nontrivial finite solvable group
+Error, SidkiChiGroup: no method computes chi(G) for this <G> yet;
+SidkiChiGroup( G, "fp" ) gives it as a finitely presented group
 gap> STOP_TEST("chi.tst");

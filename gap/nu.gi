@@ -86,8 +86,89 @@ InstallMethod( RoccoNuGroup, "for a finite solvable or polycyclic group",
     elif ( IsFinite( G ) and IsSolvableGroup( G ) ) or IsPcpGroup( G ) then
         Info( InfoSOR, 1, "nu(G): Polycyclic (NonAbelianTensorSquarePlus)" );
         r := RS_NuPolycyclic( G );
+    elif IsFinite( G ) then
+        Error( "RoccoNuGroup: no method computes nu(G) for this <G> yet;\n",
+               "RoccoNuGroup( G, \"fp\" ) gives it as a finitely presented group" );
     else
         Error( "RoccoNuGroup: for now <G> must be finite solvable or a pcp group" );
+    fi;
+    SetRS_NuData( r.group, rec( group := G, emb := r.emb ) );
+    return r.group;
+end );
+
+#############################################################################
+##
+##  RS_NuFp( G ) -- G finite: nu(G) as a finitely presented group.
+##
+##  The defining relations [x, y^phi]^z = [x^z, (y^z)^phi] = [x, y^phi]^(z^phi)
+##  with x, y running over G \ {1} (all of them: restricting x, y is not
+##  allowed) and z over a generating set of G, a small one (for a pc group,
+##  GeneratorsOfGroup is the whole pcgs).  This suffices: the relations for
+##  z1 and z2 (and all x, y) give those for z1 z2, and in a finite group
+##  every element is a positive word in any generating set.
+##
+BindGlobal( "RS_NuFp", function( G )
+    local gens, data;
+    gens := SmallGeneratingSet( G );
+    data := RS_FreeProductQuotient( G, 2, function( e )
+        local els, a, b, az, bz, pos, rels, i, j, k, c, d;
+        els := Difference( AsList( G ), [ One( G ) ] );
+        a := List( els, x -> Image( e[1], x ) );
+        b := List( els, x -> Image( e[2], x ) );
+        az := List( gens, z -> Image( e[1], z ) );
+        bz := List( gens, z -> Image( e[2], z ) );
+        pos := List( els, x -> List( gens, z -> Position( els, x^z ) ) );
+        rels := [];
+        for i in [ 1 .. Length( els ) ] do
+            for j in [ 1 .. Length( els ) ] do
+                c := Comm( a[i], b[j] );
+                for k in [ 1 .. Length( gens ) ] do
+                    d := Comm( a[ pos[i][k] ], b[ pos[j][k] ] );
+                    Add( rels, c^az[k] / d );
+                    Add( rels, c^bz[k] / d );
+                od;
+            od;
+        od;
+        return rels;
+    end );
+    return RS_QuotientWithEmbeddings( G, data, IdentityMapping( data.Q ) );
+end );
+
+#############################################################################
+##
+##  RoccoNuGroup( G, method ) -- the method chosen by the user; the result is
+##  not stored in G.  Each method checks its hypothesis.
+##
+BindGlobal( "RS_NuMethods", [ "auto", "fp", "pquotient", "polycyclic" ] );
+
+InstallMethod( RoccoNuGroup, "for a group and a method chosen by the user",
+    [ IsGroup, IsString ],
+    function( G, method )
+    local r;
+    if not method in RS_NuMethods then
+        Error( "RoccoNuGroup: <method> must be one of\n",
+               "\"auto\", \"fp\", \"pquotient\", \"polycyclic\"" );
+    # IsFinite first: see SidkiChiGroup( G, method ) in chi.gi
+    elif IsFinite( G ) and IsTrivial( G ) then
+        Error( "RoccoNuGroup: <G> must be nontrivial" );
+    fi;
+    if method = "auto" then
+        return RoccoNuGroup( G );
+    elif method = "fp" then
+        if not IsFinite( G ) then
+            Error( "RoccoNuGroup: \"fp\" needs <G> finite (relations for all pairs)" );
+        fi;
+        r := RS_NuFp( G );
+    elif method = "pquotient" then
+        if not ( IsFinite( G ) and IsPGroup( G ) ) then
+            Error( "RoccoNuGroup: \"pquotient\" needs <G> a finite p-group" );
+        fi;
+        r := RS_NuRocco1994( G );
+    else
+        if not ( IsPcpGroup( G ) or ( IsFinite( G ) and IsSolvableGroup( G ) ) ) then
+            Error( "RoccoNuGroup: \"polycyclic\" needs <G> finite solvable or a pcp group" );
+        fi;
+        r := RS_NuPolycyclic( G );
     fi;
     SetRS_NuData( r.group, rec( group := G, emb := r.emb ) );
     return r.group;

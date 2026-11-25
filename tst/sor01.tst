@@ -22,7 +22,7 @@ gap> Size( Subgroup( C, List( G, g ->
 >      Image( Embedding( C, 1 ), g )^-1 * Image( Embedding( C, 2 ), g ) ) ) );   # L(G)
 16
 
-# doc/_Chapter_How_the_groups_are_built.xml:97-115
+# doc/_Chapter_How_the_groups_are_built.xml:103-121
 gap> SetInfoLevel( InfoSOR, 0 );
 gap> Size( SidkiChiGroup( SymmetricGroup( 3 ) ) );    # T(G) in G x G x G
 108

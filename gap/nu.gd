@@ -33,6 +33,9 @@
 #!   <C>, 1)</C> and <C>Embedding(</C><A>N</A><C>, 2)</C> are the embeddings
 #!   of $G$ and of $G^\varphi$ into the result, and
 #!   <Ref Attr="RoccoPhi" Label="for IsGroup"/> is $\varphi$.
+#!   For any other finite group, the form with two arguments
+#!   (<Ref Oper="RoccoNuGroup" Label="for IsGroup, IsString"/>) returns
+#!   $\nu(G)$ as a finitely presented group.
 #! @Arguments G
 #! @Returns a pc group (finite $p$-groups) or a pcp group
 DeclareAttribute( "RoccoNuGroup", IsGroup );
@@ -63,6 +66,44 @@ DeclareAttribute( "RoccoPhi", IsGroup );
 #! 6
 #! gap> Size( RoccoNuGroup( SmallGroup( 32, 49 ) ) ) = 2^26;
 #! true
+#! @EndExampleSession
+
+#! @Description
+#!   With a second argument <A>method</A>, a string, the user chooses how
+#!   $\nu(G)$ is computed; except for <C>"auto"</C>, the result does not
+#!   become the value of <C>RoccoNuGroup(</C><A>G</A><C>)</C>:
+#!   <List>
+#!   <Mark><C>"auto"</C></Mark><Item>the choice of the form with one
+#!     argument;</Item>
+#!   <Mark><C>"fp"</C></Mark><Item>the finitely presented group of the
+#!     definition, for any finite <A>G</A>, also when no other method applies,
+#!     with $x$, $y$ running over all elements of $G$ and $z$ over a small
+#!     generating set (<C>SmallGeneratingSet</C>; this is enough: the
+#!     relations for $z_1$ and $z_2$ give those for $z_1 z_2$); what to
+#!     compute in it is left to the user. With $k$ generators there are
+#!     $2k(|G|-1)^2$ relations, so in practice this is for small groups (for
+#!     $|G| = 168$ and $k = 2$, about $111\,000$);</Item>
+#!   <Mark><C>"pquotient"</C></Mark><Item>the presentation of Rocco (1994)
+#!     and its largest $p$-quotient, for <A>G</A> a finite $p$-group;</Item>
+#!   <Mark><C>"polycyclic"</C></Mark><Item><C>NonAbelianTensorSquarePlus</C>
+#!     of the <Package>Polycyclic</Package> package, for <A>G</A> finite
+#!     solvable or a pcp group.</Item>
+#!   </List>
+#!   Each method checks its hypothesis and stops with an error if it fails.
+#!   <C>Embedding</C> and <Ref Attr="RoccoPhi" Label="for IsGroup"/> work for
+#!   every result.
+#! @Arguments G, method
+#! @Returns a group
+DeclareOperation( "RoccoNuGroup", [ IsGroup, IsString ] );
+
+#! @BeginExampleSession
+#! gap> N := RoccoNuGroup( AlternatingGroup( 5 ), "fp" );;   # no other method yet
+#! gap> AbelianInvariants( N );   # nu(G)^ab = G^ab x G^ab
+#! [  ]
+#! gap> Size( RoccoNuGroup( SymmetricGroup( 3 ), "fp" ) );   # coset enumeration
+#! 216
+#! gap> Size( RoccoNuGroup( DihedralGroup( 8 ), "polycyclic" ) );
+#! 2048
 #! @EndExampleSession
 
 # Internal: the two methods, each returning rec( group, emb ) with the

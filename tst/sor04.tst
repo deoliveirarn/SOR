@@ -10,13 +10,13 @@
 #
 gap> START_TEST("sor04.tst");
 
-# doc/_Chapter_Rocco's_group_nu(G).xml:55-60
+# doc/_Chapter_Rocco's_group_nu(G).xml:58-63
 gap> D := DihedralGroup( 8 );;  N := RoccoNuGroup( D );;  phi := RoccoPhi( N );;
 gap> ForAll( GeneratorsOfGroup( D ), g ->
 >      Image( phi, Image( Embedding( N, 1 ), g ) ) = Image( Embedding( N, 2 ), g ) );
 true
 
-# doc/_Chapter_Rocco's_group_nu(G).xml:62-73
+# doc/_Chapter_Rocco's_group_nu(G).xml:65-76
 gap> G := SymmetricGroup( 3 );;
 gap> N := RoccoNuGroup( G );;
 gap> Size( N );
@@ -27,6 +27,15 @@ gap> Size( T );   # the order of the tensor square of S_3
 6
 gap> Size( RoccoNuGroup( SmallGroup( 32, 49 ) ) ) = 2^26;
 true
+
+# doc/_Chapter_Rocco's_group_nu(G).xml:109-117
+gap> N := RoccoNuGroup( AlternatingGroup( 5 ), "fp" );;   # no other method yet
+gap> AbelianInvariants( N );   # nu(G)^ab = G^ab x G^ab
+[  ]
+gap> Size( RoccoNuGroup( SymmetricGroup( 3 ), "fp" ) );   # coset enumeration
+216
+gap> Size( RoccoNuGroup( DihedralGroup( 8 ), "polycyclic" ) );
+2048
 
 #
 gap> STOP_TEST("sor04.tst", 1);

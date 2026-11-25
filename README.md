@@ -51,8 +51,13 @@ sage: libgap.SidkiR(C).Size()
 ```
 
 The results are GAP objects (`libgap` elements); every function of the manual is
-available as `libgap.FunctionName`. *This section has not yet been tested with a
-current SageMath release.*
+available as `libgap.FunctionName`, also with a second argument
+(`libgap.SidkiChiGroup(G, "fp")`). Tested with SageMath 10.10 (GAP 4.15.1),
+installed from conda-forge.
+
+If another GAP is installed on the system, start Sage with its environment
+active (`conda activate sage`): Sage locates its GAP through the `gap` command
+found first, and with the other one it may load the wrong GAP library and crash.
 
 ## Contact
 

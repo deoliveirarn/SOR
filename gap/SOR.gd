@@ -116,6 +116,12 @@ DeclareInfoClass( "InfoSOR" );
 #! For other groups, <Ref Attr="SidkiChiModWGroup" Label="for IsGroup"/> gives $\chi(G)/W(G)$ as a
 #! subgroup of $G \times G \times G$.
 #!
+#! The user may also choose the method, with a second argument:
+#! <Ref Oper="SidkiChiGroup" Label="for IsGroup, IsString"/> and
+#! <Ref Oper="RoccoNuGroup" Label="for IsGroup, IsString"/>. The method
+#! <C>"fp"</C> returns the finitely presented group itself, for any finite
+#! $G$, leaving to the user what to compute in it.
+#!
 #! For $\nu(G)$ (<Ref Attr="RoccoNuGroup" Label="for IsGroup"/>): if $G$ is a finite $p$-group,
 #! Rocco's presentation (1994), with $x$, $y$ in a pc generating sequence, and
 #! the largest $p$-quotient; if $G$ is finite solvable or polycyclic, the
@@ -145,6 +151,28 @@ DeclareInfoClass( "InfoSOR" );
 #! gap> Size( RoccoNuGroup( SymmetricGroup( 3 ) ) );     # Polycyclic
 #! 216
 #! @EndExampleSession
+
+#! @Section Time limits
+#!
+#! GAP has no time limit for a computation inside the running session. The
+#! function <C>IO_CallWithTimeout</C> of the <Package>IO</Package> package
+#! (a separate package, not needed by SOR, distributed with GAP and loaded
+#! with <C>LoadPackage( "io" )</C>)
+#! runs a function in a copy of the session (a forked process) and stops it
+#! after the given time, returning <C>[ true, </C><A>result</A><C> ]</C>, or
+#! <C>[ false ]</C> if the time ran out. The result is sent back from the
+#! copy, which works for numbers, lists and strings but not for groups: ask
+#! the copy for the invariants you need, and compute the group itself in the
+#! session (or take <C>SidkiChiGroup( G, "fp" )</C>) when it is worth it.
+#! @BeginLog
+#! gap> LoadPackage( "io" );;
+#! gap> IO_CallWithTimeout( rec( seconds := 60 ),
+#! >        G -> Size( SidkiChiGroup( G ) ), SmallGroup( 8, 4 ) );
+#! [ true, 128 ]
+#! gap> IO_CallWithTimeout( rec( seconds := 1 ),
+#! >        function() while true do od; end );   # never finishes
+#! [ false ]
+#! @EndLog
 
 # Internal: the quotient of the free product of copies of G by relations,
 # with the embeddings carried through. Documented in the code only.

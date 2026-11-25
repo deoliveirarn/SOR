@@ -31,7 +31,15 @@
   - `SidkiHybridGroup( H )` = Q(H) = chi^2(H)/N_0, the largest common quotient of
     chi^2(H) and chi_4(H) (arXiv:2610.07330), with the four embeddings.
   - `SidkiChiGroup` for finite perfect groups, chi(H) = T(H~) (Sidki 1980, 4.4.1).
-  - Folder `original/` with the author's original code.
+  - Second argument to choose the method: `SidkiChiGroup( G, method )` ("auto",
+    "fp", "T", "perfect", "tau", "pquotient", "solvable") and
+    `RoccoNuGroup( G, method )` ("auto", "fp", "pquotient", "polycyclic"); "fp"
+    gives the finitely presented group for any finite G. Each method checks the
+    hypothesis of its theorem.
+  - `SidkiChiHatProjection( C )` now maps onto the finitely presented chi(G), so
+    it exists for every finite G; `SidkiChiHatProjection( C, method )` for the
+    other methods.
+  - Manual section "Time limits" (`IO_CallWithTimeout` of the IO package).
   - Manual chapters "How the groups are built" and "The weak commutativity group".
 
 ## 0.0.1 (2026-11-21)

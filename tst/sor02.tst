@@ -10,13 +10,13 @@
 #
 gap> START_TEST("sor02.tst");
 
-# doc/_Chapter_The_weak_commutativity_group.xml:44-49
+# doc/_Chapter_The_weak_commutativity_group.xml:47-52
 gap> G := SmallGroup( 8, 4 );;  C := SidkiChiGroup( G );;  psi := SidkiPsi( C );;
 gap> ForAll( GeneratorsOfGroup( G ), g ->
 >      Image( psi, Image( Embedding( C, 1 ), g ) ) = Image( Embedding( C, 2 ), g ) );
 true
 
-# doc/_Chapter_The_weak_commutativity_group.xml:51-64
+# doc/_Chapter_The_weak_commutativity_group.xml:54-67
 gap> G := SmallGroup( 8, 4 );;   # the quaternion group
 gap> C := SidkiChiGroup( G );;
 gap> Size( C );
@@ -30,7 +30,19 @@ gap> P := Image( IsomorphismPermGroup( G ) );;   # same group, other representat
 gap> Size( SidkiChiGroup( P ) );
 128
 
-# doc/_Chapter_The_weak_commutativity_group.xml:92-101
+# doc/_Chapter_The_weak_commutativity_group.xml:107-118
+gap> G := SymmetricGroup( 5 );;   # no method computes chi(G) yet
+gap> Q := SidkiChiGroup( G, "fp" );;
+gap> AbelianInvariants( Q );      # chi(G)^ab = G^ab x G^ab
+[ 2, 2 ]
+gap> Size( SidkiChiGroup( SymmetricGroup( 3 ), "fp" ) );   # coset enumeration
+108
+gap> Size( SidkiChiGroup( SmallGroup( 8, 3 ), "tau" ) );   # R(G) = 1 here
+256
+gap> SidkiChiGroup( AlternatingGroup( 4 ), "T" );   # M(A_4) = C_2: refused
+Error, SidkiChiGroup: "T" needs trivial Schur multiplier M(G)
+
+# doc/_Chapter_The_weak_commutativity_group.xml:146-155
 gap> C := SidkiChiGroup( DihedralPcpGroup( 0 ) );;   # infinite dihedral group
 gap> IsFinite( C );
 false
@@ -40,7 +52,7 @@ gap> Size( SidkiChiModRGroup( SmallGroup( 32, 34 ) ) ) =
 >    Size( SidkiChiGroup( SmallGroup( 32, 34 ) ) ) / 4;   # |R| = 4 here
 true
 
-# doc/_Chapter_The_weak_commutativity_group.xml:128-135
+# doc/_Chapter_The_weak_commutativity_group.xml:182-189
 gap> G := AlternatingGroup( 4 );;   # M(G) = C_2, so W(G) <> 1
 gap> C := SidkiChiGroup( G );;
 gap> Size( SidkiChiModWGroup( G ) ) = Size( C ) / Size( SidkiW( C ) );
@@ -48,7 +60,7 @@ true
 gap> Size( SidkiW( C ) );
 2
 
-# doc/_Chapter_The_weak_commutativity_group.xml:137-145
+# doc/_Chapter_The_weak_commutativity_group.xml:191-199
 gap> G := PSL( 2, 8 );;   # not solvable; 2-generated, M(G) = 1
 gap> C := SidkiChiGroup( G );;
 gap> Size( C ) = Size( G )^3;
@@ -57,13 +69,15 @@ gap> ForAll( GeneratorsOfGroup( G ), g ->
 >      IsOne( Comm( g^Embedding( C, 1 ), g^Embedding( C, 2 ) ) ) );
 true
 
-# doc/_Chapter_The_weak_commutativity_group.xml:201-214
+# doc/_Chapter_The_weak_commutativity_group.xml:279-294
 gap> SetInfoLevel( InfoSOR, 0 );
 gap> A := ElementaryAbelianGroup( 4 );;
 gap> C := SidkiChiHatGroup( A, 1 );;
 gap> K := Kernel( SidkiChiHatProjection( C ) );;   # finite index in C
 gap> AbelianInvariants( K );    # infinite: Z x Z
 [ 0, 0 ]
+gap> IsPcGroup( Range( SidkiChiHatProjection( C, "auto" ) ) );
+true
 gap> Size( SidkiChiHatGroup( A, 2 ) ) = Size( SidkiChiGroup( A ) );   # Corollary 1
 true
 gap> A := ElementaryAbelianGroup( 27 );;   # odd order: Corollary 2
@@ -71,12 +85,12 @@ gap> P := Image( EpimorphismPGroup( SidkiChiHatGroup( A, 2 ), 3 ) );;
 gap> Size( P ) = Size( SidkiChiGroup( A ) );
 true
 
-# doc/_Chapter_The_weak_commutativity_group.xml:260-264
+# doc/_Chapter_The_weak_commutativity_group.xml:340-344
 gap> C := SidkiChiGroup( SmallGroup( 8, 3 ) );;   # the dihedral group
 gap> List( [ SidkiD, SidkiL, SidkiW, SidkiR ], f -> Size( f( C ) ) );
 [ 4, 32, 2, 1 ]
 
-# doc/_Chapter_The_weak_commutativity_group.xml:282-289
+# doc/_Chapter_The_weak_commutativity_group.xml:362-369
 gap> C := SidkiChiGroup( DihedralGroup( 8 ) );;
 gap> DerivedSubgroup( C ) =
 >    ClosureGroup( SidkiD( C ), ClosureGroup( SidkiL1( C ), SidkiL2( C ) ) );
@@ -84,12 +98,12 @@ true
 gap> [ Size( SidkiL1( C ) ), Size( SidkiL2( C ) ) ];
 [ 4, 4 ]
 
-# doc/_Chapter_The_weak_commutativity_group.xml:315-319
+# doc/_Chapter_The_weak_commutativity_group.xml:395-399
 gap> N := RoccoNuGroup( DihedralGroup( 8 ) );;
 gap> Index( N, RoccoTheta( N ) );   # nu(G) / Theta(G) = G
 8
 
-# doc/_Chapter_The_weak_commutativity_group.xml:351-358
+# doc/_Chapter_The_weak_commutativity_group.xml:431-438
 gap> G := SymmetricGroup( 3 );;
 gap> N := RoccoNuGroup( G );;  C := SidkiChiGroup( G );;
 gap> List( [ RoccoUpsilon1, RoccoUpsilon2, RoccoUpsilon3 ], f -> Size( f( N ) ) );
