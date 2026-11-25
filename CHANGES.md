@@ -1,6 +1,6 @@
 # Changes in the SOR package
 
-## 0.1.0 (2026-11-24)
+## 0.1.0 (2026-11-25)
   - First public version (preliminary).
   - `SidkiDiagonalRepresentation( H, n )`: the diagonal representation of chi_n(H)
     in H^(2^n-1) from the Hamming codes (D. Savchuk, appendix to arXiv:2610.07330).
